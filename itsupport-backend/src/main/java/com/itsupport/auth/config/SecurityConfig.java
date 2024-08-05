@@ -28,8 +28,8 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/api/auth/**").permitAll()
-                                .requestMatchers("/api/test/admin").hasAuthority(Role.ADMIN.name())
+                                .requestMatchers("/api/auth/login/**").permitAll()
+                                .requestMatchers("/api/test/admin", "/api/auth/signup/**").hasAuthority(Role.ADMIN.name())
                                 .requestMatchers("/api/test/client").hasAuthority(Role.CLIENT.name())
                                 .requestMatchers("/api/test/technician").hasAuthority(Role.TECHNICIAN.name())
                                 .anyRequest().authenticated()

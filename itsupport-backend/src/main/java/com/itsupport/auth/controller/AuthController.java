@@ -1,5 +1,7 @@
 package com.itsupport.auth.controller;
 
+import com.itsupport.auth.exception.LoginException;
+import com.itsupport.auth.exception.RegistrationException;
 import com.itsupport.auth.model.*;
 import com.itsupport.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
@@ -20,38 +22,40 @@ public class AuthController {
         try {
             var authResponse = userService.login(loginRequest);
             return ResponseEntity.ok(authResponse);
-        } catch (UsernameNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        } catch (LoginException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
         }
     }
 
-//    @PostMapping("/admin/signup")
-//    public ResponseEntity<?> adminRegister(@RequestBody RegisterRequest registerRequest) {
-//        try {
-//            var authResponse = userService.adminRegister(registerRequest);
-//            return ResponseEntity.ok(authResponse);
-//        } catch (Exception e) {
-//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-//        }
-//    }
-//
-//    @PostMapping("/technician/signup")
-//    public ResponseEntity<?> technicianRegister(@RequestBody RegisterRequest registerRequest) {
-//        try {
-//            var authResponse = userService.technicianRegister(registerRequest);
-//            return ResponseEntity.ok(authResponse);
-//        } catch (Exception e) {
-//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-//        }
-//    }
-//
-//    @PostMapping("/client/signup")
-//    public ResponseEntity<?> clientRegister(@RequestBody RegisterRequest registerRequest) {
-//        try {
-//            var authResponse = userService.clientRegister(registerRequest);
-//            return ResponseEntity.ok(authResponse);
-//        } catch (Exception e) {
-//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-//        }
-//    }
+
+    @PostMapping("/signup/admin")
+    public ResponseEntity<?> adminRegister(@RequestBody RegisterRequest registerRequest) {
+        try {
+            var authResponse = userService.adminRegister(registerRequest);
+            return ResponseEntity.ok(authResponse);
+        } catch (RegistrationException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
+        }
+    }
+
+    @PostMapping("/signup/technician")
+    public ResponseEntity<?> technicianRegister(@RequestBody RegisterRequest registerRequest) {
+        try {
+            var authResponse = userService.technicianRegister(registerRequest);
+            return ResponseEntity.ok(authResponse);
+        } catch (RegistrationException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
+        }
+    }
+
+    @PostMapping("/signup/client")
+    public ResponseEntity<?> clientRegister(@RequestBody RegisterRequest registerRequest) {
+        try {
+            var authResponse = userService.clientRegister(registerRequest);
+            return ResponseEntity.ok(authResponse);
+        } catch (RegistrationException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
+        }
+    }
+
 }

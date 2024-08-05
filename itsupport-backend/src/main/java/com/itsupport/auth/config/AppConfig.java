@@ -1,6 +1,5 @@
 package com.itsupport.auth.config;
 
-import com.itsupport.auth.service.AuthService;
 import com.itsupport.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.*;
