@@ -7,6 +7,7 @@ import lombok.*;
 @Setter
 @Getter
 @Entity
+@Table(name = "technician")
 public class Technician extends User{
     private Boolean availability;
     public Technician(Long id, String fullName, String mail, String username, String password, Boolean availability) {
