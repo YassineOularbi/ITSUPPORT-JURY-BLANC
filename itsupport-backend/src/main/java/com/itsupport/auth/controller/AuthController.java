@@ -28,7 +28,7 @@ public class AuthController {
     }
 
 
-    @PostMapping("/signup/admin")
+    @PostMapping("/register/admin")
     public ResponseEntity<?> adminRegister(@RequestBody RegisterRequest registerRequest) {
         try {
             var authResponse = userService.adminRegister(registerRequest);
@@ -38,7 +38,7 @@ public class AuthController {
         }
     }
 
-    @PostMapping("/signup/technician")
+    @PostMapping("/register/technician")
     public ResponseEntity<?> technicianRegister(@RequestBody RegisterRequest registerRequest) {
         try {
             var authResponse = userService.technicianRegister(registerRequest);
@@ -48,7 +48,7 @@ public class AuthController {
         }
     }
 
-    @PostMapping("/signup/client")
+    @PostMapping("/register/client")
     public ResponseEntity<?> clientRegister(@RequestBody RegisterRequest registerRequest) {
         try {
             var authResponse = userService.clientRegister(registerRequest);
