@@ -204,4 +204,14 @@ public class AdminController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
+
+    @GetMapping("/get-all-equipment-out-service")
+    public ResponseEntity<?> getAllEquipmentOutService(){
+        try {
+            var equipments = equipmentService.getAllEquipmentOutService();
+            return ResponseEntity.ok(equipments);
+        } catch (EquipmentNotFoundException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
 }

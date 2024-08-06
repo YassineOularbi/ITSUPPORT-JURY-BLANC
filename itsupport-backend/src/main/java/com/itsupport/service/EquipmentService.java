@@ -60,4 +60,12 @@ public class EquipmentService {
         equipment.setStatus(EquipmentStatus.IN_SERVICE);
         return equipmentRepository.save(equipment);
     }
+
+    public List<Equipment> getAllEquipmentOutService(){
+        var equipments = equipmentRepository.getEquipmentByStatus_OutOfService();
+        if (equipments.isEmpty()){
+            throw new EquipmentNotFoundException();
+        }
+        return equipments;
+    }
 }
