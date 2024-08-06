@@ -1,5 +1,6 @@
 package com.itsupport.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.itsupport.enums.EquipmentStatus;
 import jakarta.persistence.*;
 import lombok.*;
@@ -17,9 +18,11 @@ public class Equipment {
     private Long id;
     @Column(name = "name", nullable = false)
     private String name;
+    @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private EquipmentStatus status;
     @ManyToOne
+    @JsonIgnore
     private Client client;
 
 }

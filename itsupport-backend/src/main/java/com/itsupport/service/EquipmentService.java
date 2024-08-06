@@ -57,6 +57,7 @@ public class EquipmentService {
         var equipment = equipmentRepository.findById(equipmentId).orElseThrow(EquipmentNotFoundException::new);
         var client = clientRepository.findById(clientId).orElseThrow(ClientNotFoundException::new);
         equipment.setClient(client);
+        equipment.setStatus(EquipmentStatus.IN_SERVICE);
         return equipmentRepository.save(equipment);
     }
 }
