@@ -62,7 +62,15 @@ public class EquipmentService {
     }
 
     public List<Equipment> getAllEquipmentOutService(){
-        var equipments = equipmentRepository.getEquipmentByStatus_OutOfService();
+        var equipments = equipmentRepository.getEquipmentByStatus(EquipmentStatus.OUT_OF_SERVICE);
+        if (equipments.isEmpty()){
+            throw new EquipmentNotFoundException();
+        }
+        return equipments;
+    }
+
+    public List<Equipment> getEquipmentsByClient(Long id){
+        var equipments = equipmentRepository.getEquipmentByClientId(id);
         if (equipments.isEmpty()){
             throw new EquipmentNotFoundException();
         }

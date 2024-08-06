@@ -1,12 +1,8 @@
 package com.itsupport.controller;
 
-import com.itsupport.dto.EquipmentDto;
-import com.itsupport.dto.UserUpdateDto;
+import com.itsupport.dto.*;
 import com.itsupport.exception.*;
-import com.itsupport.service.AdminService;
-import com.itsupport.service.ClientService;
-import com.itsupport.service.EquipmentService;
-import com.itsupport.service.TechnicianService;
+import com.itsupport.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +20,8 @@ public class AdminController {
     private final ClientService clientService;
 
     private final TechnicianService technicianService;
+
+    private final BreakdownService breakdownService;
 
     @GetMapping("/get-all-admins")
     public ResponseEntity<?> getAllAdmins(){
@@ -211,6 +209,56 @@ public class AdminController {
             var equipments = equipmentService.getAllEquipmentOutService();
             return ResponseEntity.ok(equipments);
         } catch (EquipmentNotFoundException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    @PostMapping("/create-breakdown")
+    public ResponseEntity<?> createBreakdown(@RequestBody BreakdownDto breakdownDto) {
+        try {
+            var breakdown = breakdownService.createBreakdown(breakdownDto);
+            return ResponseEntity.status(HttpStatus.CREATED).body(breakdown);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/get-all-breakdowns")
+    public ResponseEntity<?> getAllBreakdowns() {
+        try {
+            var breakdowns = breakdownService.getAllBreakdowns();
+            return ResponseEntity.ok(breakdowns);
+        } catch (BreakdownNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/get-breakdown-by-id/{id}")
+    public ResponseEntity<?> getBreakdownById(@PathVariable("id") String id) {
+        try {
+            var breakdown = breakdownService.getBreakdownById(Long.valueOf(id));
+            return ResponseEntity.ok(breakdown);
+        } catch (BreakdownNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    @PutMapping("/update-breakdown/{id}")
+    public ResponseEntity<?> updateBreakdown(@PathVariable("id") String id, @RequestBody BreakdownDto breakdownDto) {
+        try {
+            var updatedBreakdown = breakdownService.updateBreakdown(Long.valueOf(id), breakdownDto);
+            return ResponseEntity.ok(updatedBreakdown);
+        } catch (BreakdownNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("/delete-breakdown/{id}")
+    public ResponseEntity<?> deleteBreakdown(@PathVariable("id") String id) {
+        try {
+            breakdownService.deleteBreakdown(Long.valueOf(id));
+            return ResponseEntity.noContent().build();
+        } catch (BreakdownNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
