@@ -1,5 +1,6 @@
 package com.itsupport.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,5 +28,6 @@ public class EquipmentBreakdown {
     private Breakdown breakdown;
 
     @OneToMany(mappedBy = "equipmentBreakdown")
+    @JsonIgnore
     private List<Ticket> tickets;
 }

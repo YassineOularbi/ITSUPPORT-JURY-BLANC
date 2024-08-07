@@ -1,5 +1,6 @@
 package com.itsupport.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.itsupport.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
@@ -16,6 +17,7 @@ public class Client extends User{
     private List<Equipment> equipments;
 
     @OneToMany(mappedBy = "client")
+    @JsonIgnore
     private List<Ticket> tickets;
 
     public Client(Long id, String fullName, String mail, String username, String password, Role role, List<Equipment> equipments, List<Ticket> tickets) {
