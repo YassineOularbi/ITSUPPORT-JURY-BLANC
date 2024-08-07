@@ -18,14 +18,19 @@ public class Equipment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
+
     @Column(name = "name", nullable = false)
     private String name;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private EquipmentStatus status;
+
     @ManyToOne
     @JsonIgnore
     private Client client;
+
     @OneToMany(mappedBy = "equipment")
-    private List<BreakDown> breakDowns;
+    @JsonIgnore
+    private List<EquipmentBreakdown> equipmentBreakdowns;
 }
