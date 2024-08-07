@@ -1,5 +1,6 @@
 package com.itsupport.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.itsupport.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
@@ -15,6 +16,7 @@ public class Technician extends User{
     private Boolean availability;
 
     @OneToMany(mappedBy = "technician")
+    @JsonIgnore
     private List<Ticket> tickets;
 
     public Technician(Long id, String fullName, String mail, String username, String password, Role role, Boolean availability, List<Ticket> tickets) {

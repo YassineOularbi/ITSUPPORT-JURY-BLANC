@@ -66,6 +66,7 @@ public class AuthService {
         }
         var technician = technicianMapper.toEntity(registerRequest);
         technician.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
+        technician.setAvailability(true);
         return AuthResponse.builder().token(jwtService.generateToken(technicianMapper.toDto(technicianRepository.save(technician)))).build();
     }
 
