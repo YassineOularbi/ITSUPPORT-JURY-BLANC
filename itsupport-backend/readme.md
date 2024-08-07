@@ -127,3 +127,17 @@ Les contributions sont les bienvenues ! Veuillez soumettre une pull request ou s
 
 Ce projet est sous la licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3.2-6DB33F?style=for-the-badge&logo=springboot&logoColor=white) 
+![Spring Data JPA](https://img.shields.io/badge/Spring%20Data%20JPA-2.7.9-6DB33F?style=for-the-badge&logo=springdata&logoColor=white) 
+![Spring Security](https://img.shields.io/badge/Spring%20Security-5.7.0-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white) 
+![MapStruct](https://img.shields.io/badge/MapStruct-1.5.5.Final-FFA500?style=for-the-badge&logo=mapstruct&logoColor=white) 
+![Lombok](https://img.shields.io/badge/Lombok-1.18.24-2A2A2A?style=for-the-badge&logo=lombok&logoColor=white) 
+![JWT](https://img.shields.io/badge/JWT-0.11.5-000000?style=for-the-badge&logo=json-web-tokens&logoColor=white) 
+![Hibernate Validator](https://img.shields.io/badge/Hibernate%20Validator-8.0.1.Final-9B7D3F?style=for-the-badge&logo=hibernate&logoColor=white) 
+
+![MySQL](https://img.shields.io/badge/MySQL-8.0.33-4479A1?style=for-the-badge&logo=mysql&logoColor=white) 
+
+![JUnit](https://img.shields.io/badge/JUnit-5.8.2-25A162?style=for-the-badge&logo=junit&logoColor=white) 
+
+![Docker](https://img.shields.io/badge/Docker-24A0ED?style=for-the-badge&logo=docker&logoColor=white)
+
