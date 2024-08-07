@@ -30,12 +30,8 @@ public class EquipmentBreakdownService {
         var breakdown = breakdownRepository.findById(breakdownId).orElseThrow(BreakdownNotFoundException::new);
         equipment.setStatus(EquipmentStatus.BROKEN_DOWN);
         equipmentRepository.save(equipment);
-        var report = new EquipmentBreakdown(new EquipmentBreakdownKey(equipment.getId(), breakdown.getId()), equipment, breakdown);
+        var report = new EquipmentBreakdown(new EquipmentBreakdownKey(equipment.getId(), breakdown.getId()), equipment, breakdown, null);
         return equipmentBreakdownRepository.save(report);
     }
 
-    public List<EquipmentBreakdown> getAllBreakdownsByEquipment(Long id){
-        var equipments = equipmentBreakdownRepository.findAllByEquipmentId(id);
-        return equipments;
-    }
 }

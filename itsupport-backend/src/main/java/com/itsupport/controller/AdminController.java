@@ -113,6 +113,16 @@ public class AdminController {
         }
     }
 
+    @GetMapping("/get-available-technicians")
+    public ResponseEntity<?> getAvailableTechnicians() {
+        try {
+            var technicians = technicianService.getAvailableTechnicians();
+            return ResponseEntity.ok(technicians);
+        } catch (TechnicianNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
     @GetMapping("/get-technician-by-id/{id}")
     public ResponseEntity<?> getTechnicianById(@PathVariable("id") String id) {
         try {
@@ -262,4 +272,6 @@ public class AdminController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
+
+
 }

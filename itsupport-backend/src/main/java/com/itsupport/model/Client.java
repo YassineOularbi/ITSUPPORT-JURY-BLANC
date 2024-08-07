@@ -15,9 +15,14 @@ public class Client extends User{
     @OneToMany(mappedBy = "client")
     private List<Equipment> equipments;
 
-    public Client(Long id, String fullName, String mail, String username, String password, List<Equipment> equipments) {
-        super(id, fullName, mail, username, password, Role.CLIENT);
+    @OneToMany(mappedBy = "client")
+    private List<Ticket> tickets;
+
+    public Client(Long id, String fullName, String mail, String username, String password, Role role, List<Equipment> equipments, List<Ticket> tickets) {
+        super(id, fullName, mail, username, password, role);
         this.equipments = equipments;
+        this.tickets = tickets;
+        this.setRole(Role.CLIENT);
     }
 
     public Client() {

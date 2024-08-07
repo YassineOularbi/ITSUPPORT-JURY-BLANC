@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -26,4 +28,7 @@ public class EquipmentBreakdown {
     @MapsId("breakdownId")
     @JoinColumn(name = "breakdown_id")
     private Breakdown breakdown;
+
+    @OneToMany(mappedBy = "equipmentBreakdown")
+    private List<Ticket> tickets;
 }

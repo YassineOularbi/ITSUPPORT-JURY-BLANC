@@ -1,13 +1,9 @@
 package com.itsupport.controller;
 
+import com.itsupport.dto.TicketDto;
 import com.itsupport.dto.UserUpdateDto;
-import com.itsupport.exception.BreakdownNotFoundException;
-import com.itsupport.exception.ClientNotFoundException;
-import com.itsupport.exception.EquipmentNotFoundException;
-import com.itsupport.service.BreakdownService;
-import com.itsupport.service.ClientService;
-import com.itsupport.service.EquipmentBreakdownService;
-import com.itsupport.service.EquipmentService;
+import com.itsupport.exception.*;
+import com.itsupport.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +22,8 @@ public class ClientController {
     private final EquipmentBreakdownService equipmentBreakdownService;
 
     private final BreakdownService breakdownService;
+
+    private final TicketService ticketService;
 
     @PutMapping("/update-client/{id}")
     public ResponseEntity<?> updateClient(@PathVariable("id") String id, @RequestBody UserUpdateDto userUpdateDto) {
@@ -57,19 +55,46 @@ public class ClientController {
         }
     }
 
-    @PostMapping("/report-breakdown/{equipmentId}&{breakdownId}")
-    public ResponseEntity<?> reportBreakdown(@PathVariable("equipmentId") String equipmentId, @PathVariable("breakdownId") String breakdownId){
+    @PostMapping("/report-breakdown-ticket/{equipmentId}&{breakdownId}")
+    public ResponseEntity<?> reportBreakdownWithTicket(@PathVariable("equipmentId") String equipmentId, @PathVariable("breakdownId") String breakdownId, @RequestBody TicketDto ticketDto) {
         try {
             var report = equipmentBreakdownService.reportBreakdown(Long.valueOf(equipmentId), Long.valueOf(breakdownId));
-            return ResponseEntity.ok(report);
-        } catch (EquipmentNotFoundException | BreakdownNotFoundException e){
+            var ticket = ticketService.createTicket(report, ticketDto);
+            return ResponseEntity.ok(ticket);
+        } catch (EquipmentNotFoundException | BreakdownNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
 
-    @GetMapping("/get-all-reports/{id}")
-    public ResponseEntity<?> getAll(@PathVariable("id") String id){
-        return ResponseEntity.ok(equipmentBreakdownService.getAllBreakdownsByEquipment(Long.valueOf(id)));
+
+
+    @PutMapping("/assign-ticket/{ticketId}/to/{technicianId}")
+    public ResponseEntity<?> assignTicketToTechnician(@PathVariable("ticketId") String ticketId, @PathVariable("technicianId") String technicianId){
+        try {
+            var ticket = ticketService.assignTicketToTechnician(Long.valueOf(ticketId), Long.valueOf(technicianId));
+            return ResponseEntity.ok(ticket);
+        } catch (TicketNotFoundException | TechnicianNotFoundException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
     }
 
+    @GetMapping("/get-all-tickets")
+    public ResponseEntity<?> getAllTickets(){
+        try {
+            var tickets = ticketService.getAllTickets();
+            return ResponseEntity.ok(tickets);
+        } catch (TicketNotFoundException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/get-pending-tickets")
+    public ResponseEntity<?> getPendingTickets(){
+        try {
+            var tickets = ticketService.getPendingTickets();
+            return ResponseEntity.ok(tickets);
+        } catch (TicketNotFoundException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
 }
