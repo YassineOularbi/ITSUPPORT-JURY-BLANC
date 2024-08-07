@@ -66,35 +66,14 @@ public class ClientController {
         }
     }
 
-
-
-    @PutMapping("/assign-ticket/{ticketId}/to/{technicianId}")
-    public ResponseEntity<?> assignTicketToTechnician(@PathVariable("ticketId") String ticketId, @PathVariable("technicianId") String technicianId){
+    @GetMapping("/get-all-tickets/{id}")
+    public ResponseEntity<?> getAllTickets(@PathVariable("id") String id){
         try {
-            var ticket = ticketService.assignTicketToTechnician(Long.valueOf(ticketId), Long.valueOf(technicianId));
-            return ResponseEntity.ok(ticket);
-        } catch (TicketNotFoundException | TechnicianNotFoundException e){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        }
-    }
-
-    @GetMapping("/get-all-tickets")
-    public ResponseEntity<?> getAllTickets(){
-        try {
-            var tickets = ticketService.getAllTickets();
+            var tickets = ticketService.getTicketsByClient(Long.valueOf(id));
             return ResponseEntity.ok(tickets);
         } catch (TicketNotFoundException e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
 
-    @GetMapping("/get-pending-tickets")
-    public ResponseEntity<?> getPendingTickets(){
-        try {
-            var tickets = ticketService.getPendingTickets();
-            return ResponseEntity.ok(tickets);
-        } catch (TicketNotFoundException e){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        }
-    }
 }
