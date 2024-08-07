@@ -113,6 +113,18 @@ Modifier le fichier src/main/resources/application.properties pour configurer le
 
   L'application sera disponible à l'adresse http://localhost:8080 par défaut.
 
+## Tests
+
+Ce projet utilise des tests unitaires pour garantir la qualité et la fiabilité du code. Les tests sont écrits en utilisant JUnit 5 et Mockito pour simuler les dépendances.
+
+### Exécution des Tests
+
+Pour exécuter les tests, vous pouvez utiliser la commande suivante avec Maven :
+
+```bash
+mvn test
+```
+
 ## Contribution
 
 Les contributions sont les bienvenues ! Veuillez soumettre une pull request ou signaler un problème via GitHub.
