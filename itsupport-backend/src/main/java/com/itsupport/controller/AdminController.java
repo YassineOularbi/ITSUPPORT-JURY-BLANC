@@ -205,7 +205,7 @@ public class AdminController {
         }
     }
 
-    @PostMapping("assign-equipment/{equipmentId}/to/{clientId}")
+    @PutMapping("/assign-equipment/{equipmentId}/to/{clientId}")
     public ResponseEntity<?> assignEquipmentToClient(@PathVariable("equipmentId") String equipmentId, @PathVariable("clientId") String clientId) {
         try {
             var equipment = equipmentService.assignEquipmentToClient(Long.valueOf(equipmentId), Long.valueOf(clientId));

@@ -1,12 +1,9 @@
 package com.itsupport.controller;
 
-import com.itsupport.exception.EquipmentNotFoundException;
-import com.itsupport.exception.TechnicianNotFoundException;
-import com.itsupport.exception.TicketNotFoundException;
+import com.itsupport.exception.*;
 import com.itsupport.service.TicketService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

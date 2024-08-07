@@ -1,12 +1,10 @@
 package com.itsupport.controller;
 
-import com.itsupport.dto.TicketDto;
-import com.itsupport.dto.UserUpdateDto;
+import com.itsupport.dto.*;
 import com.itsupport.exception.*;
 import com.itsupport.service.*;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -61,7 +59,7 @@ public class ClientController {
             var report = equipmentBreakdownService.reportBreakdown(Long.valueOf(equipmentId), Long.valueOf(breakdownId));
             var ticket = ticketService.createTicket(report, ticketDto);
             return ResponseEntity.ok(ticket);
-        } catch (EquipmentNotFoundException | BreakdownNotFoundException e) {
+        } catch (EquipmentNotFoundException | BreakdownNotFoundException | ClientNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }

@@ -1,17 +1,11 @@
 package com.itsupport.service;
 
 import com.itsupport.dto.TicketDto;
-import com.itsupport.enums.EquipmentStatus;
-import com.itsupport.enums.TicketStatus;
-import com.itsupport.exception.EquipmentNotFoundException;
-import com.itsupport.exception.TechnicianNotFoundException;
-import com.itsupport.exception.TicketNotFoundException;
+import com.itsupport.enums.*;
+import com.itsupport.exception.*;
 import com.itsupport.mapper.TicketMapper;
-import com.itsupport.model.EquipmentBreakdown;
-import com.itsupport.model.Ticket;
-import com.itsupport.repository.EquipmentRepository;
-import com.itsupport.repository.TechnicianRepository;
-import com.itsupport.repository.TicketRepository;
+import com.itsupport.model.*;
+import com.itsupport.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,6 +24,8 @@ public class TicketService {
     private final TechnicianRepository technicianRepository;
 
     private final EquipmentRepository equipmentRepository;
+
+    private final ClientRepository clientRepository;
 
     private final TicketMapper ticketMapper;
 
@@ -77,7 +73,8 @@ public class TicketService {
         var ticket = ticketMapper.toEntity(ticketDto);
         ticket.setStatus(TicketStatus.PENDING);
         ticket.setEquipmentBreakdown(equipmentBreakdown);
-        ticket.setClient(equipmentBreakdown.getEquipment().getClient());
+        var client = clientRepository.findById(equipmentBreakdown.getEquipment().getClient().getId()).orElseThrow(ClientNotFoundException::new);
+        ticket.setClient(client);
         return ticketRepository.save(ticket);
     }
 

@@ -1,13 +1,9 @@
 package com.itsupport.service;
 
 import com.itsupport.enums.EquipmentStatus;
-import com.itsupport.exception.BreakdownNotFoundException;
-import com.itsupport.exception.EquipmentNotFoundException;
-import com.itsupport.model.EquipmentBreakdown;
-import com.itsupport.model.EquipmentBreakdownKey;
-import com.itsupport.repository.BreakdownRepository;
-import com.itsupport.repository.EquipmentBreakdownRepository;
-import com.itsupport.repository.EquipmentRepository;
+import com.itsupport.exception.*;
+import com.itsupport.model.*;
+import com.itsupport.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

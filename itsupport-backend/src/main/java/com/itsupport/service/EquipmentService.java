@@ -2,8 +2,7 @@ package com.itsupport.service;
 
 import com.itsupport.dto.EquipmentDto;
 import com.itsupport.enums.EquipmentStatus;
-import com.itsupport.exception.ClientNotFoundException;
-import com.itsupport.exception.EquipmentNotFoundException;
+import com.itsupport.exception.*;
 import com.itsupport.mapper.EquipmentMapper;
 import com.itsupport.model.Equipment;
 import com.itsupport.repository.*;

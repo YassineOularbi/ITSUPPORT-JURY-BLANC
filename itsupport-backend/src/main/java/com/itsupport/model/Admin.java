@@ -1,8 +1,7 @@
 package com.itsupport.model;
 
 import com.itsupport.enums.Role;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "admin")
