@@ -28,6 +28,14 @@ public class TechnicianService {
         return technicians;
     }
 
+    public List<Technician> getAvailableTechnicians(){
+        var technicians = technicianRepository.findTechniciansByAvailabilityIsTrue();
+        if (technicians.isEmpty()) {
+            throw new TechnicianNotFoundException();
+        }
+        return technicians;
+    }
+
     public Technician getTechnicianById(Long id) {
         return technicianRepository.findById(id).orElseThrow(TechnicianNotFoundException::new);
     }

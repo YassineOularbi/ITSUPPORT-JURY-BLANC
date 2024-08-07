@@ -23,6 +23,8 @@ public class AdminController {
 
     private final BreakdownService breakdownService;
 
+    private final TicketService ticketService;
+
     @GetMapping("/get-all-admins")
     public ResponseEntity<?> getAllAdmins(){
         try {
@@ -107,6 +109,16 @@ public class AdminController {
     public ResponseEntity<?> getAllTechnicians() {
         try {
             var technicians = technicianService.getAllTechnicians();
+            return ResponseEntity.ok(technicians);
+        } catch (TechnicianNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/get-available-technicians")
+    public ResponseEntity<?> getAvailableTechnicians() {
+        try {
+            var technicians = technicianService.getAvailableTechnicians();
             return ResponseEntity.ok(technicians);
         } catch (TechnicianNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
@@ -262,4 +274,36 @@ public class AdminController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
+
+
+    @PutMapping("/assign-ticket/{ticketId}/to/{technicianId}")
+    public ResponseEntity<?> assignTicketToTechnician(@PathVariable("ticketId") String ticketId, @PathVariable("technicianId") String technicianId){
+        try {
+            var ticket = ticketService.assignTicketToTechnician(Long.valueOf(ticketId), Long.valueOf(technicianId));
+            return ResponseEntity.ok(ticket);
+        } catch (TicketNotFoundException | TechnicianNotFoundException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/get-all-tickets")
+    public ResponseEntity<?> getAllTickets(){
+        try {
+            var tickets = ticketService.getAllTickets();
+            return ResponseEntity.ok(tickets);
+        } catch (TicketNotFoundException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/get-pending-tickets")
+    public ResponseEntity<?> getPendingTickets(){
+        try {
+            var tickets = ticketService.getPendingTickets();
+            return ResponseEntity.ok(tickets);
+        } catch (TicketNotFoundException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
 }
