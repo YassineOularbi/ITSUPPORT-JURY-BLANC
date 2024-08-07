@@ -31,5 +31,6 @@ public class Equipment {
     private Client client;
 
     @OneToMany(mappedBy = "equipment")
+    @JsonIgnore
     private List<EquipmentBreakdown> equipmentBreakdowns;
 }

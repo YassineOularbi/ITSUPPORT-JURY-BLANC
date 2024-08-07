@@ -1,5 +1,6 @@
 package com.itsupport.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,5 +25,6 @@ public class Breakdown {
     private String name;
 
     @OneToMany(mappedBy = "breakdown")
+    @JsonIgnore
     private List<EquipmentBreakdown> equipmentBreakdowns;
 }

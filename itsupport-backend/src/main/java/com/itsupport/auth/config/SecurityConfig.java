@@ -28,10 +28,10 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/api/auth/login/**", "/v3/api-docs/**", "/swagger-ui/**").permitAll()
-                                .requestMatchers("/api/test/admin", "/api/auth/register/**", "/api/admin/**").hasAuthority(Role.ADMIN.name())
-                                .requestMatchers("/api/test/client").hasAuthority(Role.CLIENT.name())
-                                .requestMatchers("/api/test/technician").hasAuthority(Role.TECHNICIAN.name())
+                                .requestMatchers("/api/auth/**", "/v3/api-docs/**", "/swagger-ui/**").permitAll()
+                                .requestMatchers("/api/admin/**").hasAuthority(Role.ADMIN.name())
+                                .requestMatchers("/api/client/**").hasAuthority(Role.CLIENT.name())
+//                                .requestMatchers("").hasAuthority(Role.TECHNICIAN.name())
                                 .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
