@@ -1,12 +1,10 @@
 package com.itsupport.auth.controller;
 
-import com.itsupport.auth.exception.LoginException;
-import com.itsupport.auth.exception.RegistrationException;
+import com.itsupport.auth.exception.*;
 import com.itsupport.auth.model.*;
 import com.itsupport.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.*;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

@@ -1,11 +1,9 @@
 package com.itsupport.mapper;
 
 import com.itsupport.auth.model.RegisterRequest;
-import com.itsupport.dto.UserDto;
-import com.itsupport.dto.UserUpdateDto;
+import com.itsupport.dto.*;
 import com.itsupport.model.Client;
-import org.mapstruct.Mapper;
-import org.mapstruct.MappingTarget;
+import org.mapstruct.*;
 
 @Mapper(componentModel = "spring")
 public interface ClientMapper {

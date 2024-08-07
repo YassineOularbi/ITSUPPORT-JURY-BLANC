@@ -1,15 +1,12 @@
 package com.itsupport.auth.service;
 
-import com.itsupport.auth.exception.LoginException;
-import com.itsupport.auth.exception.RegistrationException;
+import com.itsupport.auth.exception.*;
 import com.itsupport.auth.model.*;
 import com.itsupport.mapper.*;
 import com.itsupport.model.User;
 import com.itsupport.repository.*;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
