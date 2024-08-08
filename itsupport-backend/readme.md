@@ -124,6 +124,28 @@ Pour exécuter les tests, vous pouvez utiliser la commande suivante avec Maven :
 ```bash
 mvn test
 ```
+## Dockerisation
+
+Ce projet est configuré pour être exécuté dans un conteneur Docker. Voici les étapes pour construire et exécuter l'application en utilisant Docker.
+
+### Prérequis
+
+- Assurez-vous que Docker est installé sur votre machine. Vous pouvez le télécharger depuis [Docker](https://www.docker.com/get-started).
+
+### Instructions Rapides
+
+1. **Construire et démarrer les conteneurs :**
+
+   ```bash
+   docker-compose up -d
+   ```
+2. **Arrêter les conteneurs :**
+
+  ```bash
+  docker-compose down
+  ```
+
+L'application sera accessible à http://localhost:8080 une fois démarrée.
 
 ## Contribution
 
