@@ -1,7 +1,6 @@
 package com.itsupport;
 
 import com.itsupport.dto.TicketDto;
-import com.itsupport.enums.EquipmentStatus;
 import com.itsupport.enums.TicketStatus;
 import com.itsupport.exception.*;
 import com.itsupport.mapper.TicketMapper;
