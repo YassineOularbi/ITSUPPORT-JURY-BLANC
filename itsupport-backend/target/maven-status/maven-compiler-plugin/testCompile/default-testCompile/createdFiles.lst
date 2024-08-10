@@ -1,1 +1,3 @@
-com\itsupport\ItsupportApplicationTests.class
+com\itsupport\BreakdownServiceTest.class
+com\itsupport\EquipmentBreakdownServiceTest.class
+com\itsupport\TicketServiceTest.class

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserDto } from '../../../core/dtos/user-dto.model';
+import { UserDto } from '../../core/dtos/user-dto.model';
 import { Store } from '@ngrx/store';
-import { AppState } from '../../../core/ngrx/app.state';
-import { selectUser } from '../../../core/ngrx/auth.selectors';
+import { AppState } from '../../core/ngrx/app.state';
+import { selectUser } from '../../core/ngrx/auth.selectors';
 import { CommonModule } from '@angular/common';
 
 @Component({
