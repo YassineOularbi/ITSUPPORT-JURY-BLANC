@@ -1,19 +1,21 @@
 package com.itsupport.controller;
 
-import com.itsupport.dto.*;
-import com.itsupport.exception.*;
-import com.itsupport.service.*;
+import com.itsupport.dto.UserUpdateDto;
+import com.itsupport.exception.ClientNotFoundException;
+import com.itsupport.service.ClientService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import io.swagger.annotations.*;
 
 /**
  * Controller for handling client-related requests.
  *
- * This controller provides endpoints for updating clients, retrieving equipment,
- * reporting breakdowns with tickets, and fetching tickets for clients.
+ * This controller provides endpoints for managing clients.
  *
  * Created by Yassine Oularbi
  *
@@ -21,6 +23,7 @@ import io.swagger.annotations.*;
  * Email: yassineoularbi4@gmail.com
  * GitHub: @YassineOularbi
  */
+
 @RestController
 @RequestMapping("/api/client")
 @RequiredArgsConstructor
@@ -28,26 +31,64 @@ import io.swagger.annotations.*;
 public class ClientController {
 
     private final ClientService clientService;
-    private final EquipmentService equipmentService;
-    private final EquipmentBreakdownService equipmentBreakdownService;
-    private final BreakdownService breakdownService;
-    private final TicketService ticketService;
 
     /**
-     * Endpoint for updating client details.
+     * Endpoint for retrieving all clients.
      *
-     * @param id the ID of the client to update.
-     * @param userUpdateDto the details to update the client with.
-     * @return the updated client details or an error message.
+     * @return a list of clients or an error message.
+     */
+    @GetMapping("/get-all-clients")
+    @ApiOperation(value = "Get all clients", notes = "Retrieves a list of all clients.")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "List of clients retrieved successfully."),
+            @ApiResponse(code = 404, message = "Clients not found.")
+    })
+    public ResponseEntity<?> getAllClients() {
+        try {
+            var clients = clientService.getAllClients();
+            return ResponseEntity.ok(clients);
+        } catch (ClientNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    /**
+     * Endpoint for retrieving a client by ID.
+     *
+     * @param id the ID of the client.
+     * @return the client or an error message.
+     */
+    @GetMapping("/get-client-by-id/{id}")
+    @ApiOperation(value = "Get client by ID", notes = "Retrieves a specific client by their ID.")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Client retrieved successfully."),
+            @ApiResponse(code = 404, message = "Client not found.")
+    })
+    public ResponseEntity<?> getClientById(
+            @ApiParam(value = "ID of the client", required = true) @PathVariable("id") String id) {
+        try {
+            var client = clientService.getClientById(Long.valueOf(id));
+            return ResponseEntity.ok(client);
+        } catch (ClientNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    /**
+     * Endpoint for updating a client.
+     *
+     * @param id the ID of the client.
+     * @param userUpdateDto the client update details.
+     * @return the updated client or an error message.
      */
     @PutMapping("/update-client/{id}")
-    @ApiOperation(value = "Update client details", notes = "Updates the details of a specific client.")
+    @ApiOperation(value = "Update client", notes = "Updates the details of a specific client.")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Client details updated successfully."),
+            @ApiResponse(code = 200, message = "Client updated successfully."),
             @ApiResponse(code = 404, message = "Client not found.")
     })
     public ResponseEntity<?> updateClient(
-            @ApiParam(value = "ID of the client to update", required = true) @PathVariable("id") String id,
+            @ApiParam(value = "ID of the client", required = true) @PathVariable("id") String id,
             @ApiParam(value = "Client update details", required = true) @RequestBody UserUpdateDto userUpdateDto) {
         try {
             var updatedClient = clientService.updateClient(Long.valueOf(id), userUpdateDto);
@@ -58,94 +99,24 @@ public class ClientController {
     }
 
     /**
-     * Endpoint for retrieving equipment by client ID.
+     * Endpoint for deleting a client.
      *
      * @param id the ID of the client.
-     * @return a list of equipment associated with the client or an error message.
+     * @return a no content response or an error message.
      */
-    @GetMapping("/get-equipments-by-client/{id}")
-    @ApiOperation(value = "Get equipment by client ID", notes = "Retrieves all equipment associated with a specific client.")
+    @DeleteMapping("/delete-client/{id}")
+    @ApiOperation(value = "Delete client", notes = "Deletes a specific client by their ID.")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "List of equipment retrieved successfully."),
-            @ApiResponse(code = 404, message = "Equipment not found.")
+            @ApiResponse(code = 204, message = "Client deleted successfully."),
+            @ApiResponse(code = 404, message = "Client not found.")
     })
-    public ResponseEntity<?> getEquipmentsByClient(
+    public ResponseEntity<?> deleteClient(
             @ApiParam(value = "ID of the client", required = true) @PathVariable("id") String id) {
         try {
-            var equipments = equipmentService.getEquipmentsByClient(Long.valueOf(id));
-            return ResponseEntity.ok(equipments);
-        } catch (EquipmentNotFoundException e) {
+            clientService.deleteClient(Long.valueOf(id));
+            return ResponseEntity.noContent().build();
+        } catch (ClientNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
-
-    /**
-     * Endpoint for retrieving all breakdowns.
-     *
-     * @return a list of all breakdowns or an error message.
-     */
-    @GetMapping("/get-all-breakdowns")
-    @ApiOperation(value = "Get all breakdowns", notes = "Retrieves all breakdowns in the system.")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "List of breakdowns retrieved successfully."),
-            @ApiResponse(code = 404, message = "Breakdowns not found.")
-    })
-    public ResponseEntity<?> getAllBreakdowns() {
-        try {
-            var breakdowns = breakdownService.getAllBreakdowns();
-            return ResponseEntity.ok(breakdowns);
-        } catch (BreakdownNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        }
-    }
-
-    /**
-     * Endpoint for reporting a breakdown with a ticket.
-     *
-     * @param equipmentId the ID of the equipment.
-     * @param breakdownId the ID of the breakdown.
-     * @param ticketDto the ticket details.
-     * @return the created ticket or an error message.
-     */
-    @PostMapping("/report-breakdown-ticket/{equipmentId}&{breakdownId}")
-    @ApiOperation(value = "Report breakdown with ticket", notes = "Reports a breakdown for equipment and creates a ticket.")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Breakdown reported and ticket created successfully."),
-            @ApiResponse(code = 404, message = "Equipment or breakdown or client not found.")
-    })
-    public ResponseEntity<?> reportBreakdownWithTicket(
-            @ApiParam(value = "ID of the equipment", required = true) @PathVariable("equipmentId") String equipmentId,
-            @ApiParam(value = "ID of the breakdown", required = true) @PathVariable("breakdownId") String breakdownId,
-            @ApiParam(value = "Ticket details", required = true) @RequestBody TicketDto ticketDto) {
-        try {
-            var report = equipmentBreakdownService.reportBreakdown(Long.valueOf(equipmentId), Long.valueOf(breakdownId));
-            var ticket = ticketService.createTicket(report, ticketDto);
-            return ResponseEntity.ok(ticket);
-        } catch (EquipmentNotFoundException | BreakdownNotFoundException | ClientNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        }
-    }
-
-    /**
-     * Endpoint for retrieving all tickets by client ID.
-     *
-     * @param id the ID of the client.
-     * @return a list of all tickets associated with the client or an error message.
-     */
-    @GetMapping("/get-all-tickets/{id}")
-    @ApiOperation(value = "Get all tickets by client ID", notes = "Retrieves all tickets associated with a specific client.")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "List of tickets retrieved successfully."),
-            @ApiResponse(code = 404, message = "Tickets not found.")
-    })
-    public ResponseEntity<?> getAllTickets(
-            @ApiParam(value = "ID of the client", required = true) @PathVariable("id") String id) {
-        try {
-            var tickets = ticketService.getTicketsByClient(Long.valueOf(id));
-            return ResponseEntity.ok(tickets);
-        } catch (TicketNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        }
-    }
-
 }

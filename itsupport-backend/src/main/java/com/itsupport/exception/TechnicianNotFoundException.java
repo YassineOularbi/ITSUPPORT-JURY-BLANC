@@ -13,7 +13,6 @@ package com.itsupport.exception;
  *     throw new TechnicianNotFoundException();
  * }
  *
- * @see com.itsupport.controller.AdminController
  * @see com.itsupport.service.TechnicianService
  */
 public class TechnicianNotFoundException extends RuntimeException {

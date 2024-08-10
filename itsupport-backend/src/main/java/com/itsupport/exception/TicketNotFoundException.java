@@ -13,7 +13,6 @@ package com.itsupport.exception;
  *     throw new TicketNotFoundException();
  * }
  *
- * @see com.itsupport.controller.AdminController
  * @see com.itsupport.service.TicketService
  */
 public class TicketNotFoundException extends RuntimeException {
