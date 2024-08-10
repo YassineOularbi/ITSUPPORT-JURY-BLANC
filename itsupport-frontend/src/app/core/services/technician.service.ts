@@ -2,80 +2,70 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Ticket } from '../models/ticket.model';
-import { TicketNotFoundException } from '../exceptions/ticket-not-found.exception';
-import { EquipmentNotFoundException } from '../exceptions/equipment-not-found.exception';
-import { TechnicianNotFoundException } from '../exceptions/technician-not-found.exception';
+import { Technician } from '../models/technician.model';
 import { environment } from '../../../environments/environment.development';
+import { TechnicianNotFoundException } from '../exceptions/technician-not-found.exception';
+import { UserUpdateDto } from '../dtos/user-update-dto.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TechnicianService {
-
   private apiUrl = `${environment.apiUrl}/api/technician`;
 
   constructor(private http: HttpClient) {}
 
-  getProcessingTickets(id: string): Observable<Ticket[]> {
-    return this.http.get<Ticket[]>(`${this.apiUrl}/get-processing-tickets/${id}`).pipe(
+  getAllTechnicians(): Observable<Technician[]> {
+    return this.http.get<Technician[]>(`${this.apiUrl}/get-all-technicians`).pipe(
       catchError((error) => {
         if (error.status === 404) {
-          return throwError(() => new TicketNotFoundException(`Processing tickets for technician with ID ${id} not found`));
+          return throwError(() => new TechnicianNotFoundException());
         }
-        return throwError(() => error.message || `Failed to retrieve processing tickets for technician with ID ${id}`);
+        return throwError(() => error.message || 'Failed to retrieve all technicians');
       })
     );
   }
 
-  getAllTickets(id: string): Observable<Ticket[]> {
-    return this.http.get<Ticket[]>(`${this.apiUrl}/get-all-tickets/${id}`).pipe(
+  getAvailableTechnicians(): Observable<Technician[]> {
+    return this.http.get<Technician[]>(`${this.apiUrl}/get-available-technicians`).pipe(
       catchError((error) => {
         if (error.status === 404) {
-          return throwError(() => new TicketNotFoundException(`Tickets for technician with ID ${id} not found`));
+          return throwError(() => new TechnicianNotFoundException());
         }
-        return throwError(() => error.message || `Failed to retrieve tickets for technician with ID ${id}`);
+        return throwError(() => error.message || 'Failed to retrieve available technicians');
       })
     );
   }
 
-  repairingTicket(id: string): Observable<Ticket> {
-    return this.http.put<Ticket>(`${this.apiUrl}/repairing-ticket/${id}`, {}).pipe(
+  getTechnicianById(id: string): Observable<Technician> {
+    return this.http.get<Technician>(`${this.apiUrl}/get-technician-by-id/${id}`).pipe(
       catchError((error) => {
         if (error.status === 404) {
-          return throwError(() => new TicketNotFoundException(`Ticket with ID ${id} not found`));
+          return throwError(() => new TechnicianNotFoundException());
         }
-        return throwError(() => error.message || `Failed to update ticket with ID ${id} to 'repairing' status`);
+        return throwError(() => error.message || `Failed to retrieve technician with ID ${id}`);
       })
     );
   }
 
-  repairedTicket(id: string): Observable<Ticket> {
-    return this.http.put<Ticket>(`${this.apiUrl}/repaired-ticket/${id}`, {}).pipe(
+  updateTechnician(id: string, userUpdateDto: UserUpdateDto): Observable<Technician> {
+    return this.http.put<Technician>(`${this.apiUrl}/update-technician/${id}`, userUpdateDto).pipe(
       catchError((error) => {
         if (error.status === 404) {
-          return throwError(() => 
-            new TicketNotFoundException(`Ticket with ID ${id} not found`) ||
-            new EquipmentNotFoundException() ||
-            new TechnicianNotFoundException()
-          );
+          return throwError(() => new TechnicianNotFoundException());
         }
-        return throwError(() => error.message || `Failed to update ticket with ID ${id} to 'repaired' status`);
+        return throwError(() => error.message || `Failed to update technician with ID ${id}`);
       })
     );
   }
 
-  failedTicket(id: string): Observable<Ticket> {
-    return this.http.put<Ticket>(`${this.apiUrl}/failed-ticket/${id}`, {}).pipe(
+  deleteTechnician(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/delete-technician/${id}`).pipe(
       catchError((error) => {
         if (error.status === 404) {
-          return throwError(() => 
-            new TicketNotFoundException(`Ticket with ID ${id} not found`) ||
-            new EquipmentNotFoundException() ||
-            new TechnicianNotFoundException()
-          );
+          return throwError(() => new TechnicianNotFoundException());
         }
-        return throwError(() => error.message || `Failed to update ticket with ID ${id} to 'failed' status`);
+        return throwError(() => error.message || `Failed to delete technician with ID ${id}`);
       })
     );
   }
