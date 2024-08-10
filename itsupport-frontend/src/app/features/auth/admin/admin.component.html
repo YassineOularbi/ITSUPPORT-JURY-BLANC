@@ -1,0 +1,12 @@
+<div class="card mt-4">
+    <h4 class="card-header">Admin</h4>
+    <div class="card-body">
+      <p>This page can be accessed <u>only by administrators</u>.</p>
+      <p class="mb-1">All users from secure (admin only) API endpoint:</p>
+      <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+      <ul *ngIf="user$ | async as user">
+        <li>{{ user.id }} {{ user.fullName }} {{ user.mail }} {{ user.username }} {{ user.role }}</li>
+      </ul>
+    </div>
+  </div>
+  
