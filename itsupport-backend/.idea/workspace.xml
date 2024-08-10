@@ -6,6 +6,59 @@
   <component name="ChangeListManager">
     <list default="true" id="b5b23ce9-7c94-44ef-a548-21877b5f28ec" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/config/AppConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/config/AppConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/config/SwaggerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/config/SwaggerConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/controller/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/exception/LoginException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/exception/LoginException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/exception/RegistrationException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/exception/RegistrationException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/filter/AuthFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/filter/AuthFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/AuthResponse$AuthResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/AuthResponse$AuthResponseBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/AuthResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/AuthResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/LoginRequest$LoginRequestBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/LoginRequest$LoginRequestBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/LoginRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/LoginRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/RegisterRequest$RegisterRequestBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/RegisterRequest$RegisterRequestBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/RegisterRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/RegisterRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/service/AuthService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/service/AuthService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/service/JwtService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/service/JwtService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/dto/EquipmentDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/dto/EquipmentDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/dto/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/dto/UserDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/dto/UserUpdateDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/dto/UserUpdateDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/enums/EquipmentStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/enums/EquipmentStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/enums/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/enums/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/exception/AdminNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/exception/AdminNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/exception/ClientNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/exception/ClientNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/exception/EquipmentNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/exception/EquipmentNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/exception/TechnicianNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/exception/TechnicianNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/mapper/AdminMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/mapper/AdminMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/mapper/ClientMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/mapper/ClientMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/mapper/TechnicianMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/mapper/TechnicianMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/model/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/model/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/model/BreakDown.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/model/BreakDown.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/model/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/model/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/model/Equipment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/model/Equipment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/model/Technician.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/model/Technician.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/repository/EquipmentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/repository/EquipmentRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/repository/TechnicianRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/repository/TechnicianRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/service/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/service/AdminService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/service/ClientService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/service/ClientService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/service/EquipmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/service/EquipmentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/service/TechnicianService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/service/TechnicianService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/AdminMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/AdminMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/ClientMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/ClientMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/EquipmentMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/EquipmentMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/TechnicianMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/TechnicianMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/UserMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/UserMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.itsupport.ItsupportApplicationTests.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.itsupport.ItsupportApplicationTests.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/itsupport/ItsupportApplicationTests.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/admin.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/admin.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/client.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/client.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/technician.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/technician.service.ts" afterDir="false" />
@@ -49,7 +102,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.ItsupportApplication.executor": "Run",
-    "git-widget-placeholder": "frontend",
+    "git-widget-placeholder": "Merging frontend",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/user/Desktop/ENAA-CHALLENGES-WORKSHOP-PROJECT/BRIEFS-ENAA-SIMPLONE/ITSUPPORT-JURY-BLANC/itsupport-backend",
     "node.js.detected.package.eslint": "true",

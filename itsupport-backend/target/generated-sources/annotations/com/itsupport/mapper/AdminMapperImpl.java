@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-08-06T16:55:44+0100",
+    date = "2024-08-10T18:46:53+0100",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.3 (Oracle Corporation)"
 )
 @Component
@@ -53,6 +53,10 @@ public class AdminMapperImpl implements AdminMapper {
         if ( userUpdateDto == null ) {
             return admin;
         }
+
+        admin.setFullName( userUpdateDto.getFullName() );
+        admin.setMail( userUpdateDto.getMail() );
+        admin.setUsername( userUpdateDto.getUsername() );
 
         return admin;
     }
