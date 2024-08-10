@@ -46,9 +46,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
                                 .requestMatchers("/api/auth/**", "/v3/api-docs/**", "/swagger-ui/**").permitAll()
-                                .requestMatchers("/api/admin/**","/api/client/**","/api/technician/**", "/api/equipment/admin/**","/api/breakdown/admin/**", "/api/ticket/client/**").hasAuthority(Role.ADMIN.name())
+                                .requestMatchers("/api/admin/**","/api/client/**","/api/technician/**", "/api/equipment/admin/**","/api/breakdown/admin/**", "/api/ticket/admin/**").hasAuthority(Role.ADMIN.name())
                                 .requestMatchers("/api/equipment/client/**", "/api/ticket/client/**").hasAuthority(Role.CLIENT.name())
-                                .requestMatchers("/api/ticket/client/**").hasAuthority(Role.TECHNICIAN.name())
+                                .requestMatchers("/api/ticket/technician/**").hasAuthority(Role.TECHNICIAN.name())
                                 .requestMatchers(HttpMethod.PUT,"/api/client/update-client/**").hasAuthority(Role.CLIENT.name())
                                 .requestMatchers(HttpMethod.PUT,"/api/technician/update-technician/**").hasAuthority(Role.TECHNICIAN.name())
                                 .requestMatchers(HttpMethod.GET,"/api/breakdown/get-all-breakdowns").hasAnyAuthority(Role.ADMIN.name(), Role.CLIENT.name())
