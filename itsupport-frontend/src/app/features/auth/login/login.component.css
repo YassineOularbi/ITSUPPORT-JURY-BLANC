@@ -1,0 +1,39 @@
+.login-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-group {
+    margin-bottom: 1em;
+  }
+  
+  label {
+    margin-bottom: .5em;
+    color: #333333;
+    display: block;
+  }
+  
+  input {
+    border: 1px solid #CCCCCC;
+    padding: 0.5em;
+    font-size: 1em;
+    width: 100%;
+  }
+  
+  button {
+    padding: 0.7em;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #cccccc;
+  }
+  
