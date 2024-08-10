@@ -16,7 +16,6 @@ import lombok.*;
  * userUpdateDto.setUsername("johndoe");
  * </pre>
  *
- * @see com.itsupport.controller.AdminController
  */
 @Getter
 @Setter

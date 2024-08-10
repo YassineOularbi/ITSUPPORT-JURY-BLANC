@@ -19,7 +19,6 @@ import lombok.*;
  * userDto.setRole(Role.ADMIN);
  * </pre>
  *
- * @see com.itsupport.controller.AdminController
  */
 @Getter
 @Setter

@@ -1,18 +1,21 @@
 package com.itsupport.controller;
 
-import com.itsupport.exception.*;
-import com.itsupport.service.TicketService;
+import com.itsupport.dto.UserUpdateDto;
+import com.itsupport.exception.TechnicianNotFoundException;
+import com.itsupport.service.TechnicianService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import io.swagger.annotations.*;
 
 /**
  * Controller for handling technician-related requests.
  *
- * This controller provides endpoints for retrieving processing tickets,
- * all tickets for a technician, and updating ticket statuses.
+ * This controller provides endpoints for managing technicians.
  *
  * Created by Yassine Oularbi
  *
@@ -20,120 +23,119 @@ import io.swagger.annotations.*;
  * Email: yassineoularbi4@gmail.com
  * GitHub: @YassineOularbi
  */
+
 @RestController
 @RequestMapping("/api/technician")
 @RequiredArgsConstructor
 @CrossOrigin("*")
 public class TechnicianController {
 
-    private final TicketService ticketService;
+    private final TechnicianService technicianService;
 
     /**
-     * Endpoint for retrieving processing tickets for a technician.
+     * Endpoint for retrieving all technicians.
+     *
+     * @return a list of technicians or an error message.
+     */
+    @GetMapping("/get-all-technicians")
+    @ApiOperation(value = "Get all technicians", notes = "Retrieves a list of all technicians.")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "List of technicians retrieved successfully."),
+            @ApiResponse(code = 404, message = "Technicians not found.")
+    })
+    public ResponseEntity<?> getAllTechnicians() {
+        try {
+            var technicians = technicianService.getAllTechnicians();
+            return ResponseEntity.ok(technicians);
+        } catch (TechnicianNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    /**
+     * Endpoint for retrieving available technicians.
+     *
+     * @return a list of available technicians or an error message.
+     */
+    @GetMapping("/get-available-technicians")
+    @ApiOperation(value = "Get available technicians", notes = "Retrieves a list of available technicians.")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "List of available technicians retrieved successfully."),
+            @ApiResponse(code = 404, message = "Technicians not found.")
+    })
+    public ResponseEntity<?> getAvailableTechnicians() {
+        try {
+            var technicians = technicianService.getAvailableTechnicians();
+            return ResponseEntity.ok(technicians);
+        } catch (TechnicianNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    /**
+     * Endpoint for retrieving a technician by ID.
      *
      * @param id the ID of the technician.
-     * @return a list of processing tickets or an error message.
+     * @return the technician or an error message.
      */
-    @GetMapping("/get-processing-tickets/{id}")
-    @ApiOperation(value = "Get processing tickets by technician ID", notes = "Retrieves all tickets currently being processed by a specific technician.")
+    @GetMapping("/get-technician-by-id/{id}")
+    @ApiOperation(value = "Get technician by ID", notes = "Retrieves a specific technician by their ID.")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "List of processing tickets retrieved successfully."),
-            @ApiResponse(code = 404, message = "Tickets not found.")
+            @ApiResponse(code = 200, message = "Technician retrieved successfully."),
+            @ApiResponse(code = 404, message = "Technician not found.")
     })
-    public ResponseEntity<?> getProcessingTickets(
+    public ResponseEntity<?> getTechnicianById(
             @ApiParam(value = "ID of the technician", required = true) @PathVariable("id") String id) {
         try {
-            var tickets = ticketService.getProcessingTickets(Long.valueOf(id));
-            return ResponseEntity.ok(tickets);
-        } catch (TicketNotFoundException e) {
+            var technician = technicianService.getTechnicianById(Long.valueOf(id));
+            return ResponseEntity.ok(technician);
+        } catch (TechnicianNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
 
     /**
-     * Endpoint for retrieving all tickets assigned to a technician.
+     * Endpoint for updating a technician.
      *
      * @param id the ID of the technician.
-     * @return a list of all tickets assigned to the technician or an error message.
+     * @param userUpdateDto the technician update details.
+     * @return the updated technician or an error message.
      */
-    @GetMapping("/get-all-tickets/{id}")
-    @ApiOperation(value = "Get all tickets by technician ID", notes = "Retrieves all tickets assigned to a specific technician.")
+    @PutMapping("/update-technician/{id}")
+    @ApiOperation(value = "Update technician", notes = "Updates the details of a specific technician.")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "List of all tickets retrieved successfully."),
-            @ApiResponse(code = 404, message = "Tickets not found.")
+            @ApiResponse(code = 200, message = "Technician updated successfully."),
+            @ApiResponse(code = 404, message = "Technician not found.")
     })
-    public ResponseEntity<?> getAllTickets(
+    public ResponseEntity<?> updateTechnician(
+            @ApiParam(value = "ID of the technician", required = true) @PathVariable("id") String id,
+            @ApiParam(value = "Technician update details", required = true) @RequestBody UserUpdateDto userUpdateDto) {
+        try {
+            var updatedTechnician = technicianService.updateTechnician(Long.valueOf(id), userUpdateDto);
+            return ResponseEntity.ok(updatedTechnician);
+        } catch (TechnicianNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    /**
+     * Endpoint for deleting a technician.
+     *
+     * @param id the ID of the technician.
+     * @return a no content response or an error message.
+     */
+    @DeleteMapping("/delete-technician/{id}")
+    @ApiOperation(value = "Delete technician", notes = "Deletes a specific technician by their ID.")
+    @ApiResponses(value = {
+            @ApiResponse(code = 204, message = "Technician deleted successfully."),
+            @ApiResponse(code = 404, message = "Technician not found.")
+    })
+    public ResponseEntity<?> deleteTechnician(
             @ApiParam(value = "ID of the technician", required = true) @PathVariable("id") String id) {
         try {
-            var tickets = ticketService.getTicketsByTechnician(Long.valueOf(id));
-            return ResponseEntity.ok(tickets);
-        } catch (TicketNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        }
-    }
-
-    /**
-     * Endpoint for updating the status of a ticket to "repairing".
-     *
-     * @param id the ID of the ticket.
-     * @return the updated ticket or an error message.
-     */
-    @PutMapping("/repairing-ticket/{id}")
-    @ApiOperation(value = "Update ticket status to 'repairing'", notes = "Updates the status of a specific ticket to 'repairing'.")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Ticket status updated to 'repairing' successfully."),
-            @ApiResponse(code = 404, message = "Ticket not found.")
-    })
-    public ResponseEntity<?> repairingTicket(
-            @ApiParam(value = "ID of the ticket", required = true) @PathVariable("id") String id) {
-        try {
-            var ticket = ticketService.repairingTicket(Long.valueOf(id));
-            return ResponseEntity.ok(ticket);
-        } catch (TicketNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        }
-    }
-
-    /**
-     * Endpoint for updating the status of a ticket to "repaired".
-     *
-     * @param id the ID of the ticket.
-     * @return the updated ticket or an error message.
-     */
-    @PutMapping("/repaired-ticket/{id}")
-    @ApiOperation(value = "Update ticket status to 'repaired'", notes = "Updates the status of a specific ticket to 'repaired'.")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Ticket status updated to 'repaired' successfully."),
-            @ApiResponse(code = 404, message = "Ticket, equipment, or technician not found.")
-    })
-    public ResponseEntity<?> repairedTicket(
-            @ApiParam(value = "ID of the ticket", required = true) @PathVariable("id") String id) {
-        try {
-            var ticket = ticketService.repairedTicket(Long.valueOf(id));
-            return ResponseEntity.ok(ticket);
-        } catch (TicketNotFoundException | EquipmentNotFoundException | TechnicianNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        }
-    }
-
-    /**
-     * Endpoint for updating the status of a ticket to "failed".
-     *
-     * @param id the ID of the ticket.
-     * @return the updated ticket or an error message.
-     */
-    @PutMapping("/failed-ticket/{id}")
-    @ApiOperation(value = "Update ticket status to 'failed'", notes = "Updates the status of a specific ticket to 'failed'.")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Ticket status updated to 'failed' successfully."),
-            @ApiResponse(code = 404, message = "Ticket, equipment, or technician not found.")
-    })
-    public ResponseEntity<?> failedTicket(
-            @ApiParam(value = "ID of the ticket", required = true) @PathVariable("id") String id) {
-        try {
-            var ticket = ticketService.failedTicket(Long.valueOf(id));
-            return ResponseEntity.ok(ticket);
-        } catch (TicketNotFoundException | EquipmentNotFoundException | TechnicianNotFoundException e) {
+            technicianService.deleteTechnician(Long.valueOf(id));
+            return ResponseEntity.noContent().build();
+        } catch (TechnicianNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }

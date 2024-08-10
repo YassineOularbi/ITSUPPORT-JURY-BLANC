@@ -13,7 +13,6 @@ package com.itsupport.exception;
  *     throw new BreakdownNotFoundException();
  * }
  *
- * @see com.itsupport.controller.AdminController
  * @see com.itsupport.service.BreakdownService
  */
 public class BreakdownNotFoundException extends RuntimeException {
