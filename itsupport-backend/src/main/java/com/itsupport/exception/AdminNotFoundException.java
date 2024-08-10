@@ -13,7 +13,6 @@ package com.itsupport.exception;
  *     throw new AdminNotFoundException();
  * }
  *
- * @see com.itsupport.controller.AdminController
  * @see com.itsupport.service.AdminService
  */
 public class AdminNotFoundException extends RuntimeException {

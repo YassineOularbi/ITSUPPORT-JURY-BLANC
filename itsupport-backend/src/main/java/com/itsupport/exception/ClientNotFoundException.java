@@ -13,7 +13,6 @@ package com.itsupport.exception;
  *     throw new ClientNotFoundException();
  * }
  *
- * @see com.itsupport.controller.AdminController
  * @see com.itsupport.service.ClientService
  */
 public class ClientNotFoundException extends RuntimeException {

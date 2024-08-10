@@ -15,7 +15,6 @@ import lombok.*;
  * </pre>
  *
  * @see com.itsupport.service.EquipmentService
- * @see com.itsupport.controller.AdminController
  */
 @Getter
 @Setter

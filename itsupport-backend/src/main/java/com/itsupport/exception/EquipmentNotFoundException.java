@@ -13,7 +13,6 @@ package com.itsupport.exception;
  *     throw new EquipmentNotFoundException();
  * }
  *
- * @see com.itsupport.controller.AdminController
  * @see com.itsupport.service.EquipmentService
  */
 public class EquipmentNotFoundException extends RuntimeException {

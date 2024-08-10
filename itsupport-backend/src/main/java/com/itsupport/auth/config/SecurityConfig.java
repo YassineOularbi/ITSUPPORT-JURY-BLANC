@@ -5,6 +5,7 @@ import com.itsupport.enums.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -45,9 +46,12 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
                                 .requestMatchers("/api/auth/**", "/v3/api-docs/**", "/swagger-ui/**").permitAll()
-                                .requestMatchers("/api/admin/**").hasAuthority(Role.ADMIN.name())
-                                .requestMatchers("/api/client/**").hasAuthority(Role.CLIENT.name())
-                                .requestMatchers("/api/technician/**").hasAuthority(Role.TECHNICIAN.name())
+                                .requestMatchers("/api/user/admin/**", "/api/equipment/admin/**","/api/breakdown/admin/**", "/api/ticket/client/**").hasAuthority(Role.ADMIN.name())
+                                .requestMatchers("/api/equipment/client/**", "/api/ticket/client/**").hasAuthority(Role.CLIENT.name())
+                                .requestMatchers("/api/ticket/client/**").hasAuthority(Role.TECHNICIAN.name())
+                                .requestMatchers(HttpMethod.PUT,"/api/user/update-client/**").hasAnyAuthority(Role.ADMIN.name(), Role.CLIENT.name())
+                                .requestMatchers(HttpMethod.PUT,"/api/update-technician/**").hasAnyAuthority(Role.ADMIN.name(), Role.TECHNICIAN.name())
+                                .requestMatchers(HttpMethod.GET,"/api/breakdown/get-all-breakdowns").hasAnyAuthority(Role.ADMIN.name(), Role.CLIENT.name())
                                 .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
