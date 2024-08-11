@@ -10,7 +10,7 @@ export class PasswordStrengthPipe implements PipeTransform {
     let score = 0;
 
     if (!password) {
-      return { strength: 'none', score: 0 };
+      return { strength: '', score: 0 };
     }
 
     if (password.length >= 8) score += 1;
@@ -19,7 +19,7 @@ export class PasswordStrengthPipe implements PipeTransform {
     if (password.match(/[0-9]/)) score += 1;
     if (password.match(/[^a-zA-Z0-9]/)) score += 1;
 
-    let strength = 'none';
+    let strength = '';
     if (score <= 2) strength = 'low';
     else if (score <= 4) strength = 'medium';
     else strength = 'strong';

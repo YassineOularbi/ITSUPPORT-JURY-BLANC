@@ -7,8 +7,16 @@
       </div>
       <div class="form-group">
         <label for="password">Password:</label>
-        <input id="password" formControlName="password" type="password" placeholder="Your password"/>
-      </div>
+        <div class="password-input-toggle">
+          <input #passwordInput id="password" formControlName="password" type="password"
+              placeholder="Your password"
+              [appHideShowPassword]="passwordInput" [appHideShowPasswordButton]="passwordButton" />
+          <button #passwordButton type="button" [appHideShowPassword]="passwordInput"
+              [appHideShowPasswordIcon]="passwordIcon" class="password-toggle-btn" style="display: none;">
+              <img #passwordIcon src="/assets/hidden.png" alt="Toggle password visibility"
+                  style="cursor: pointer;" />
+          </button>
+      </div>      </div>
       <div class="remembre">
         <label class="switch">
           <input type="checkbox" >

@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Renderer2, Input } from '@angular/core';
+import { Directive, HostListener, Renderer2, Input } from '@angular/core';
 
 @Directive({
   selector: '[appHideShowPassword]',
@@ -7,6 +7,7 @@ import { Directive, ElementRef, HostListener, Renderer2, Input } from '@angular/
 export class HideShowPasswordDirective {
   @Input('appHideShowPassword') passwordInput!: HTMLInputElement;
   @Input('appHideShowPasswordIcon') iconElement!: HTMLImageElement;
+  @Input('appHideShowPasswordButton') buttonElement!: HTMLButtonElement;
 
   private isPasswordVisible: boolean = false;
 
@@ -21,8 +22,15 @@ export class HideShowPasswordDirective {
 
       const iconSrc = this.isPasswordVisible ? '/assets/show.png' : '/assets/hidden.png';
       this.renderer.setAttribute(this.iconElement, 'src', iconSrc);
-    } else {
-      console.error('Password input or icon element not found');
     }
   }
+
+  @HostListener('input')
+  onInput() {
+    if (this.passwordInput && this.buttonElement) {
+      const show = this.passwordInput.value.length > 0;
+      this.renderer.setStyle(this.buttonElement, 'display', show ? 'block' : 'none');
+    }
+  }
+  
 }

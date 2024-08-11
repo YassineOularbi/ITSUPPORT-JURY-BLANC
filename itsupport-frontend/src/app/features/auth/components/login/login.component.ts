@@ -9,6 +9,7 @@ import { AppState } from '../../../../core/ngrx/app.state';
 import { Store } from '@ngrx/store';
 import { pipe } from 'rxjs';
 import { selectRole } from '../../../../core/ngrx/auth.selectors';
+import { HideShowPasswordDirective } from '../../../../shared/directives/hide-show-password.directive';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ import { selectRole } from '../../../../core/ngrx/auth.selectors';
   imports: [
     ReactiveFormsModule,
     CommonModule,
-    RouterLink
+    RouterLink,
+    HideShowPasswordDirective
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']

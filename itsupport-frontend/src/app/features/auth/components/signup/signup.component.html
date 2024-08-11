@@ -30,9 +30,10 @@
                 </div>
                 <div class="password-input-toggle">
                     <input #passwordInput id="password" formControlName="password" type="password"
-                        placeholder="Your password" (input)="toggleButtonVisibility()" />
-                    <button type="button" *ngIf="showToggleButton" [appHideShowPassword]="passwordInput" [appHideShowPasswordIcon]="passwordIcon"
-                        class="password-toggle-btn">
+                        placeholder="Your password" (input)="checkPasswordStrength()"
+                        [appHideShowPassword]="passwordInput" [appHideShowPasswordButton]="passwordButton" />
+                    <button #passwordButton type="button" [appHideShowPassword]="passwordInput"
+                        [appHideShowPasswordIcon]="passwordIcon" class="password-toggle-btn" style="display: none;">
                         <img #passwordIcon src="/assets/hidden.png" alt="Toggle password visibility"
                             style="cursor: pointer;" />
                     </button>

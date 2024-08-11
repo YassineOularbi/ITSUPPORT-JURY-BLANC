@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../../../core/services/auth.service';
 import { Router, RouterLink } from '@angular/router';
@@ -23,7 +23,6 @@ import { HideShowPasswordDirective } from '../../../../shared/directives/hide-sh
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   passwordStrength: { strength: string, score: number } | undefined;
-  showToggleButton: boolean = false;
 
   @ViewChild('passwordInput') passwordInput!: ElementRef<HTMLInputElement>;
 
@@ -32,7 +31,6 @@ export class SignupComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private passwordStrengthPipe: PasswordStrengthPipe,
-    private cdr: ChangeDetectorRef
   ) {
     this.signupForm = this.fb.group({
       fullName: ['', Validators.required],
@@ -43,22 +41,11 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.signupForm.get('password')?.valueChanges.subscribe(() => this.checkPasswordStrength());
   }
 
   checkPasswordStrength() {
-    const password = this.signupForm.get('password')?.value;
-    if (password) {
-      this.passwordStrength = this.passwordStrengthPipe.transform(password);
-    } else {
-      this.passwordStrength = { strength: '', score: 0 };
-    }
-  }
-
-  toggleButtonVisibility() {
-    if (this.passwordInput) {    
-      this.showToggleButton = this.passwordInput.nativeElement.value.length > 0;
-      this.cdr.markForCheck();
+    if (this.passwordInput) {
+      this.passwordStrength = this.passwordStrengthPipe.transform(this.passwordInput.nativeElement.value);
     }
   }
 
