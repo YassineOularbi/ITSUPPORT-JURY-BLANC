@@ -6,6 +6,8 @@ import { RegisterRequest } from '../../../../core/interfaces/register-request.in
 import { PasswordStrengthPipe } from '../../../../shared/pipes/password-strength.pipe';
 import { CommonModule } from '@angular/common';
 import { HideShowPasswordDirective } from '../../../../shared/directives/hide-show-password.directive';
+import { passwordStrengthValidator } from '../../../../shared/validators/password-strength.validator';
+import { ErrorHighlightDirective } from '../../../../shared/directives/error-highlight.directive';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +16,8 @@ import { HideShowPasswordDirective } from '../../../../shared/directives/hide-sh
     ReactiveFormsModule,
     CommonModule,
     RouterLink,
-    HideShowPasswordDirective
+    HideShowPasswordDirective,
+    ErrorHighlightDirective
   ],
   providers: [PasswordStrengthPipe],
   templateUrl: './signup.component.html',
@@ -23,8 +26,11 @@ import { HideShowPasswordDirective } from '../../../../shared/directives/hide-sh
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   passwordStrength: { strength: string, score: number } | undefined;
+  signupError: string | null = null;
+  showSuccessAnimation: boolean = false;
 
   @ViewChild('passwordInput') passwordInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('signupContainer') signupContainer!: ElementRef;
 
   constructor(
     private fb: FormBuilder,
@@ -36,11 +42,18 @@ export class SignupComponent implements OnInit {
       fullName: ['', Validators.required],
       mail: ['', [Validators.required, Validators.email]],
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', [Validators.required, passwordStrengthValidator()]]
     });
   }
 
   ngOnInit() {
+    this.setupErrorReset();
+  }
+
+  setupErrorReset() {
+    this.signupForm.valueChanges.subscribe(() => {
+      this.signupError = null;
+    });
   }
 
   checkPasswordStrength() {
@@ -55,10 +68,15 @@ export class SignupComponent implements OnInit {
 
       this.authService.registerAdmin(registerRequest).subscribe({
         next: () => {
-          this.router.navigateByUrl('/login');
+          this.signupContainer.nativeElement.classList.add('fade-out');
+          this.showSuccessAnimation = true;
+          setTimeout(() => {
+            this.router.navigateByUrl('/login');
+          }, 1700);
         },
         error: (error) => {
           console.error('Signup error', error);
+          this.signupError = error.message;
         }
       });
     }
