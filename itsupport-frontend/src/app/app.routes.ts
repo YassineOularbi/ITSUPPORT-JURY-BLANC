@@ -8,16 +8,17 @@ import { ClientComponent } from './shared/components/client/client.component';
 import { TechnicianComponent } from './shared/components/technician/technician.component';
 import { LogoutComponent } from './features/auth/components/logout/logout.component';
 import { AuthComponent } from './features/auth/auth.component';
+import { SignupComponent } from './features/auth/components/signup/signup.component';
 
 export const routes: Routes = [
     {
         path: '',
-        component: AuthComponent
-    },
-    {
-        path: 'login',
-        component: LoginComponent,
-        // canActivate: [authGuard] 
+        component: AuthComponent,
+        children: [
+          { path: '', redirectTo: 'login', pathMatch: 'full' },
+          { path: 'login', component: LoginComponent },
+          { path: 'signup', component: SignupComponent }
+        ]
     },
     {
         path: 'logout',
