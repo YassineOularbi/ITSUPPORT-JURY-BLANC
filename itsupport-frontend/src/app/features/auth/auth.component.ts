@@ -15,8 +15,7 @@ import { ShowOnPathDirective } from '../../shared/directives/show-on-path.direct
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.css'
 })
-export class AuthComponent implements OnInit{
+export class AuthComponent implements OnInit {
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

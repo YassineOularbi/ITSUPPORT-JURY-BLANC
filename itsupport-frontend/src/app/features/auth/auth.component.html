@@ -1,53 +1,52 @@
 <main>
-    <nav>
-      <section class="logo">
-        <img src="/assets/logo.png" alt="">
-      </section> 
-      <section class="pages">
-        <div class="page">
-          <img src="/assets/dashboard-icon.png" alt="">
-          <a routerLink="/dashboard" routerLinkActive="active">DASHBOARD</a>
+  <nav>
+    <section class="logo">
+      <img src="/assets/logo.png" alt="">
+    </section>
+    <section class="pages">
+      <div class="page">
+        <img src="/assets/dashboard-icon.png" alt="">
+        <a routerLink="/dashboard" routerLinkActive="active">DASHBOARD</a>
+      </div>
+      <div class="page">
+        <img src="/assets/user-icon.png" alt="">
+        <a routerLink="/profile" routerLinkActive="active">PROFILE</a>
+      </div>
+      <div class="page">
+        <img src="/assets/signup-icon.png" alt="">
+        <a routerLink="/signup" routerLinkActive="active">SIGN UP</a>
+      </div>
+      <div class="page">
+        <img src="/assets/login-icon.png" alt="">
+        <a routerLink="/login" routerLinkActive="active">SIGN IN</a>
+      </div>
+    </section>
+    <section class="button">
+      <button routerLink="/">Home page</button>
+    </section>
+  </nav>
+  <article>
+    <section class="left">
+      <p>THE VISION <span style="color: white;">IT</span> SERVICES !</p>
+    </section>
+    <section class="right">
+      <div class="routing">
+        <div *appShowOnPath="'/login'" class="title">
+          <h1>Nice to see you!</h1>
+          <p>Enter your username and password to sign in</p>
         </div>
-        <div class="page">
-          <img src="/assets/user-icon.png" alt="">
-          <a routerLink="/profile" routerLinkActive="active">PROFILE</a>
+
+        <div *appShowOnPath="'/signup'" class="title">
+          <h1>Welcome Admin!</h1>
+          <p>Create your account to access & manage in IT Support</p>
         </div>
-        <div class="page">
-          <img src="/assets/signup-icon.png" alt="">
-          <a routerLink="/signup" routerLinkActive="active">SIGN UP</a>
+        <div class="component">
+          <router-outlet></router-outlet>
         </div>
-        <div class="page">
-          <img src="/assets/login-icon.png" alt="">
-          <a routerLink="/login" routerLinkActive="active">SIGN IN</a>
-        </div>
-      </section>
-      <section class="button">
-        <button routerLink="/">Home page</button>
-      </section>
-    </nav>
-    <article>
-      <section class="left">
-        <p>THE VISION <span style="color: white;">IT</span> SERVICES !</p>
-      </section>
-      <section class="right">
-        <div class="routing">
-            <div *appShowOnPath="'/login'" class="title">
-                <h1>Nice to see you!</h1>
-                <p>Enter your username and password to sign in</p>
-              </div>
-              
-              <div *appShowOnPath="'/signup'" class="title">
-                <h1>Welcome Admin!</h1>
-                <p>Create your account to access & manage in IT Support</p>
-              </div>
-            <div class="component">
-                <router-outlet></router-outlet>
-            </div>
-          </div>
-        <footer>
-          <p>2024, IT Support made in ENAA by Yassine Oularbi</p>
-        </footer>
-      </section>
-    </article>
-  </main>
-  
+      </div>
+      <footer>
+        <p>2024, IT Support made in ENAA by Yassine Oularbi</p>
+      </footer>
+    </section>
+  </article>
+</main>
