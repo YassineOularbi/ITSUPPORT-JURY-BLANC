@@ -1,1 +1,52 @@
-<p>signup works!</p>
+<main>
+    <div class="login-container">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <div class="form-group row">
+                <div class="form-field">
+                    <label for="fullName">Full name:</label>
+                    <input id="fullName" formControlName="fullName" type="text" placeholder="Your full name" />
+                </div>
+                <div class="form-field">
+                    <label for="username">Username:</label>
+                    <input id="username" formControlName="username" type="text" placeholder="Your username" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="mail">Email:</label>
+                <input id="mail" formControlName="mail" type="email" placeholder="Your mail" />
+            </div>
+            <div class="form-group">
+                <div class="password-container">
+                    <label for="password">Password:</label>
+                    <div class="password-strength-wrapper">
+                        <div class="progress-bar-container">
+                            <div class="progress">
+                                <div class="progress-bar" [ngClass]="passwordStrength?.strength"
+                                    [ngStyle]="{ width: (passwordStrength?.score ?? 0) * 20 + '%' }"></div>
+                            </div>
+                            <div class="progress-label">{{ passwordStrength?.strength | titlecase }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="password-input-toggle">
+                    <input #passwordInput id="password" formControlName="password" type="password"
+                        placeholder="Your password" (input)="toggleButtonVisibility()" />
+                    <button type="button" *ngIf="showToggleButton" [appHideShowPassword]="passwordInput" [appHideShowPasswordIcon]="passwordIcon"
+                        class="password-toggle-btn">
+                        <img #passwordIcon src="/assets/hidden.png" alt="Toggle password visibility"
+                            style="cursor: pointer;" />
+                    </button>
+                </div>
+            </div>
+            <div class="remembre">
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+                <p>Accept terms & conditions</p>
+            </div>
+            <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+            <a routerLink="/login">Already have an account? Sign in</a>
+        </form>
+    </div>
+</main>

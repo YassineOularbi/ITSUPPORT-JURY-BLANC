@@ -31,14 +31,15 @@
       </section>
       <section class="right">
         <div class="routing">
-            <div *ngIf="currentRoute === '/login'" class="title">
-                <h1 >Nice to see you!</h1>
+            <div *appShowOnPath="'/login'" class="title">
+                <h1>Nice to see you!</h1>
                 <p>Enter your username and password to sign in</p>
-            </div>
-            <div *ngIf="currentRoute !== '/login'" class="title">
-                <h1 >Welcome Admin!</h1>
-                <p>Create your account to access & manage in IT Support  </p>
-            </div>
+              </div>
+              
+              <div *appShowOnPath="'/signup'" class="title">
+                <h1>Welcome Admin!</h1>
+                <p>Create your account to access & manage in IT Support</p>
+              </div>
             <div class="component">
                 <router-outlet></router-outlet>
             </div>

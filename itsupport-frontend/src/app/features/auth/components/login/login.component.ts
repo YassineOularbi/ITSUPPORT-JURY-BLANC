@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { AuthService } from '../../../../core/services/auth.service';
 import { LoginRequest } from '../../../../core/interfaces/login-request.interface';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Role } from '../../../../core/enums/role.enum';
 import { AppState } from '../../../../core/ngrx/app.state';
 import { Store } from '@ngrx/store';
@@ -15,7 +15,8 @@ import { selectRole } from '../../../../core/ngrx/auth.selectors';
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    RouterLink
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']

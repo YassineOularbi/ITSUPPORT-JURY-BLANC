@@ -5,29 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5b23ce9-7c94-44ef-a548-21877b5f28ec" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/admin/admin.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/admin/admin.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/admin/admin.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/client/client.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/client/client.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/client/client.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/home/home.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/home/home.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/home/home.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/login/login.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/login/login.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/login/login.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/logout/logout.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/logout/logout.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/logout/logout.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/technician/technician.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/technician/technician.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/technician/technician.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/auth.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/auth.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/auth.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/login/login.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/login/login.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/signup/signup.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/signup/signup.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/signup/signup.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/signup/signup.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/signup/signup.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/signup/signup.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/signup/signup.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

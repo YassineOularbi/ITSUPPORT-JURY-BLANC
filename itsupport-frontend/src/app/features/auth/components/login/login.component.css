@@ -60,8 +60,8 @@ main{
   .switch {
     position: relative;
     display: inline-block;
-    width: 20px; /* Réduit encore plus la largeur du conteneur */
-    height: 12px; /* Réduit encore plus la hauteur du conteneur */
+    width: 20px; 
+    height: 12px; 
   }
   
   .switch input { 
@@ -85,10 +85,10 @@ main{
   .slider:before {
     position: absolute;
     content: "";
-    height: 10px; /* Réduit la hauteur du curseur */
-    width: 10px; /* Réduit la largeur du curseur */
-    left: 1px; /* Ajuste la position du curseur */
-    bottom: 1px; /* Ajuste la position du curseur */
+    height: 10px;
+    width: 10px;
+    left: 1px; 
+    bottom: 1px; 
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
@@ -103,14 +103,13 @@ main{
   }
   
   input:checked + .slider:before {
-    -webkit-transform: translateX(8px); /* Réduit le déplacement du curseur */
+    -webkit-transform: translateX(8px); 
     -ms-transform: translateX(8px);
     transform: translateX(8px);
   }
   
-  /* Rounded sliders */
   .slider.round {
-    border-radius: 12px; /* Ajuste le rayon de bordure pour le slider */
+    border-radius: 12px; 
   }
   
   .slider.round:before {
@@ -129,6 +128,12 @@ main{
     font-size: 12px;
     font-family: 'Times New Roman', Times, serif;
     margin-top: -1px;
+  }
 
+  a{
+    padding-left: 30%;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
   }
   
