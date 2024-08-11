@@ -1,0 +1,169 @@
+main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+}
+nav {
+    width: 70%;
+    height: 10%;
+    backdrop-filter: blur(5px) saturate(200%);
+    -webkit-backdrop-filter: blur(5px) saturate(200%);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.125);
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-around;
+    z-index: 1;
+}
+nav .logo {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav .logo img {
+    width: 80%;
+}
+nav .pages {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+nav .pages .page {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+nav .pages .page img{
+    width: 15px;
+    height: 15px;
+}
+nav .pages .page a{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+}
+nav .pages .page:hover{
+    transform: scale(1.1);
+}
+nav .button{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav .button button{
+    width: 80%;
+    height: 70%;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    background-color: #0075FF;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+nav .button button:hover {
+    background-color: #0056CC;
+    transform: scale(1.05);
+}
+article{
+    width: 100%;
+    height: 100%;
+    background: rgb(15,18,59);
+    background: linear-gradient(0deg, rgba(15,18,59,1) 0%, rgba(9,13,46,1) 59%, rgba(2,5,21,1) 100%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+article .left{
+    width: 50%;
+    height:100%;
+    background-image: url("/assets/auth-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(15,18,59);
+
+}
+article .left p{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+
+}
+article .right{
+    width: 50%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+article footer{
+    width: 100%;
+    height: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+article footer p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    font-size: 12px;
+    font-weight: lighter;
+}
+article .routing{
+    width: 100%;
+    height: 82%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+article .routing .title{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+article .routing .title h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+    color: white;
+}
+article .routing .title p{
+    font-size: 12px;
+    font-weight: lighter;
+    color: white;
+}
+article .routing .component{
+    width: 70%;
+    height: 80%;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.125);
+    padding: 20px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}

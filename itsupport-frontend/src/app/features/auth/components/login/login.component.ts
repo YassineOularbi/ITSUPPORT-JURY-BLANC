@@ -1,14 +1,14 @@
 import { Component, Signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from '../../../core/services/auth.service';
-import { LoginRequest } from '../../../core/interfaces/login-request.interface';
+import { AuthService } from '../../../../core/services/auth.service';
+import { LoginRequest } from '../../../../core/interfaces/login-request.interface';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { Role } from '../../../core/enums/role.enum';
-import { AppState } from '../../../core/ngrx/app.state';
+import { Role } from '../../../../core/enums/role.enum';
+import { AppState } from '../../../../core/ngrx/app.state';
 import { Store } from '@ngrx/store';
 import { pipe } from 'rxjs';
-import { selectRole } from '../../../core/ngrx/auth.selectors';
+import { selectRole } from '../../../../core/ngrx/auth.selectors';
 
 @Component({
   selector: 'app-login',

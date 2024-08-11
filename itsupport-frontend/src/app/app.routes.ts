@@ -1,18 +1,24 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './features/auth/login/login.component';
-import { HomeComponent } from './features/auth/home/home.component';
-import { AdminComponent } from './features/auth/admin/admin.component';
+import { LoginComponent } from './features/auth/components/login/login.component';
+import { HomeComponent } from './features/home/home.component';
+import { AdminComponent } from './shared/components/admin/admin.component';
 import { authGuard } from './core/guards/auth.guard';
 import { Role } from './core/enums/role.enum';
-import { ClientComponent } from './features/auth/client/client.component';
-import { TechnicianComponent } from './features/auth/technician/technician.component';
-import { LogoutComponent } from './features/auth/logout/logout.component';
+import { ClientComponent } from './shared/components/client/client.component';
+import { TechnicianComponent } from './shared/components/technician/technician.component';
+import { LogoutComponent } from './features/auth/components/logout/logout.component';
+import { AuthComponent } from './features/auth/auth.component';
+import { SignupComponent } from './features/auth/components/signup/signup.component';
 
 export const routes: Routes = [
     {
-        path: 'login',
-        component: LoginComponent,
-        // canActivate: [authGuard] 
+        path: '',
+        component: AuthComponent,
+        children: [
+          { path: '', redirectTo: 'login', pathMatch: 'full' },
+          { path: 'login', component: LoginComponent },
+          { path: 'signup', component: SignupComponent }
+        ]
     },
     {
         path: 'logout',

@@ -5,10 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5b23ce9-7c94-44ef-a548-21877b5f28ec" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/admin.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/admin.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/client.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/client.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/technician.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/technician.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/admin/admin.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/admin/admin.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/admin/admin.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/client/client.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/client/client.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/client/client.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/home/home.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/home/home.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/home/home.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/login/login.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/login/login.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/login/login.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/logout/logout.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/logout/logout.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/logout/logout.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/technician/technician.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/technician/technician.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/technician/technician.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,29 +57,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.itsupport [clean].executor": "Run",
-    "Maven.itsupport [install].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.ItsupportApplication.executor": "Run",
-    "git-widget-placeholder": "frontend",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/user/Desktop/ENAA-CHALLENGES-WORKSHOP-PROJECT/BRIEFS-ENAA-SIMPLONE/ITSUPPORT-JURY-BLANC/itsupport-backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.itsupport [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.itsupport [install].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ItsupportApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;frontend&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Desktop/ENAA-CHALLENGES-WORKSHOP-PROJECT/BRIEFS-ENAA-SIMPLONE/ITSUPPORT-JURY-BLANC/itsupport-backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="ItsupportApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
