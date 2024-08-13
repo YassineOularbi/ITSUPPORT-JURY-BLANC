@@ -1,97 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-    <component name="AutoImportSettings">
-        <option name="autoReloadType" value="SELECTIVE" />
-    </component>
-    <component name="ChangeListManager">
-        <list default="true" id="b5b23ce9-7c94-44ef-a548-21877b5f28ec" name="Changes" comment="">
-            <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/config/AppConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/config/AppConfig.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/config/SecurityConfig.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/config/SwaggerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/config/SwaggerConfig.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/controller/AuthController.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/exception/LoginException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/exception/LoginException.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/exception/RegistrationException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/exception/RegistrationException.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/filter/AuthFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/filter/AuthFilter.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/AuthResponse$AuthResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/AuthResponse$AuthResponseBuilder.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/AuthResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/AuthResponse.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/LoginRequest$LoginRequestBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/LoginRequest$LoginRequestBuilder.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/LoginRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/LoginRequest.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/RegisterRequest$RegisterRequestBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/RegisterRequest$RegisterRequestBuilder.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/RegisterRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/RegisterRequest.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/service/AuthService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/service/AuthService.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/service/JwtService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/service/JwtService.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/controller/AdminController.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/dto/EquipmentDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/dto/EquipmentDto.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/dto/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/dto/UserDto.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/dto/UserUpdateDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/dto/UserUpdateDto.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/enums/EquipmentStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/enums/EquipmentStatus.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/enums/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/enums/Role.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/exception/AdminNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/exception/AdminNotFoundException.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/exception/ClientNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/exception/ClientNotFoundException.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/exception/EquipmentNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/exception/EquipmentNotFoundException.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/exception/TechnicianNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/exception/TechnicianNotFoundException.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/mapper/AdminMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/mapper/AdminMapperImpl.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/mapper/ClientMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/mapper/ClientMapperImpl.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/mapper/TechnicianMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/mapper/TechnicianMapperImpl.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/model/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/model/Admin.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/model/BreakDown.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/model/BreakDown.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/model/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/model/Client.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/model/Equipment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/model/Equipment.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/model/Technician.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/model/Technician.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/model/User.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/repository/EquipmentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/repository/EquipmentRepository.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/repository/TechnicianRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/repository/TechnicianRepository.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/service/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/service/AdminService.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/service/ClientService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/service/ClientService.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/service/EquipmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/service/EquipmentService.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/service/TechnicianService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/service/TechnicianService.class" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/AdminMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/AdminMapperImpl.java" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/ClientMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/ClientMapperImpl.java" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/EquipmentMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/EquipmentMapperImpl.java" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/TechnicianMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/TechnicianMapperImpl.java" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/UserMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/UserMapperImpl.java" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.itsupport.ItsupportApplicationTests.xml" beforeDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.itsupport.ItsupportApplicationTests.txt" beforeDir="false" />
-            <change beforePath="$PROJECT_DIR$/target/test-classes/com/itsupport/ItsupportApplicationTests.class" beforeDir="false" />
-            <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/admin.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/admin.service.ts" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/client.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/client.service.ts" afterDir="false" />
-            <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/technician.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/technician.service.ts" afterDir="false" />
-        </list>
-        <option name="SHOW_DIALOG" value="false" />
-        <option name="HIGHLIGHT_CONFLICTS" value="true" />
-        <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-        <option name="LAST_RESOLUTION" value="IGNORE" />
-    </component>
-    <component name="FileTemplateManagerImpl">
-        <option name="RECENT_TEMPLATES">
-            <list>
-                <option value="Enum" />
-                <option value="Interface" />
-                <option value="Class" />
-            </list>
-        </option>
-    </component>
-    <component name="Git.Settings">
-        <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-    </component>
-    <component name="MarkdownSettingsMigration">
-        <option name="stateVersion" value="1" />
-    </component>
-    <component name="ProjectColorInfo">{
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b5b23ce9-7c94-44ef-a548-21877b5f28ec" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/login/login.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/login/login.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/logout/logout.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/logout/logout.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/logout/logout.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/admin/admin.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/admin/admin.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/admin/admin.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/client/client.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/client/client.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/client/client.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/technician/technician.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/technician/technician.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/technician/technician.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/styles.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
         &quot;associatedIndex&quot;: 1
         }</component>
-    <component name="ProjectId" id="2kEmXPs91uuzFvdRq1s0p7501Bj" />
-    <component name="ProjectViewState">
-        <option name="hideEmptyMiddlePackages" value="true" />
-        <option name="showLibraryContents" value="true" />
-    </component>
-    <component name="PropertiesComponent"><![CDATA[{
+  <component name="ProjectId" id="2kEmXPs91uuzFvdRq1s0p7501Bj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Maven.itsupport [clean].executor": "Run",
     "Maven.itsupport [install].executor": "Run",
@@ -102,7 +66,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.ItsupportApplication.executor": "Run",
-    "git-widget-placeholder": "Merging frontend",
+    "git-widget-placeholder": "frontend",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/user/Desktop/ENAA-CHALLENGES-WORKSHOP-PROJECT/BRIEFS-ENAA-SIMPLONE/ITSUPPORT-JURY-BLANC/itsupport-backend",
     "node.js.detected.package.eslint": "true",
@@ -114,31 +78,31 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-    <component name="RunManager">
-        <configuration name="ItsupportApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-            <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-            <module name="itsupport" />
-            <option name="SPRING_BOOT_MAIN_CLASS" value="com.itsupport.ItsupportApplication" />
-            <method v="2">
-                <option name="Make" enabled="true" />
-            </method>
-        </configuration>
-    </component>
-    <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-    <component name="TaskManager">
-        <task active="true" id="Default" summary="Default task">
-            <changelist id="b5b23ce9-7c94-44ef-a548-21877b5f28ec" name="Changes" comment="" />
-            <created>1722857150015</created>
-            <option name="number" value="Default" />
-            <option name="presentableId" value="Default" />
-            <updated>1722857150015</updated>
-            <workItem from="1722857150798" duration="331000" />
-            <workItem from="1722863170435" duration="15815000" />
-            <workItem from="1722891305078" duration="11834000" />
-        </task>
-        <servers />
-    </component>
-    <component name="TypeScriptGeneratedFilesManager">
-        <option name="version" value="3" />
-    </component>
+  <component name="RunManager">
+    <configuration name="ItsupportApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="itsupport" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.itsupport.ItsupportApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b5b23ce9-7c94-44ef-a548-21877b5f28ec" name="Changes" comment="" />
+      <created>1722857150015</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1722857150015</updated>
+      <workItem from="1722857150798" duration="331000" />
+      <workItem from="1722863170435" duration="15815000" />
+      <workItem from="1722891305078" duration="11834000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
 </project>

@@ -1,0 +1,758 @@
+ici le dashboard parent component (
+
+ts : 
+import { Component } from '@angular/core';
+import { SidebarComponent } from '../../shared/components/sidebar/sidebar.component';
+import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
+
+@Component({
+  selector: 'app-dashboard',
+  standalone: true,
+  imports: [SidebarComponent, NavbarComponent],
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
+})
+export class DashboardComponent {
+  sidebarOpen = true;
+
+  onSidebarToggle(isOpen: boolean) {
+    this.sidebarOpen = isOpen;
+  }
+}
+
+html : 
+<div class="dashboard-container">
+    <app-navbar [isSidebarOpen]="sidebarOpen"></app-navbar>
+    <div class="dashboard-content">
+        <app-sidebar (sidebarToggle)="onSidebarToggle($event)"></app-sidebar>
+        <div class="main-content">
+
+        </div>
+    </div>
+</div>
+
+css : 
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .dashboard-content {
+    display: flex;
+    flex: 1;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  )
+
+ici le navbar child component (
+
+ts : 
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-navbar',
+  standalone: true,
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
+})
+export class NavbarComponent {
+  @Input() isSidebarOpen: boolean = true;
+}
+ 
+html : 
+<nav>
+    <div class="logo">
+
+    </div>
+    <div class="nav-right">
+        <button><i class='bx bxs-bell'></i></button>
+        <button><i class='bx bxs-help-circle'></i></button>
+        <button><i class='bx bxs-cog'></i></button>
+        <div class="dropdown">
+            <button><i class='bx bx-menu'></i></button>
+            <div class="menu">
+                <button>
+                    <img src="assets/profile.png" />
+                    <span>Account</span>
+                </button>
+                <button>
+                    <span></span>
+                    <span>Search</span>
+                </button>
+                <button>
+                    <span style="background-position: 0 -1794px"></span>
+                    <span>Maps</span>
+                </button>
+                <button>
+                    <span style="background-position: 0 -3174px"></span>
+                    <span>YouTube</span>
+                </button>
+                <button>
+                    <span style="background-position: 0 -897px"></span>
+                    <span>Play</span>
+                </button>
+                <button>
+                    <span style="background-position: 0 -414px"></span>
+                    <span>News</span>
+                </button>
+                <button>
+                    <span style="background-position: 0 -2415px"></span>
+                    <span>Gmail</span>
+                </button>
+                <button>
+                    <span style="background-position: 0 -1104px"></span>
+                    <span>Meet</span>
+                </button>
+                <button>
+                    <span style="background-position: 0 -69px"></span>
+                    <span>Chat</span>
+                </button>
+                <button>
+                    <span style="background-position: 0 -1449px"></span>
+                    <span>Contacts</span>
+                </button>
+                <button>
+                    <span style="background-position: 0 0"></span>
+                    <span>Drive</span>
+                </button>
+                <button>
+                    <span style="background-position: 0 -759px"></span>
+                    <span>Calendar</span>
+                </button>
+                <button>
+                    <span style="background-position: 0 -2346px"></span>
+                    <span>Translate</span>
+                </button>
+                <button>
+                    <span style="background-position: 0 -966px"></span>
+                    <span>Photos</span>
+                </button>
+                <button>
+                    <span style="background-position: 0 -2070px"></span>
+                    <span>Ad Centre</span>
+                </button>
+                <button>
+                    <span style="background-position: 0 -1932px"></span>
+                    <span>Shopping</span>
+                </button>
+            </div>
+        </div>
+        <img src="assets/profile.png" />
+    </div>
+</nav>
+css : 
+
+nav {
+    position: fixed;
+    top: 16.5%;
+    right: -38.8%;
+    translate: -50% -90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 79%;
+    height: 50px;
+    padding: 0 20px;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    box-shadow: 0 0 20px rgb(0 0 0 / 6%);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    width: 36px;
+    padding: 0;
+    margin-left: 4px;
+    margin-right: 6px;
+  }
+  
+  span.material-symbols-outlined {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 72px;
+    font-size: 24px;
+  }
+  
+  nav h2 {
+    font-size: 19px;
+    font-weight: 400;
+  }
+  
+  .nav-right > img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: contain;
+    margin-left: 8px;
+  }
+  
+  button {
+    background: transparent;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+  }
+  
+  .nav-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .dropdown {
+    cursor: pointer;
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: 72px;
+  }
+  
+  .dropdown > button {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    background: transparent;
+  }
+  
+  .dropdown > button::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    scale: 0.25;
+    opacity: 0;
+    background: rgb(255 255 255 / 8%);
+    transition: 0.2s;
+  }
+  
+  .dropdown:hover > button::before {
+    scale: 1;
+    opacity: 1;
+  }
+  
+  .menu {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 64px;
+    right: -20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: max-content;
+    translate: 0 16px;
+    width: 270px;
+    max-height: 286px;
+    padding: 10px;
+    background: #2d2d2d;
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    appearance: none;
+  }
+  
+  .menu::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  .menu::-webkit-scrollbar-thumb {
+    background: rgb(255 255 255 / 16%);
+    border-radius: 10px;
+    border: 4px solid transparent;
+    background-clip: padding-box;
+  }
+  
+  .dropdown:hover > .menu {
+    opacity: 1;
+    visibility: visible;
+    translate: 0;
+  }
+  
+  .menu > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    font-family: inherit;
+  }
+  
+  .menu > button > img {
+    width: 64px;
+    height: 64px;
+    padding: 16px;
+  }
+  
+  .menu > button > span:first-child {
+    display: block;
+    width: 64px;
+    height: 64px;
+    scale: 0.7;
+    background-image: url(/assets/logo.png);
+    background-position: 0 -3105px;
+    background-size: 64px 3307px;
+    background-repeat: no-repeat;
+  }
+  
+  .menu > button > span:last-child {
+    font-size: 12px;
+    translate: 0 -12px;
+  }
+  )
+ici le sidebar child component (
+
+ts : 
+import { Component, ElementRef, EventEmitter, Output, OnInit, ViewChild } from '@angular/core';
+import { Observable } from 'rxjs';
+import { UserDto } from '../../../core/dtos/user-dto.model';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../../core/ngrx/app.state';
+import { selectRole, selectUser } from '../../../core/ngrx/auth.selectors';
+import { CommonModule } from '@angular/common';
+import { Role } from '../../../core/enums/role.enum';
+import { AuthService } from '../../../core/services/auth.service';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-sidebar',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.css']
+})
+export class SidebarComponent implements OnInit {
+
+  user$: Observable<UserDto | null>;
+  role$: Observable<Role | null>;
+  Role = Role;
+  @Output() sidebarToggle = new EventEmitter<boolean>();
+
+  @ViewChild('sidebar', { static: true }) sidebar!: ElementRef;
+
+  isOpen = true;
+
+  constructor(private store: Store<AppState>, private authService: AuthService, private route: Router) {
+    this.user$ = this.store.select(selectUser);
+    this.role$ = this.store.select(selectRole);
+  }
+
+  toggleSidebar() {
+    this.isOpen = !this.isOpen;
+    const sidebarElement = this.sidebar.nativeElement;
+    const logoElement = sidebarElement.querySelector('.logo_name') as HTMLElement;
+    const closeBtn = sidebarElement.querySelector('#btn') as HTMLElement;
+    sidebarElement.classList.toggle('open');
+    logoElement.classList.toggle('hidden-logo');
+    if (sidebarElement.classList.contains('open')) {
+      closeBtn.classList.replace('bx-menu', 'bx-menu-alt-right');
+    } else {
+      closeBtn.classList.replace('bx-menu-alt-right', 'bx-menu');
+    }
+    this.sidebarToggle.emit(this.isOpen);
+  }
+
+  hasRole(roles: Role[]): boolean {
+    let hasRole = false;
+    this.role$.subscribe(role => {
+      if (role) {
+        hasRole = roles.includes(role);
+      }
+    }).unsubscribe();
+    return hasRole;
+  }
+
+  onLogout(): void {
+    this.authService.logout();
+    this.route.navigateByUrl('login');
+  }
+
+  ngOnInit(): void {
+    this.user$.subscribe();
+    this.role$.subscribe();
+  }
+}
+
+html : 
+<aside [class.open]="isOpen">
+    <div class="sidebar open" #sidebar>
+        <div class="logo-details">
+          <i class='bx icon'><img src="assets/favicon.ico" alt=""></i>
+          <img class="logo_name" src="assets/logo.png" alt="Logo">
+          <i class='bx bx-menu-alt-right' id="btn" (click)="toggleSidebar()"></i>
+        </div>
+        <ul class="nav-list" *ngIf="user$ | async as user">
+            <li>
+                <i class='bx bx-search' (click)="toggleSidebar()"></i>
+                <input type="text" placeholder="Search...">
+                <span class="tooltip">Search</span>
+            </li>
+            <li *ngIf="hasRole([Role.ADMIN, Role.CLIENT, Role.TECHNICIAN])">
+                <a href="#">
+                    <i class='bx bxs-dashboard'></i>                   
+                    <span class="links_name">Dashboard</span>
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li *ngIf="hasRole([Role.ADMIN])">
+                <a href="#">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">User</span>
+                </a>
+                <span class="tooltip">User</span>
+            </li>
+            <li *ngIf="hasRole([Role.ADMIN, Role.CLIENT])">
+                <a href="#">
+                    <i class='bx bx-sitemap'></i>
+                    <span class="links_name">Equipment</span>
+                </a>
+                <span class="tooltip">Equipment</span>
+            </li>
+            <li *ngIf="hasRole([Role.ADMIN, Role.CLIENT, Role.TECHNICIAN])">
+                <a href="#">
+                    <i class='bx bxs-coupon'></i>
+                    <span class="links_name">Ticket</span>
+                </a>
+                <span class="tooltip">Ticket</span>
+            </li>
+            <li *ngIf="hasRole([Role.ADMIN])">
+                <a href="#">
+                    <i class='bx bx-terminal'></i>
+                    <span class="links_name">Breakdown</span>
+                </a>
+                <span class="tooltip">Breakdown</span>
+            </li>
+            <li *ngIf="hasRole([Role.ADMIN])">
+                <a href="#">
+                    <i class='bx bx-shield-quarter'></i>
+                    <span class="links_name">Report</span>
+                </a>
+                <span class="tooltip">Report</span>
+            </li>
+            <li class="profile">
+                <div class="profile-details">
+                    <img src="assets/profile.png" alt="profileImg">
+                    <div class="name_job">
+                        <div class="name">{{ user.fullName }}</div>
+                        <div class="job"> {{ user.mail }} | {{ user.role.toLowerCase() }}</div>
+                    </div>
+                </div>
+                <i class='bx bx-log-out' id="log_out" (click)="onLogout()"></i>
+            </li>            
+        </ul>
+    </div>
+</aside>
+css : 
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 98%;
+    width: 78px;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    padding: 6px 14px;
+    z-index: 99;
+    transition: all 0.5s ease;
+    margin: 5px;
+}
+
+.sidebar.open {
+    width: 250px;
+}
+
+.sidebar .logo-details {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.sidebar .logo-details .icon {
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes transformX {
+    from {
+        transform: translateX(150px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+
+.sidebar .logo-details .icon img {
+    width: 30px;
+    animation: rotate 3s linear infinite;
+}
+
+.sidebar .logo-details .logo_name {
+    transition: all 1s ease;
+    width: 120px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+.hidden-logo{
+    display: none;
+}
+
+
+.sidebar.open .logo-details .icon,
+.sidebar.open .logo-details .logo_name {
+    opacity: 1;
+}
+
+.sidebar .logo-details #btn {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    font-size: 22px;
+    transition: all 0.4s ease;
+    font-size: 23px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.sidebar.open .logo-details #btn {
+    text-align: right;
+}
+
+.sidebar i {
+    color: #fff;
+    height: 60px;
+    min-width: 50px;
+    font-size: 28px;
+    text-align: center;
+    line-height: 60px;
+}
+
+.sidebar .nav-list {
+    margin-top: 20px;
+    height: 100%;
+}
+
+.sidebar li {
+    position: relative;
+    margin: 8px 0;
+    list-style: none;
+}
+
+.sidebar li .tooltip {
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 15px);
+    z-index: 3;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: opacity 0.4s ease, top 0.4s ease, transform 0.4s ease;
+}
+
+.sidebar li:hover .tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sidebar.open li .tooltip {
+    display: none;
+}
+
+.sidebar input {
+    font-size: 15px;
+    color: #FFF;
+    font-weight: 400;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    width: 50px;
+    border: none;
+    padding-left: 5px;
+    border-radius: 12px;
+    transition: all 0.5s ease;
+    background: #1d1b3184;
+}
+
+.sidebar.open input {
+    padding: 0 20px 0 50px;
+    width: 100%;
+}
+
+.sidebar .bx-search {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 22px;
+    backdrop-filter: blur(25px) saturate(130%);
+    -webkit-backdrop-filter: blur(25px) saturate(130%);
+    background-color: rgba(26, 25, 74, 0.6);
+    border-radius: 12px;
+    color: #FFF;
+}
+
+.sidebar.open .bx-search:hover {
+    background: #1d1b31;
+    color: #FFF;
+}
+
+.sidebar .bx-search:hover {
+    background: #FFF;
+    color: #11101d;
+}
+
+.sidebar li a {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(8px) saturate(150%);
+    -webkit-backdrop-filter: blur(8px) saturate(150%);
+    background-color: rgba(17, 16, 29, 0.5);
+    border-radius: 12px;
+}
+
+.sidebar li a:hover {
+    background: #FFF;
+    backdrop-filter: blur(10px) saturate(130%);
+    -webkit-backdrop-filter: blur(10px) saturate(130%);
+    background-color: rgba(255, 255, 255, 0.717);
+}
+
+.sidebar li a .links_name {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.sidebar.open li a .links_name {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidebar li a:hover .links_name,
+.sidebar li a:hover i {
+    transition: all 0.5s ease;
+    color: #11101D;
+}
+
+.sidebar li i {
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    border-radius: 12px;
+}
+
+.sidebar li.profile {
+    position: fixed;
+    height: 60px;
+    width: 77px;
+    left: 0;
+    bottom: -8px;
+    padding: 6px 14px;
+    backdrop-filter: blur(25px) saturate(130%);
+    -webkit-backdrop-filter: blur(25px) saturate(130%);
+    background-color: rgba(26, 25, 74, 0.6);
+    transition: all 0.5s ease;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.sidebar.open li.profile {
+    width: 249px;
+}
+
+.sidebar li .profile-details {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.sidebar li img {
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+.sidebar li.profile .name,
+.sidebar li.profile .job {
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.sidebar li.profile .job {
+    font-size: 12px;
+}
+
+.sidebar .profile #log_out {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: rgb(26, 25, 74);
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 0px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.sidebar.open .profile #log_out {
+    width: 50px;
+    background: none;
+    cursor: pointer;
+}
+)
+

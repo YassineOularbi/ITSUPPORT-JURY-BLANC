@@ -13,17 +13,12 @@ import { logout, setRole, setUser } from '../ngrx/auth.actions';
 import { Store } from '@ngrx/store';
 import { Role } from '../enums/role.enum';
 import { AppState } from '../ngrx/app.state';
-import { selectRole, selectUser } from '../ngrx/auth.selectors';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
-
-  user$: Observable<UserDto | null>
-
-  role$: Observable<Role | null>
 
   private apiUrl = `${environment.apiUrl}/api/auth`;
 
@@ -34,8 +29,6 @@ export class AuthService {
     private jwtService: JwtService,
     private store: Store<AppState>
   ) {
-    this.role$ = this.store.select((pipe(selectRole)));
-    this.user$ = this.store.select((pipe(selectUser)));
   }
 
   login(loginRequest: LoginRequest): Observable<AuthResponse> {
@@ -70,7 +63,7 @@ export class AuthService {
 
     if (token && !this.jwtService.isTokenExpired(token)) {
       const role: Role = this.jwtService.extractRole(token);
-      const user = this.jwtService.extractUser(token);
+      const user: UserDto = this.jwtService.extractUser(token);
       this.store.dispatch(setRole({ role }));
       this.store.dispatch(setUser({ user }));
       return true;
