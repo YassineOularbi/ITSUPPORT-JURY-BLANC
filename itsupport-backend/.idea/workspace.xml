@@ -5,26 +5,80 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5b23ce9-7c94-44ef-a548-21877b5f28ec" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/auth/config/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/exception/FileStorageException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/service/FileStorageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsupport/auth/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/auth/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsupport/auth/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/auth/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsupport/auth/model/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/auth/model/RegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsupport/auth/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/auth/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsupport/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsupport/dto/UserUpdateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/dto/UserUpdateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsupport/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/model/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsupport/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsupport/model/Technician.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/model/Technician.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsupport/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsupport/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/service/AdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/controller/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/RegisterRequest$RegisterRequestBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/RegisterRequest$RegisterRequestBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/RegisterRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/model/RegisterRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/service/AuthService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/service/AuthService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/dto/UserUpdateDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/dto/UserUpdateDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/mapper/AdminMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/mapper/AdminMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/mapper/ClientMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/mapper/ClientMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/mapper/TechnicianMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/mapper/TechnicianMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/model/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/model/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/model/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/model/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/model/Technician.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/model/Technician.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/service/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/service/AdminService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/AdminMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/AdminMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/ClientMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/ClientMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/EquipmentMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/EquipmentMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/TechnicianMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/TechnicianMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/UserMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/UserMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../itsupport-frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/interfaces/register-request.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/interfaces/register-request.interface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/models/admin.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/models/admin.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/models/client.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/models/client.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/models/technician.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/models/technician.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/models/user.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/admin.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/admin.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/login/login.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/login/login.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/logout/logout.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/logout/logout.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/logout/logout.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/admin/admin.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/admin/admin.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/admin/admin.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/client/client.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/client/client.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/client/client.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/technician/technician.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/technician/technician.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/technician/technician.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/client.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/client.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/technician.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/technician.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/signup/signup.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/auth/components/signup/signup.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/components/admin-dashboard/admin-dashboard.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/components/admin-dashboard/admin-dashboard.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/components/admin-dashboard/admin-dashboard.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/components/client-dashboard/client-dashboard.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/components/client-dashboard/client-dashboard.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/components/client-dashboard/client-dashboard.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/components/client-dashboard/client-dashboard.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/components/technician-dashboard/technician-dashboard.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/components/technician-dashboard/technician-dashboard.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/components/technician-dashboard/technician-dashboard.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/dashboard/dashboard.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/dashboard/dashboard.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/dashboard/dashboard.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/navbar/navbar.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/navbar/navbar.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/navbar/navbar.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/sidebar/sidebar.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/sidebar/sidebar.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/sidebar/sidebar.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/directives/show-on-path.directive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/directives/show-on-path.directive.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/assets/Nouveau Document texte.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +122,7 @@
     "Spring Boot.ItsupportApplication.executor": "Run",
     "git-widget-placeholder": "frontend",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/user/Desktop/ENAA-CHALLENGES-WORKSHOP-PROJECT/BRIEFS-ENAA-SIMPLONE/ITSUPPORT-JURY-BLANC/itsupport-backend",
+    "last_opened_file_path": "C:/Users/user/Desktop/ENAA-CHALLENGES-WORKSHOP-PROJECT/BRIEFS-ENAA-SIMPLONE/ITSUPPORT-JURY-BLANC/itsupport-backend/src/main/resources/static",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -78,6 +132,14 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\resources\static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\resources\static\images" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="ItsupportApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />

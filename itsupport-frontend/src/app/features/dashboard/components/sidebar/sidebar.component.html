@@ -1,0 +1,80 @@
+<aside [class.open]="isOpen">
+    <div class="sidebar open" #sidebar>
+      <div class="logo-details">
+        <i class='bx icon'><img src="assets/favicon.ico" alt=""></i>
+        <img class="logo_name" src="assets/logo.png" alt="Logo">
+        <i class='bx bx-menu-alt-right' id="btn" (click)="toggleSidebar()"></i>
+      </div>
+      <ul class="nav-list" *ngIf="user$ | async as user">
+        
+        <li *ngIf="hasRole([Role.ADMIN, Role.CLIENT, Role.TECHNICIAN])">
+            <a routerLink="/dashboard" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+              <i class='bx bxs-dashboard'></i>
+              <span class="links_name">Dashboard</span>
+            </a>
+            <span class="tooltip">Dashboard</span>
+          </li>
+        
+        <li *ngIf="hasRole([Role.ADMIN])">
+          <a routerLink="/dashboard/users" routerLinkActive="active-link" >
+            <i class='bx bx-user'></i>
+            <span class="links_name">User</span>
+          </a>
+          <span class="tooltip">User</span>
+        </li>
+        
+        <li *ngIf="hasRole([Role.ADMIN, Role.CLIENT])">
+          <a routerLink="/equipment" routerLinkActive="active-link">
+            <i class='bx bx-sitemap'></i>
+            <span class="links_name">Equipment</span>
+          </a>
+          <span class="tooltip">Equipment</span>
+        </li>
+        
+        <li *ngIf="hasRole([Role.ADMIN, Role.CLIENT, Role.TECHNICIAN])">
+          <a routerLink="/ticket" routerLinkActive="active-link">
+            <i class='bx bxs-coupon'></i>
+            <span class="links_name">Ticket</span>
+          </a>
+          <span class="tooltip">Ticket</span>
+        </li>
+        
+        <li *ngIf="hasRole([Role.ADMIN])">
+          <a routerLink="/breakdown" routerLinkActive="active-link">
+            <i class='bx bx-terminal'></i>
+            <span class="links_name">Breakdown</span>
+          </a>
+          <span class="tooltip">Breakdown</span>
+        </li>
+        
+        <li *ngIf="hasRole([Role.ADMIN])">
+          <a routerLink="/analytic" routerLinkActive="active-link">
+            <i class='bx bxs-bar-chart-alt-2'></i>
+            <span class="links_name">Analytic</span>
+          </a>
+          <span class="tooltip">Analytic</span>
+        </li>
+        
+        <li *ngIf="hasRole([Role.ADMIN])">
+          <a routerLink="/report" routerLinkActive="active-link">
+            <i class='bx bx-shield-quarter'></i>
+            <span class="links_name">Report</span>
+          </a>
+          <span class="tooltip">Report</span>
+        </li>
+        
+        <li class="profile">
+          <div class="profile-details">
+            <img [src]="getImageUrl(user.avatarUrl)" alt="profileImg">
+            <div class="name_job">
+              <div class="name">{{ user.fullName }}</div>
+              <div class="job">{{ user.mail }} | {{ user.role }}</div>
+            </div>
+          </div>
+          <i class='bx bx-log-out' id="log_out" (click)="onLogout()"></i>
+        </li>
+        
+      </ul>
+    </div>
+  </aside>
+  

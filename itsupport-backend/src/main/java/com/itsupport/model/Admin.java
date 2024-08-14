@@ -3,6 +3,8 @@ package com.itsupport.model;
 import com.itsupport.enums.Role;
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 /**
  * Represents an Admin entity in the system.
  *
@@ -45,8 +47,8 @@ public class Admin extends User {
      * @param username the username of the admin
      * @param password the password of the admin
      */
-    public Admin(Long id, String fullName, String mail, String username, String password) {
-        super(id, fullName, mail, username, password, Role.ADMIN);
+    public Admin(Long id, String fullName, String mail, String username, String password, Role role, String phone, String address, Date joinedDate, String avatarUrl) {
+        super(id, fullName, mail, username, password, Role.ADMIN, phone, address, joinedDate, avatarUrl);
         this.setRole(Role.ADMIN);
     }
 

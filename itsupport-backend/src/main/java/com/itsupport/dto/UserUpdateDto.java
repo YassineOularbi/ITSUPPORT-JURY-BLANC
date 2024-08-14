@@ -1,6 +1,7 @@
 package com.itsupport.dto;
 
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * Data Transfer Object (DTO) for updating user information.
@@ -22,28 +23,10 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserUpdateDto {
-
-    /**
-     * Full name of the user.
-     * This field represents the user's full name, which will be used for updating their profile information.
-     *
-     * Example: "John Doe", "Jane Smith"
-     */
     private String fullName;
-
-    /**
-     * Email address of the user.
-     * This field contains the user's email address, which will be used for updating their contact information.
-     *
-     * Example: "john.doe@example.com", "jane.smith@example.com"
-     */
     private String mail;
-
-    /**
-     * Username of the user.
-     * This field represents the user's login username, which will be used for updating their account information.
-     *
-     * Example: "johndoe", "janesmith"
-     */
     private String username;
+    private String phone;
+    private String address;
+    private MultipartFile picture;
 }

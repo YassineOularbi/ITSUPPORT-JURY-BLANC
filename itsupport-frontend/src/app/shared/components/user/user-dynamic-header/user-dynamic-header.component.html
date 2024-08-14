@@ -1,0 +1,54 @@
+<nav class="navbar">
+    <ng-container>
+      <ng-container *appShowOnPath="'/dashboard/users/admin|/dashboard/users/client|/dashboard/users/technician'">
+        <div class="filter-options">
+          <button 
+            [routerLink]="['/dashboard/users/admin']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            Admins
+          </button>
+          <button 
+            [routerLink]="['/dashboard/users/client']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            Clients
+          </button>
+          <button 
+            [routerLink]="['/dashboard/users/technician']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            Technicians
+          </button>
+        </div>
+      </ng-container>
+      <ng-container *appShowOnPath="'/dashboard/users/add/admin|/dashboard/users/add/client|/dashboard/users/add/technician'">
+        <div class="add-user-options">
+          <button 
+            [routerLink]="['/dashboard/users/add/admin']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            Admins
+          </button>
+          <button 
+            [routerLink]="['/dashboard/users/add/client']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            Clients
+          </button>
+          <button 
+            [routerLink]="['/dashboard/users/add/technician']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            Technicians
+          </button>
+        </div>
+      </ng-container>
+      <ng-container>
+        <a *appShowOnPath="'/dashboard/users/admin|/dashboard/users/client|/dashboard/users/technician'" routerLink="/dashboard/users/add/admin">New user</a>
+        <a *appShowOnPath="'/dashboard/users/add/admin|/dashboard/users/add/client|/dashboard/users/add/technician'" routerLink="/dashboard/users">Go Back</a>
+        <a *appShowOnPath="'/dashboard/users/edit'" routerLink="/dashboard/users">Go Back</a>
+      </ng-container>
+    </ng-container>
+  </nav>
+  

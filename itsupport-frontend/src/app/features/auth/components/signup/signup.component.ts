@@ -36,7 +36,7 @@ export class SignupComponent implements OnInit {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private passwordStrengthPipe: PasswordStrengthPipe,
+    private passwordStrengthPipe: PasswordStrengthPipe
   ) {
     this.signupForm = this.fb.group({
       fullName: ['', Validators.required],
@@ -66,7 +66,7 @@ export class SignupComponent implements OnInit {
     if (this.signupForm.valid) {
       const registerRequest: RegisterRequest = this.signupForm.value;
 
-      this.authService.registerAdmin(registerRequest).subscribe({
+      this.authService.register(registerRequest).subscribe({
         next: () => {
           this.signupContainer.nativeElement.classList.add('fade-out');
           this.showSuccessAnimation = true;

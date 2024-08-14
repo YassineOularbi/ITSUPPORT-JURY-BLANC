@@ -3,11 +3,13 @@ package com.itsupport.model;
 import com.itsupport.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -25,6 +27,10 @@ import java.util.List;
  * - {@link #username} - Username for user login.
  * - {@link #password} - Password for user authentication.
  * - {@link #role} - Role of the user, defining their access level.
+ * - {@link #phone} - Phone number of the user.
+ * - {@link #address} - Address of the user.
+ * - {@link #joinedDate} - Date when the user joined.
+ * - {@link #avatarUrl} - URL for the user's avatar.
  *
  * Methods:
  *
@@ -50,44 +56,40 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "user")
 public class User implements UserDetails {
-    /**
-     * Unique identifier for the user.
-     */
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
 
-    /**
-     * Full name of the user.
-     */
     @Column(name = "full_name", nullable = false)
     private String fullName;
 
-    /**
-     * Email address of the user.
-     */
     @Column(name = "mail", nullable = false)
     private String mail;
 
-    /**
-     * Username for user login.
-     */
     @Column(name = "username", nullable = false, unique = true)
     private String username;
 
-    /**
-     * Password for user authentication.
-     */
     @Column(name = "password", nullable = false)
     private String password;
 
-    /**
-     * Role of the user, defining their access level.
-     */
     @Column(name = "role", nullable = false)
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @Column(name = "phone", nullable = true)
+    private String phone;
+
+    @Column(name = "address", nullable = true)
+    private String address;
+
+    @Column(name = "joined_date")
+    @CreationTimestamp
+    private Date joinedDate;
+
+    @Column(name = "avatar_url", nullable = true)
+    private String avatarUrl;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

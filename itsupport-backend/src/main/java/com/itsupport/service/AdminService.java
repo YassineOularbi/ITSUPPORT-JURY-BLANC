@@ -49,6 +49,7 @@ public class AdminService {
 
     private final AdminRepository adminRepository;
     private final AdminMapper adminMapper;
+    private final FileStorageService fileStorageService;
 
     /**
      * Retrieves a list of all {@link Admin} entities.
@@ -86,6 +87,10 @@ public class AdminService {
     public Admin updateAdmin(Long id, UserUpdateDto userUpdateDto) {
         var admin = adminRepository.findById(id).orElseThrow(AdminNotFoundException::new);
         var updatedAdmin = adminMapper.partialUpdate(userUpdateDto, admin);
+        if (userUpdateDto.getPicture() != null && !userUpdateDto.getPicture().isEmpty()) {
+            String fileName = fileStorageService.storeFile(userUpdateDto.getPicture());
+            updatedAdmin.setAvatarUrl(fileName);
+        }
         return adminRepository.save(updatedAdmin);
     }
 

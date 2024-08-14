@@ -37,7 +37,7 @@ export class ClientService {
     );
   }
 
-  updateClient(id: string, userUpdateDto: UserUpdateDto): Observable<Client> {
+  updateClient(id: string, userUpdateDto: FormData): Observable<Client> {
     return this.http.put<Client>(`${this.apiUrl}/update-client/${id}`, userUpdateDto).pipe(
       catchError((error) => {
         if (error.status === 404) {

@@ -5,6 +5,7 @@ import com.itsupport.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -68,8 +69,8 @@ public class Client extends User {
      * @param equipments List of equipment owned by the client.
      * @param tickets List of tickets created by the client.
      */
-    public Client(Long id, String fullName, String mail, String username, String password, Role role, List<Equipment> equipments, List<Ticket> tickets) {
-        super(id, fullName, mail, username, password, role);
+    public Client(Long id, String fullName, String mail, String username, String password, Role role, String phone, String address, Date joinedDate, String avatarUrl, List<Equipment> equipments, List<Ticket> tickets) {
+        super(id, fullName, mail, username, password, Role.CLIENT, phone, address, joinedDate, avatarUrl);
         this.equipments = equipments;
         this.tickets = tickets;
         this.setRole(Role.CLIENT);

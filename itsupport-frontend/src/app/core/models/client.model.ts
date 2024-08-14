@@ -13,12 +13,17 @@ export class Client extends User {
     mail: string,
     username: string,
     password: string,
-    equipments: Equipment[] | undefined = [],
-    tickets: Ticket[] | undefined = []
+    equipments: Equipment[] = [],
+    tickets: Ticket[] = [],
+    phone?: string,
+    address?: string,
+    joinedDate?: Date,
+    avatarUrl?: string
   ) {
-    super(id, fullName, mail, username, password, Role.CLIENT);
+    super(id, fullName, mail, username, password, Role.CLIENT, phone, address, joinedDate, avatarUrl);
     this._equipments = equipments;
     this._tickets = tickets;
+    this.role = Role.CLIENT;
   }
 
   get equipments(): Equipment[] | undefined {
@@ -29,7 +34,7 @@ export class Client extends User {
     this._equipments = value;
   }
 
-  get tickets(): Ticket[]  | undefined {
+  get tickets(): Ticket[] | undefined {
     return this._tickets;
   }
 

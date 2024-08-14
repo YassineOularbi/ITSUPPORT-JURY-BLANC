@@ -1,0 +1,55 @@
+<div class="wrap">
+    <div class="card-container" *ngFor="let user of users">
+        <div class="profile-header">
+
+                <img 
+                  class="round"
+                  [src]="getImageUrl(user.avatarUrl)"
+                  alt="user"
+                />
+
+            <div class="profile-info">
+                <span class="pro" *ngIf="user.role === 'TECHNICIAN'"
+                    [ngClass]="{'available': user.availability, 'not-available': !user.availability}">
+                    {{ user.availability ? 'Available' : 'Not Available' }}
+                </span>
+                <h3>{{ user.fullName }}</h3>
+                <h6>{{ user.role.toUpperCase() }}</h6>
+            </div>
+            <div class="options-menu">
+                <button class="menu-button">
+                    <i class='bx bx-dots-vertical-rounded'></i>
+                </button>
+                <div class="menu-content">
+                    <button class="menu-item" [routerLink]="['/dashboard/users/edit', userType, user.id]">
+                        <i class='bx bx-edit'></i> Edit
+                    </button>                    
+                    <button class="menu-item" (click)="OnDelete(user.id)">
+                        <i class='bx bx-trash'></i> Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="profile-body">
+            <div class="info-item">
+                <i class='bx bx-envelope'></i>
+                <p>{{ user.mail }}</p>
+            </div>
+            <div class="info-item">
+                <i class='bx bx-phone'></i>
+                <!-- Affichage de 'N/A' si le numéro de téléphone est absent -->
+                <p>{{ user.phone || 'N/A' }}</p>
+            </div>
+            <div class="info-item">
+                <i class='bx bx-map'></i>
+                <!-- Affichage de 'N/A' si l'adresse est absente -->
+                <p>{{ user.address || 'N/A' }}</p>
+            </div>
+            <div class="info-item">
+                <i class='bx bx-calendar'></i>
+                <!-- Affichage de la date d'inscription ou 'N/A' si elle est absente -->
+                <p>Joined: {{ user.joinedDate ? (user.joinedDate | date: 'MMMM d, yyyy') : 'N/A' }}</p>
+            </div>
+        </div>
+    </div>
+</div>

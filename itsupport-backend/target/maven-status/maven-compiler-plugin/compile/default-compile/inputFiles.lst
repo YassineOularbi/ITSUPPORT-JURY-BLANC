@@ -1,6 +1,7 @@
 C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\java\com\itsupport\exception\BreakdownNotFoundException.java
 C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\java\com\itsupport\mapper\UserMapper.java
 C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\java\com\itsupport\model\Equipment.java
+C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\java\com\itsupport\auth\config\WebConfig.java
 C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\java\com\itsupport\controller\TechnicianController.java
 C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\java\com\itsupport\dto\TicketDto.java
 C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\java\com\itsupport\exception\AdminNotFoundException.java
@@ -40,6 +41,7 @@ C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSU
 C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\java\com\itsupport\model\Technician.java
 C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\java\com\itsupport\repository\TechnicianRepository.java
 C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\java\com\itsupport\exception\TechnicianNotFoundException.java
+C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\java\com\itsupport\service\FileStorageService.java
 C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\java\com\itsupport\controller\EquipmentController.java
 C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\java\com\itsupport\dto\UserDto.java
 C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\java\com\itsupport\model\Ticket.java
@@ -53,6 +55,7 @@ C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSU
 C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\java\com\itsupport\repository\UserRepository.java
 C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\java\com\itsupport\mapper\TicketMapper.java
 C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\java\com\itsupport\exception\EquipmentNotFoundException.java
+C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\java\com\itsupport\exception\FileStorageException.java
 C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\java\com\itsupport\enums\Role.java
 C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\java\com\itsupport\model\EquipmentBreakdownKey.java
 C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\ITSUPPORT-JURY-BLANC\itsupport-backend\src\main\java\com\itsupport\repository\EquipmentRepository.java
