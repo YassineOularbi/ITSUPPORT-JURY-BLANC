@@ -1,0 +1,15 @@
+.layout-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .header {
+    height: 10%;
+  }
+  
+  .main-content {
+    padding: 5px;
+    height: 90%;
+    overflow: hidden;
+    overflow-y: scroll;
+  }

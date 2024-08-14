@@ -54,6 +54,7 @@ com\itsupport\auth\model\RegisterRequest$RegisterRequestBuilder.class
 com\itsupport\mapper\EquipmentMapper.class
 com\itsupport\auth\model\LoginRequest$LoginRequestBuilder.class
 com\itsupport\auth\service\JwtService.class
+com\itsupport\auth\config\WebConfig.class
 com\itsupport\dto\UserDto.class
 com\itsupport\auth\model\AuthResponse$AuthResponseBuilder.class
 com\itsupport\model\EquipmentBreakdown.class
@@ -61,9 +62,11 @@ com\itsupport\auth\model\RegisterRequest.class
 com\itsupport\exception\EquipmentNotFoundException.class
 com\itsupport\controller\ClientController.class
 com\itsupport\mapper\TicketMapperImpl.class
+com\itsupport\service\FileStorageService.class
 com\itsupport\auth\config\SwaggerConfig.class
 com\itsupport\mapper\BreakdownMapper.class
 com\itsupport\controller\BreakdownController.class
+com\itsupport\exception\FileStorageException.class
 com\itsupport\controller\TechnicianController.class
 com\itsupport\auth\config\AppConfig.class
 com\itsupport\auth\model\LoginRequest.class

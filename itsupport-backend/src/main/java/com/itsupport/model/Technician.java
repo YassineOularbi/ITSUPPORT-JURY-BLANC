@@ -5,6 +5,7 @@ import com.itsupport.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -59,8 +60,8 @@ public class Technician extends User {
      * @param availability  The availability status of the technician.
      * @param tickets       The list of tickets assigned to the technician.
      */
-    public Technician(Long id, String fullName, String mail, String username, String password, Role role, Boolean availability, List<Ticket> tickets) {
-        super(id, fullName, mail, username, password, role);
+    public Technician(Long id, String fullName, String mail, String username, String password, Role role, String phone, String address, Date joinedDate, String avatarUrl, Boolean availability, List<Ticket> tickets) {
+        super(id, fullName, mail, username, password, Role.TECHNICIAN, phone, address, joinedDate, avatarUrl);
         this.availability = availability;
         this.tickets = tickets;
         this.setRole(Role.TECHNICIAN);

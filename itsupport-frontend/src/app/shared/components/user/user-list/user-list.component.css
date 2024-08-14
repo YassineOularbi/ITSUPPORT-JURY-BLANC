@@ -1,0 +1,149 @@
+.wrap{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+  
+  .card-container {
+    transition: all 0.4s ease;
+    backdrop-filter: blur(8px) saturate(150%);
+    -webkit-backdrop-filter: blur(8px) saturate(150%);
+    background-color: rgba(17, 16, 29, 0.5);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: 32%;
+    height: 250px;
+    color: #fff;
+    overflow: hidden;
+    text-align: left;
+  }
+  
+  .profile-header {
+    position: relative;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .profile-info {
+    max-width: calc(100% - 140px);
+    height: 40%;
+  }
+  
+  .profile-info h3 {
+    margin: 10px 0;
+    font-size: 22px;
+  }
+  
+  .profile-info h6 {
+    margin: 5px 0;
+    color: #ddd;
+    text-transform: uppercase;
+  }
+  
+  .profile-info .pro {
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 5px 15px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+
+.available {
+    background-color: #4CAF50;
+}
+
+.not-available {
+    background-color: #f44336;
+}
+  
+  .round {
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+  
+  .profile-body {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-body p {
+    font-size: 12px;
+    margin: 5px 0;
+    color: #ccc;
+  }
+  .info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .info-item i {
+    color: white;
+    font-size: 15px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  
+  .info-item p {
+    font-size: 13px;
+    margin: 0;
+    color: white;
+  }
+  .options-menu {
+    position: absolute;
+    top: 15px;
+    right: 5px;
+    display: inline-block;
+  }
+  
+  .menu-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .menu-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: rgba(17, 16, 29, 0.9);
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 5px 0;
+    z-index: 10;
+  }
+  
+  .menu-content .menu-item {
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 10px 15px;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu-content .menu-item i {
+    margin-right: 10px;
+  }
+  
+  .menu-button:hover + .menu-content,
+  .menu-content:hover {
+    display: block;
+  }
+  

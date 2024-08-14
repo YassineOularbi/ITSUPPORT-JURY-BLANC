@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, pipe, throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { LoginException } from '../exceptions/login.exception';
@@ -78,8 +78,8 @@ export class AuthService {
     this.store.dispatch(logout());
   }
 
-  registerAdmin(registerRequest: RegisterRequest): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}/register/admin`, registerRequest).pipe(
+  register(registerRequest: RegisterRequest): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.apiUrl}/register`, registerRequest ).pipe(
       catchError((error) => {
         if (error.status === 409) {
           return throwError(() => new Error('Registration failed. Admin already exists.'));
@@ -89,7 +89,19 @@ export class AuthService {
     );
   }
 
-  registerTechnician(registerRequest: RegisterRequest): Observable<AuthResponse> {
+
+  registerAdmin(registerRequest: FormData): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.apiUrl}/register/admin`, registerRequest ).pipe(
+      catchError((error) => {
+        if (error.status === 409) {
+          return throwError(() => new Error('Registration failed. Admin already exists.'));
+        }
+        return throwError(() => error.message || 'Failed to register admin');
+      })
+    );
+  }
+
+  registerTechnician(registerRequest: FormData): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(`${this.apiUrl}/register/technician`, registerRequest).pipe(
       catchError((error) => {
         if (error.status === 409) {
@@ -100,7 +112,7 @@ export class AuthService {
     );
   }
 
-  registerClient(registerRequest: RegisterRequest): Observable<AuthResponse> {
+  registerClient(registerRequest: FormData): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(`${this.apiUrl}/register/client`, registerRequest).pipe(
       catchError((error) => {
         if (error.status === 409) {

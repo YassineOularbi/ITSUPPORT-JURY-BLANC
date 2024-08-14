@@ -14,3 +14,24 @@ body{
     background-position-x: center;
     background-position-y: center;
 }
+
+::-webkit-scrollbar {
+    width: 5px;
+    height:5px;
+
+  }
+  
+  ::-webkit-scrollbar-track {
+    border-radius: 5px;
+    margin: 10px;
+    background: #ffffff4f; 
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+   background: rgb(59, 9, 174); 
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+  background: rgba(3, 22, 117, 0.78);
+  }

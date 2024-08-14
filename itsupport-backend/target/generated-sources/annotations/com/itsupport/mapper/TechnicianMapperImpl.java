@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-08-10T18:46:53+0100",
+    date = "2024-08-14T18:18:16+0100",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.3 (Oracle Corporation)"
 )
 @Component
@@ -27,6 +27,8 @@ public class TechnicianMapperImpl implements TechnicianMapper {
         technician.setMail( registerRequest.getMail() );
         technician.setUsername( registerRequest.getUsername() );
         technician.setPassword( registerRequest.getPassword() );
+        technician.setPhone( registerRequest.getPhone() );
+        technician.setAddress( registerRequest.getAddress() );
 
         return technician;
     }
@@ -43,6 +45,9 @@ public class TechnicianMapperImpl implements TechnicianMapper {
         userDto.setFullName( technician.getFullName() );
         userDto.setMail( technician.getMail() );
         userDto.setUsername( technician.getUsername() );
+        userDto.setPhone( technician.getPhone() );
+        userDto.setAddress( technician.getAddress() );
+        userDto.setAvatarUrl( technician.getAvatarUrl() );
         userDto.setRole( technician.getRole() );
 
         return userDto;
@@ -57,6 +62,8 @@ public class TechnicianMapperImpl implements TechnicianMapper {
         technician.setFullName( userUpdateDto.getFullName() );
         technician.setMail( userUpdateDto.getMail() );
         technician.setUsername( userUpdateDto.getUsername() );
+        technician.setPhone( userUpdateDto.getPhone() );
+        technician.setAddress( userUpdateDto.getAddress() );
 
         return technician;
     }

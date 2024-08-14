@@ -62,10 +62,34 @@ public class AuthController {
             @ApiResponse(code = 200, message = "Successfully registered the admin"),
             @ApiResponse(code = 409, message = "Conflict - registration error")
     })
-    @PostMapping("/register/admin")
-    public ResponseEntity<?> adminRegister(
+    @PostMapping(value = "/register")
+    public ResponseEntity<?> register(
             @ApiParam(value = "Registration request containing user details", required = true) @RequestBody RegisterRequest registerRequest) {
         try {
+
+            var authResponse = userService.register(registerRequest);
+            return ResponseEntity.ok(authResponse);
+        } catch (RegistrationException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
+        }
+    }
+
+    /**
+     * Endpoint for admin registration.
+     *
+     * @param registerRequest the registration request containing user details.
+     * @return the response entity containing the authentication response or an error message.
+     */
+    @ApiOperation(value = "Register an admin", notes = "Registers a new admin user.")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully registered the admin"),
+            @ApiResponse(code = 409, message = "Conflict - registration error")
+    })
+    @PostMapping(value = "/register/admin", consumes = "multipart/form-data")
+    public ResponseEntity<?> adminRegister(
+            @ApiParam(value = "Registration request containing user details", required = true) @ModelAttribute RegisterRequest registerRequest) {
+        try {
+
             var authResponse = userService.adminRegister(registerRequest);
             return ResponseEntity.ok(authResponse);
         } catch (RegistrationException e) {
@@ -84,9 +108,9 @@ public class AuthController {
             @ApiResponse(code = 200, message = "Successfully registered the technician"),
             @ApiResponse(code = 409, message = "Conflict - registration error")
     })
-    @PostMapping("/register/technician")
+    @PostMapping(value = "/register/technician", consumes = "multipart/form-data")
     public ResponseEntity<?> technicianRegister(
-            @ApiParam(value = "Registration request containing user details", required = true) @RequestBody RegisterRequest registerRequest) {
+            @ApiParam(value = "Registration request containing user details", required = true) @ModelAttribute RegisterRequest registerRequest) {
         try {
             var authResponse = userService.technicianRegister(registerRequest);
             return ResponseEntity.ok(authResponse);
@@ -106,9 +130,9 @@ public class AuthController {
             @ApiResponse(code = 200, message = "Successfully registered the client"),
             @ApiResponse(code = 409, message = "Conflict - registration error")
     })
-    @PostMapping("/register/client")
+    @PostMapping(value = "/register/client", consumes = "multipart/form-data")
     public ResponseEntity<?> clientRegister(
-            @ApiParam(value = "Registration request containing user details", required = true) @RequestBody RegisterRequest registerRequest) {
+            @ApiParam(value = "Registration request containing user details", required = true) @ModelAttribute RegisterRequest registerRequest) {
         try {
             var authResponse = userService.clientRegister(registerRequest);
             return ResponseEntity.ok(authResponse);

@@ -2,6 +2,7 @@ package com.itsupport.controller;
 
 import com.itsupport.dto.UserUpdateDto;
 import com.itsupport.exception.AdminNotFoundException;
+import com.itsupport.exception.FileStorageException;
 import com.itsupport.service.AdminService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -81,7 +82,7 @@ public class AdminController {
      * @param userUpdateDto the admin update details.
      * @return the updated admin or an error message.
      */
-    @PutMapping("/admin/update-admin/{id}")
+    @PutMapping(value = "/admin/update-admin/{id}", consumes = "multipart/form-data")
     @ApiOperation(value = "Update admin", notes = "Updates the details of a specific admin.")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Admin updated successfully."),
@@ -89,14 +90,15 @@ public class AdminController {
     })
     public ResponseEntity<?> updateAdmin(
             @ApiParam(value = "ID of the admin", required = true) @PathVariable("id") String id,
-            @ApiParam(value = "Admin update details", required = true) @RequestBody UserUpdateDto userUpdateDto) {
+            @ApiParam(value = "Admin update details", required = true) @ModelAttribute UserUpdateDto userUpdateDto) {
         try {
             var updatedAdmin = adminService.updateAdmin(Long.valueOf(id), userUpdateDto);
             return ResponseEntity.ok(updatedAdmin);
-        } catch (AdminNotFoundException e) {
+        } catch (AdminNotFoundException | FileStorageException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
+
 
     /**
      * Endpoint for deleting an admin.

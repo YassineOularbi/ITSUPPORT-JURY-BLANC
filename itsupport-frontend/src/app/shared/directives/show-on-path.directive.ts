@@ -8,15 +8,19 @@ import { Subscription } from 'rxjs';
 })
 export class ShowOnPathDirective implements OnDestroy {
   private subscription: Subscription = new Subscription();
-  
-  @Input() set appShowOnPath(expectedPath: string) {
+  private viewCreated = false;
+
+  @Input() set appShowOnPath(paths: string | string[]) {
     this.subscription.unsubscribe();
+
+    const pathArray = typeof paths === 'string' ? paths.split('|').map(p => p.trim()) : paths;
+
     this.subscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.updateView(expectedPath);
+        this.updateView(pathArray);
       }
     });
-    this.updateView(expectedPath);
+    this.updateView(pathArray);
   }
 
   constructor(
@@ -25,16 +29,21 @@ export class ShowOnPathDirective implements OnDestroy {
     private router: Router
   ) {}
 
-  private updateView(expectedPath: string) {
+  private updateView(expectedPaths: string[]) {
     const currentPath = this.router.url;
-    if (currentPath === expectedPath) {
+    const matches = expectedPaths.some(path => currentPath.includes(path));
+
+    if (matches && !this.viewCreated) {
       this.vcRef.createEmbeddedView(this.templateRef);
-    } else {
+      this.viewCreated = true;
+    } else if (!matches && this.viewCreated) {
       this.vcRef.clear();
+      this.viewCreated = false;
     }
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    this.vcRef.clear();
   }
 }

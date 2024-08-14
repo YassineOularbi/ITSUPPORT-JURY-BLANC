@@ -48,7 +48,7 @@ export class TechnicianService {
     );
   }
 
-  updateTechnician(id: string, userUpdateDto: UserUpdateDto): Observable<Technician> {
+  updateTechnician(id: string, userUpdateDto: FormData): Observable<Technician> {
     return this.http.put<Technician>(`${this.apiUrl}/update-technician/${id}`, userUpdateDto).pipe(
       catchError((error) => {
         if (error.status === 404) {

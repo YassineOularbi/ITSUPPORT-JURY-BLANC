@@ -37,7 +37,7 @@ export class AdminService {
     );
   }
 
-  updateAdmin(id: string, userUpdateDto: UserUpdateDto): Observable<Admin> {
+  updateAdmin(id: string, userUpdateDto: FormData): Observable<Admin> {
     return this.http.put<Admin>(`${this.apiUrl}/admin/update-admin/${id}`, userUpdateDto).pipe(
       catchError((error) => {
         if (error.status === 404) {

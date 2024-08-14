@@ -1,6 +1,14 @@
 package com.itsupport.auth.model;
 
+import com.itsupport.enums.Role;
+import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.Date;
 
 /**
  * Represents a registration request containing user details for account creation.
@@ -22,35 +30,11 @@ import lombok.*;
 @NoArgsConstructor
 public class RegisterRequest {
 
-    /**
-     * The full name of the user registering for an account.
-     *
-     * This field is used to store the complete name of the user and is required
-     * for creating a new user account.
-     */
     private String fullName;
-
-    /**
-     * The email address of the user registering for an account.
-     *
-     * This field is used for communication and account verification purposes.
-     * It must be a valid email format and is required for registration.
-     */
     private String mail;
-
-    /**
-     * The username chosen by the user for their account.
-     *
-     * This field is used as a unique identifier for the user in the system.
-     * It must be unique and is required for registration.
-     */
     private String username;
-
-    /**
-     * The password chosen by the user for their account.
-     *
-     * This field is used to authenticate the user and must be kept secure.
-     * It is required for registration and should be hashed before storage.
-     */
     private String password;
+    private String phone;
+    private String address;
+    private MultipartFile picture;
 }
