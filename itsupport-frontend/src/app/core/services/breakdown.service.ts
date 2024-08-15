@@ -37,6 +37,61 @@ export class BreakdownService {
     );
   }
 
+  getNetworkBreakdowns(): Observable<Breakdown[]> {
+    return this.http.get<Breakdown[]>(`${this.apiUrl}/get-network-breakdowns`).pipe(
+      catchError((error) => {
+        if (error.status === 404) {
+          return throwError(() => new BreakdownNotFoundException());
+        }
+        return throwError(() => error.message || `Failed to retrieve network breakdowns`);
+      })
+    );
+  }
+
+  getSoftwareBreakdowns(): Observable<Breakdown[]> {
+    return this.http.get<Breakdown[]>(`${this.apiUrl}/get-software-breakdowns`).pipe(
+      catchError((error) => {
+        if (error.status === 404) {
+          return throwError(() => new BreakdownNotFoundException());
+        }
+        return throwError(() => error.message || `Failed to retrieve software breakdowns`);
+      })
+    );
+  }
+
+  getHardwareBreakdowns(): Observable<Breakdown[]> {
+    return this.http.get<Breakdown[]>(`${this.apiUrl}/get-hardware-breakdowns`).pipe(
+      catchError((error) => {
+        if (error.status === 404) {
+          return throwError(() => new BreakdownNotFoundException());
+        }
+        return throwError(() => error.message || `Failed to retrieve hardware breakdowns`);
+      })
+    );
+  }
+
+  getPowerBreakdowns(): Observable<Breakdown[]> {
+    return this.http.get<Breakdown[]>(`${this.apiUrl}/get-power-breakdowns`).pipe(
+      catchError((error) => {
+        if (error.status === 404) {
+          return throwError(() => new BreakdownNotFoundException());
+        }
+        return throwError(() => error.message || `Failed to retrieve power breakdowns`);
+      })
+    );
+  }
+
+  getPeripheralBreakdowns(): Observable<Breakdown[]> {
+    return this.http.get<Breakdown[]>(`${this.apiUrl}/get-peripheral-breakdowns`).pipe(
+      catchError((error) => {
+        if (error.status === 404) {
+          return throwError(() => new BreakdownNotFoundException());
+        }
+        return throwError(() => error.message || `Failed to retrieve peripheral breakdowns`);
+      })
+    );
+  }
+
   getBreakdownById(id: string): Observable<Breakdown> {
     return this.http.get<Breakdown>(`${this.apiUrl}/admin/get-breakdown-by-id/${id}`).pipe(
       catchError((error) => {

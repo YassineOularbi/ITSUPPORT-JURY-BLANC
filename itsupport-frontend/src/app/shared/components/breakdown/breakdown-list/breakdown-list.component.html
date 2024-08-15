@@ -1,1 +1,49 @@
-<p>breakdown-list works!</p>
+<div class="card">
+    <header>
+      <h2>Breakdowns</h2>
+    </header>
+    <div class="tables">
+      <div class="tables-inner">
+        <table class="active">
+          <tbody class="active">
+            <tr *ngFor="let breakdown of breakdowns">
+              <td>
+                <img class="avatar" [src]="getImageForType(breakdown.type)" />
+              </td>
+              <td style="width: 30%;">
+                <h3>{{ breakdown.name }}</h3>
+                <h4>{{ breakdown.description }}</h4>
+              </td>
+              <td>
+                <h3>{{ breakdown.type }}</h3>
+              </td>
+              <td>
+                <h3>{{ breakdown.priority }}</h3>
+              </td>
+              <td>
+                <div class="stars">
+                    <img *ngFor="let star of getStars(breakdown.priority)" [src]="star" />
+                </div>
+              </td>
+              <td>
+                <div class="options-menu">
+                  <button class="menu-button">
+                    <i class='bx bx-dots-vertical-rounded'></i>
+                  </button>
+                  <div class="menu-content">
+                    <button class="menu-item" [routerLink]="['/dashboard/breakdowns/edit', breakdown.id]">
+                      <i class='bx bx-edit' ></i> Edit
+                    </button>
+                    <button class="menu-item" (click)="OnDelete(breakdown.id)">
+                      <i class='bx bx-trash' ></i> Delete
+                    </button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

@@ -1,5 +1,10 @@
 package com.itsupport.dto;
 
+import com.itsupport.enums.BreakdownPriority;
+import com.itsupport.enums.BreakdownType;
+import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.*;
 
 /**
@@ -21,12 +26,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BreakdownDto {
-
-    /**
-     * Name or title of the breakdown.
-     * This field provides a brief description or label for the breakdown.
-     *
-     * Example: "Engine Failure", "Power Outage"
-     */
     private String name;
+    private String description;
+    private BreakdownPriority priority;
+    private BreakdownType type;
 }

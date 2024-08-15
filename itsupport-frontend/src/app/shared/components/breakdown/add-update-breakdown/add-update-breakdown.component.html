@@ -1,1 +1,34 @@
-<p>add-update-breakdown works!</p>
+<main>
+    <div class="breakdown-container">
+      <p *ngIf="breakdownError" class="error-message">{{ breakdownError }}</p>
+      <form [formGroup]="breakdownForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+          <div class="form-field" [appErrorHighlight]="!!breakdownError">
+            <label for="name">Breakdown Name:</label>
+            <input id="name" formControlName="name" type="text" placeholder="Breakdown name" />
+          </div>
+          <div class="form-field" [appErrorHighlight]="!!breakdownError">
+            <label for="description">Description:</label>
+            <input id="description" formControlName="description" type="text" placeholder="Description" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="form-field" [appErrorHighlight]="!!breakdownError">
+            <label for="type">Type:</label>
+            <select id="type" formControlName="type">
+              <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+            </select>
+          </div>
+          <div class="form-field" [appErrorHighlight]="!!breakdownError">
+            <label for="priority">Priority:</label>
+            <select id="priority" formControlName="priority">
+              <option *ngFor="let priority of priorities" [value]="priority">{{ priority }}</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" *ngIf="isEditMode">Update</button>
+        <button type="submit" [disabled]="breakdownForm.invalid" *ngIf="!isEditMode">Create</button>
+      </form>
+    </div>
+  </main>
+  
