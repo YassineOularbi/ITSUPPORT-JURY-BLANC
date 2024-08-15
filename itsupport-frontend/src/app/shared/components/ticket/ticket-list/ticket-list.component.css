@@ -95,7 +95,8 @@ div.container {
       float: right;
       font-size: 18px;
       border: none;
-      cursor: pointer
+      cursor: pointer;
+      margin: 10px;
   }
   .container .item .tickets {
     background: #150b72;
@@ -134,4 +135,8 @@ div.container {
   
   .status-failed {
     color: red;
+  }
+
+  .failed{
+    background-color: red !important;
   }
