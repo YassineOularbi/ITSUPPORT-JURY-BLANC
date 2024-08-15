@@ -67,7 +67,7 @@
               <button *ngIf="hasRole([Role.ADMIN]) && ticket.status === 'PENDING'" (click)="openAssignPopup(ticket.id)" class="tickets">Assign</button>
               <button *ngIf="hasRole([Role.TECHNICIAN]) && ticket.status === 'PROCESSING'" (click)="onRepairing(ticket.id)" class="tickets">Repairing</button>
               <button *ngIf="hasRole([Role.TECHNICIAN]) && ticket.status === 'REPAIRING'" (click)="onRepaired(ticket.id)" class="tickets">Repaired</button>
-              <button *ngIf="hasRole([Role.TECHNICIAN]) && ticket.status === 'REPAIRING'" (click)="onFailed(ticket.id)" class="tickets">Failed</button>
+              <button *ngIf="hasRole([Role.TECHNICIAN]) && ticket.status === 'REPAIRING'" (click)="onFailed(ticket.id)" class="tickets failed">Failed</button>
 
             </div> <!-- end item-left -->
           </div> <!-- end item -->
