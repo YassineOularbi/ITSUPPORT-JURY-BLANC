@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5b23ce9-7c94-44ef-a548-21877b5f28ec" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/enums/BreakdownPriority.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/enums/BreakdownType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsupport/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/controller/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsupport/controller/EquipmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/controller/EquipmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsupport/controller/TechnicianController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/controller/TechnicianController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsupport/dto/EquipmentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/dto/EquipmentDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsupport/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/model/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsupport/model/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/model/Equipment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsupport/service/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/service/ClientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsupport/service/EquipmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/service/EquipmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsupport/service/TechnicianService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/service/TechnicianService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsupport/dto/BreakdownDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/dto/BreakdownDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itsupport/model/Breakdown.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itsupport/model/Breakdown.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/ItsupportApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/ItsupportApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/config/AppConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/config/AppConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/auth/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/auth/config/SecurityConfig.class" afterDir="false" />
@@ -47,15 +42,12 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/mapper/UserMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/mapper/UserMapperImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/model/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/model/Admin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/model/BreakDown.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/model/BreakDown.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/model/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/model/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/model/Equipment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/model/Equipment.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/model/Technician.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/model/Technician.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/model/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/repository/EquipmentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/repository/EquipmentRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/repository/UserRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/service/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/service/AdminService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/service/ClientService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/service/ClientService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/service/EquipmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/service/EquipmentService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/itsupport/service/TechnicianService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/itsupport/service/TechnicianService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/AdminMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/AdminMapperImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/ClientMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/ClientMapperImpl.java" afterDir="false" />
@@ -63,26 +55,15 @@
       <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/TechnicianMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/TechnicianMapperImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/UserMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/itsupport/mapper/UserMapperImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/equipment.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/core/services/equipment.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/dashboard/components/sidebar/sidebar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/features/dashboard/components/sidebar/sidebar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/equipment/add-update-equipment/add-update-equipment.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/equipment/add-update-equipment/add-update-equipment.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/equipment/add-update-equipment/add-update-equipment.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/equipment/add-update-equipment/add-update-equipment.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/equipment/add-update-equipment/add-update-equipment.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/equipment/add-update-equipment/add-update-equipment.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/equipment/add-update-equipment/add-update-equipment.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/equipment/equipment-list/equipment-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/equipment/equipment-list/equipment-list.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/equipment/equipment-list/equipment-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/equipment/equipment-list/equipment-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/equipment/equipment-list/equipment-list.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/equipment/equipment-list/equipment-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/equipment/equipment-list/equipment-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/equipment/equipment.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/equipment/equipment.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/equipment/equipment.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/equipment/equipment.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/error-page/error-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/error-page/error-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/user/add-update-user/add-update-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/user/add-update-user/add-update-user.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/user/user-dynamic-header/user-dynamic-header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/user/user-dynamic-header/user-dynamic-header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/user/user-list/user-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/user/user-list/user-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/user/user-list/user-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/user/user-list/user-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/layouts/user/user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/layouts/user/user.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/breakdown/breakdown-list/breakdown-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/breakdown/breakdown-list/breakdown-list.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/breakdown/breakdown-list/breakdown-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/breakdown/breakdown-list/breakdown-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/breakdown/breakdown-list/breakdown-list.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/breakdown/breakdown-list/breakdown-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/breakdown/breakdown-list/breakdown-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/breakdown/breakdown.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/breakdown/breakdown.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/breakdown/breakdown.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../itsupport-frontend/src/app/shared/components/breakdown/breakdown.component.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,9 +73,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>

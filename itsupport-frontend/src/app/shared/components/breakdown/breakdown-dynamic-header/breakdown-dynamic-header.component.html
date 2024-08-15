@@ -1,0 +1,60 @@
+<nav class="navbar">
+    <ng-container>
+      <ng-container *appShowOnPath="'/dashboard/breakdowns/all|/dashboard/breakdowns/hardware|/dashboard/breakdowns/software|/dashboard/breakdowns/software|/dashboard/breakdowns/network|/dashboard/breakdowns/power|/dashboard/breakdowns/peripheral'">
+        <div class="filter-options">
+          <button 
+            [routerLink]="['/dashboard/breakdowns/all']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            All
+          </button>
+          <button 
+            [routerLink]="['/dashboard/breakdowns/hardware']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            Hardware
+          </button>
+          <button 
+            [routerLink]="['/dashboard/breakdowns/software']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            Software
+          </button>
+          <button 
+            [routerLink]="['/dashboard/breakdowns/network']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            Network
+          </button>
+          <button 
+            [routerLink]="['/dashboard/breakdowns/power']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            Power
+          </button>
+          <button 
+            [routerLink]="['/dashboard/breakdowns/peripheral']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            Peripheral
+          </button>
+        </div>
+      </ng-container>
+  
+      <ng-container *appShowOnPath="'/dashboard/breakdowns/all|/dashboard/breakdowns/hardware|/dashboard/breakdowns/software|/dashboard/breakdowns/software|/dashboard/breakdowns/network|/dashboard/breakdowns/power|/dashboard/breakdowns/peripheral'">
+        <div class="add-breakdown-options">
+          <button 
+            [routerLink]="['/dashboard/breakdowns/add']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            New Breakdown
+          </button>
+        </div>
+      </ng-container>
+  
+      <ng-container>
+        <a *appShowOnPath="'/dashboard/breakdowns/add|/dashboard/breakdowns/edit'" routerLink="/dashboard/breakdowns">Go Back</a>
+      </ng-container>
+    </ng-container>
+  </nav>
+  

@@ -14,108 +14,141 @@ import { ErrorPageComponent } from './shared/components/error-page/error-page.co
 import { EquipmentComponent } from './shared/layouts/equipment/equipment.component';
 import { EquipmentListComponent } from './shared/components/equipment/equipment-list/equipment-list.component';
 import { AddUpdateEquipmentComponent } from './shared/components/equipment/add-update-equipment/add-update-equipment.component';
+import { BreakdownComponent } from './shared/layouts/breakdown/breakdown.component';
+import { BreakdownListComponent } from './shared/components/breakdown/breakdown-list/breakdown-list.component';
+import { AddUpdateBreakdownComponent } from './shared/components/breakdown/add-update-breakdown/add-update-breakdown.component';
 
 export const routes: Routes = [
-    {
-      path: '',
-      component: AuthComponent,
-      children: [
-        {
-          path: '',
-          redirectTo: 'login',
-          pathMatch: 'full'
-        },
-        { 
-          path: 'login', 
-          component: LoginComponent 
-        },
-        { 
-          path: 'signup', 
-          component: SignupComponent 
-        }
-      ]
-    },
-    {
-      path: 'home',
-      component: HomeComponent,
-      canActivate: [authGuard]
-    },
-    {
-      path: 'dashboard',
-      component: DashboardComponent,
-      canActivate: [authGuard],
-      canActivateChild: [roleGuard],
-      data: { roles: [Role.ADMIN, Role.CLIENT, Role.TECHNICIAN] },
-      children: [
-        {
-            path: 'error',
-            component: ErrorPageComponent,
-            canActivate: [authGuard]
-        },
-        {
-          path: 'equipments',
-          component: EquipmentComponent,
-          canActivate: [authGuard],
-          canActivateChild: [roleGuard],
-          data: { roles: [Role.ADMIN, Role.CLIENT]},
-          children: [
-            {
-              path: '',
-              redirectTo: 'all',
-              pathMatch: 'full'
-            },
-            {
-              path: 'add',
-              component: AddUpdateEquipmentComponent,
-              canActivate: [authGuard],
-              data: { roles: [Role.ADMIN]},
-            },
-            {
-              path: ':type',
-              component: EquipmentListComponent,
-              canActivate: [authGuard],
-              data: { roles: [Role.ADMIN, Role.CLIENT]},
-            },
-            {
-              path: 'edit/:id',
-              component: AddUpdateEquipmentComponent,
-              canActivate: [authGuard],
-              data: { roles: [Role.ADMIN]},
-            }
-          ]
-        },
-        {
-          path: 'users',
-          component: UserComponent,
-          canActivateChild: [roleGuard],
-          data: { roles: [Role.ADMIN] },
-          children: [
-            {
-              path: '',
-              redirectTo: 'admin',
-              pathMatch: 'full'
-            },
-            {
-              path: 'add/:type',
-              component: AddUpdateUserComponent,
-              canActivate: [authGuard],
-              data: { roles: [Role.ADMIN] }
-            },
-            {
-              path: 'edit/:type/:id',
-              component: AddUpdateUserComponent,
-              canActivate: [authGuard],
-              data: { roles: [Role.ADMIN] }
-            },
-            {
-                path: ':type',
-                component: UserListComponent,
-                canActivate: [authGuard],
-                data: { roles: [Role.ADMIN] }
-              }
-          ]
-        }
-      ]
-    }
-  ];
-  
+  {
+    path: '',
+    component: AuthComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full'
+      },
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'signup',
+        component: SignupComponent
+      }
+    ]
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [authGuard],
+    canActivateChild: [roleGuard],
+    data: { roles: [Role.ADMIN, Role.CLIENT, Role.TECHNICIAN] },
+    children: [
+      {
+        path: 'error',
+        component: ErrorPageComponent,
+        canActivate: [authGuard]
+      },
+      {
+        path: 'equipments',
+        component: EquipmentComponent,
+        canActivate: [authGuard],
+        canActivateChild: [roleGuard],
+        data: { roles: [Role.ADMIN, Role.CLIENT] },
+        children: [
+          {
+            path: '',
+            redirectTo: 'all',
+            pathMatch: 'full'
+          },
+          {
+            path: 'add',
+            component: AddUpdateEquipmentComponent,
+            canActivate: [authGuard],
+            data: { roles: [Role.ADMIN] },
+          },
+          {
+            path: ':type',
+            component: EquipmentListComponent,
+            canActivate: [authGuard],
+            data: { roles: [Role.ADMIN, Role.CLIENT] },
+          },
+          {
+            path: 'edit/:id',
+            component: AddUpdateEquipmentComponent,
+            canActivate: [authGuard],
+            data: { roles: [Role.ADMIN] },
+          }
+        ]
+      },
+      {
+        path: 'users',
+        component: UserComponent,
+        canActivateChild: [roleGuard],
+        data: { roles: [Role.ADMIN] },
+        children: [
+          {
+            path: '',
+            redirectTo: 'admin',
+            pathMatch: 'full'
+          },
+          {
+            path: 'add/:type',
+            component: AddUpdateUserComponent,
+            canActivate: [authGuard],
+            data: { roles: [Role.ADMIN] }
+          },
+          {
+            path: 'edit/:type/:id',
+            component: AddUpdateUserComponent,
+            canActivate: [authGuard],
+            data: { roles: [Role.ADMIN] }
+          },
+          {
+            path: ':type',
+            component: UserListComponent,
+            canActivate: [authGuard],
+            data: { roles: [Role.ADMIN] }
+          }
+        ]
+      },
+      {
+        path: 'breakdowns',
+        component: BreakdownComponent,
+        canActivateChild: [roleGuard],
+        data: { roles: [Role.ADMIN] },
+        children: [
+          {
+            path: '',
+            redirectTo: 'all',
+            pathMatch: 'full'
+          },
+          {
+            path: 'add',
+            component: AddUpdateBreakdownComponent,
+            canActivate: [authGuard],
+            data: { roles: [Role.ADMIN] }
+          },
+          {
+            path: 'edit/:id',
+            component: AddUpdateBreakdownComponent,
+            canActivate: [authGuard],
+            data: { roles: [Role.ADMIN] }
+          },
+          {
+            path: ':type',
+            component: BreakdownListComponent,
+            canActivate: [authGuard],
+            data: { roles: [Role.ADMIN] }
+          }
+        ]
+      }
+    ]
+  }
+];
