@@ -1,0 +1,40 @@
+<div class="popup-content">
+    <div class="popup-header">
+        <h2>Report Breakdown</h2>
+        <button class="close-button" (click)="closePopup()">
+          <i class="bx bx-x"></i>
+        </button>
+    </div>
+    <form [formGroup]="breakdownForm" (ngSubmit)="onSubmit()">
+        <!-- Equipment Info -->
+        <div class="equipment-info">
+          <h3>{{ equipment?.name }}</h3>
+          <p>{{ equipment?.model }} - Serial: {{ equipment?.serialNumber }}</p>
+        </div>
+  
+        <!-- Breakdown Dropdown -->
+        <div class="form-group">
+          <label for="breakdown">Breakdown Type:</label>
+          <select id="breakdown" formControlName="breakdownId" (change)="onBreakdownChange($event)">
+            <option *ngFor="let breakdown of breakdowns" [value]="breakdown.id">
+              {{ breakdown.name }}
+            </option>
+          </select>
+        </div>
+        
+        <!-- Description Field -->
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea id="description" formControlName="description" rows="4"></textarea>
+        </div>
+
+
+    <div class="assign">
+          <button class="button-assign" type="submit" [disabled]="breakdownForm.invalid">Report Breakdown</button>
+    </div>
+</form>
+    <ng-template #noClients>
+      <p>Any client found</p>
+    </ng-template>
+  </div>
+  

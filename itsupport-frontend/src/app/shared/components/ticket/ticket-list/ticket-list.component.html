@@ -1,1 +1,83 @@
-<p>ticket-list works!</p>
+<link href="https://fonts.googleapis.com/css?family=Cabin|Indie+Flower|Inknut+Antiqua|Lora|Ravi+Prakash" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"  />
+
+<div class="container">
+    <div class="wrap" *ngFor="let ticket of tickets">
+        <div class="item">
+            <div class="item-right">
+              <h2 class="num">{{ ticket.reportingDate | date: 'YY' }}</h2>
+              <p class="day">{{ ticket.reportingDate | date: 'MMM' }}</p>
+              <span class="up-border"></span>
+              <span class="down-border"></span>
+            </div> <!-- end item-right -->
+          
+            <div class="item-left">
+              <p class="event">{{ ticket.equipmentBreakdown?.equipment?.name }}</p>
+              <h2 class="title">{{ ticket.equipmentBreakdown?.breakdown?.name }}</h2>
+              
+              <div class="sce">
+                <div class="icon">
+                  <i class="fa fa-calendar"></i>
+                </div>
+                <p>Reported on {{ ticket.reportingDate | date: 'fullDate' }}</p>
+              </div>
+              <div class="fix"></div>
+              <div class="loc">
+                <div class="icon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                <p>Last updated: {{ ticket.lastUpdated | date: 'fullDate' }}</p>
+              </div>
+              <div class="fix"></div>
+              <div *ngIf="ticket.resolutionDate" class="loc">
+                <div class="icon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                <p>Resolution Date: {{ ticket.resolutionDate | date: 'fullDate' }}</p>
+              </div>
+              <div class="fix"></div>
+              <div class="loc">
+                <div class="icon">
+                  <i class="fa fa-user"></i>
+                </div>
+                <p>Client: {{ ticket.client?.fullName }}</p>
+              </div>
+              <div class="fix"></div>
+              <div class="loc">
+                <div class="icon">
+                    <i class="fa fa-user"></i>
+                  </div>
+                <p *ngIf="ticket.technician">Technician: {{ ticket.technician.fullName }}</p>
+              </div>
+              <div class="fix"></div>
+              <div class="loc" [ngClass]="{
+                'status-pending': ticket.status === TicketStatus.PENDING,
+                'status-processing': ticket.status === TicketStatus.PROCESSING,
+                'status-repairing': ticket.status === TicketStatus.REPAIRING,
+                'status-repaired': ticket.status === TicketStatus.REPAIRED,
+                'status-failed': ticket.status === TicketStatus.FAILED
+              }">
+                <div class="icon">
+                  <i class="fa fa-info-circle"></i>
+                </div>
+                <p>
+                    Status: {{ ticket.status }}
+                  </p>
+              </div>
+              <button *ngIf="hasRole([Role.ADMIN]) && ticket.status === 'PENDING'" (click)="openAssignPopup(ticket.id)" class="tickets">Assign</button>
+              <button *ngIf="hasRole([Role.TECHNICIAN]) && ticket.status === 'PROCESSING'" (click)="onRepairing(ticket.id)" class="tickets">Repairing</button>
+              <button *ngIf="hasRole([Role.TECHNICIAN]) && ticket.status === 'REPAIRING'" (click)="onRepaired(ticket.id)" class="tickets">Repaired</button>
+              <button *ngIf="hasRole([Role.TECHNICIAN]) && ticket.status === 'REPAIRING'" (click)="onFailed(ticket.id)" class="tickets">Failed</button>
+
+            </div> <!-- end item-left -->
+          </div> <!-- end item -->
+          
+          
+    </div>
+
+</div>
+<app-assign-ticket-popup
+*ngIf="isPopupOpen && hasRole([Role.ADMIN])"
+[ticketId]="selectedTicketId"
+(close)="closeAssignPopup()">
+</app-assign-ticket-popup>

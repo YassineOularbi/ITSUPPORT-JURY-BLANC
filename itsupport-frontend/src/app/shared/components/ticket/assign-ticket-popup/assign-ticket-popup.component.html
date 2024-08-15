@@ -1,0 +1,36 @@
+<div class="popup-content">
+    <div class="popup-header">
+      <h2>Select technician to assign:</h2>
+      <button class="close-button" (click)="closePopup()">
+        <i class="bx bx-x"></i>
+      </button>
+    </div>
+  
+    <div class="cards" *ngIf="technicians && technicians.length > 0; else noTechnicians">
+      <div class="card-wrap">
+        <button
+          class="client-card"
+          *ngFor="let technician of technicians"
+          [class.selected]="selectedTechnicianId === technician.id"
+          (click)="onTechnicianSelect(technician.id)"
+        >
+          <img
+            [src]="getImageUrl(technician.avatarUrl)"
+            alt="{{ technician.fullName }}"
+            class="client-image"
+          />
+          <div class="client-info">
+            <h4>{{ technician.fullName }}</h4>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div class="assign">
+        <button class="button-assign" (click)="assignTicket()">Assigner</button>
+    </div>
+  
+    <ng-template #noTechnicians>
+      <p>Any technician found</p>
+    </ng-template>
+  </div>
+  

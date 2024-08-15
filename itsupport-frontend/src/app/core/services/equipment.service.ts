@@ -130,7 +130,7 @@ export class EquipmentService {
     );
   }
 
-  getEquipmentsByClient(id: string): Observable<Equipment[]> {
+  getEquipmentsByClient(id: string | undefined): Observable<Equipment[]> {
     return this.http.get<Equipment[]>(`${this.apiUrl}/client/get-equipments-by-client/${id}`).pipe(
       catchError((error) => {
         if (error.status === 404) {

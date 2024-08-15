@@ -1,7 +1,7 @@
 <nav class="navbar">
     <ng-container>
       <ng-container *appShowOnPath="'/dashboard/equipments/all|/dashboard/equipments/available|/dashboard/equipments/in-service|/dashboard/equipments/broken-down|/dashboard/equipments/out-of-service'">
-        <div class="filter-options">
+        <div class="filter-options" *ngIf="hasRole([Role.ADMIN, Role.CLIENT])">
           <button 
             [routerLink]="['/dashboard/equipments/all']"
             routerLinkActive="active"
@@ -56,7 +56,7 @@
           </button>
         </div>
       </ng-container>
-      <ng-container>
+      <ng-container *ngIf="hasRole([Role.ADMIN])">
         <a *appShowOnPath="'/dashboard/equipments/all|/dashboard/equipments/available|/dashboard/equipments/in-service|/dashboard/equipments/broken-down|/dashboard/equipments/out-of-service'" routerLink="/dashboard/equipments/add">New equipment</a>
         <a *appShowOnPath="'/dashboard/equipments/add|/dashboard/equipments/edit'" routerLink="/dashboard/equipments">Go Back</a>
       </ng-container>

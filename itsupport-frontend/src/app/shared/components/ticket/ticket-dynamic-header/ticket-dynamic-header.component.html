@@ -1,0 +1,45 @@
+<nav class="navbar">
+    <ng-container *appShowOnPath="'/dashboard/tickets/all||/dashboard/tickets/pending|/dashboard/tickets/processing|/dashboard/tickets/repairing|/dashboard/tickets/repaired|/dashboard/tickets/failed'">
+      <div class="filter-options">
+        <button
+          [routerLink]="['/dashboard/tickets/all']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          All
+        </button>
+        <button
+          [routerLink]="['/dashboard/tickets/pending']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          Pending
+        </button>
+        <button
+          [routerLink]="['/dashboard/tickets/processing']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          Processing
+        </button>
+        <button
+          [routerLink]="['/dashboard/tickets/repairing']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          Repairing
+        </button>
+        <button
+          [routerLink]="['/dashboard/tickets/repaired']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          Repaired
+        </button>
+        <button
+          [routerLink]="['/dashboard/tickets/failed']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          Failed
+        </button>
+      </div>
+    </ng-container>
+    <ng-container *appShowOnPath="'/dashboard/tickets/add'">
+    </ng-container>
+  </nav>
+  

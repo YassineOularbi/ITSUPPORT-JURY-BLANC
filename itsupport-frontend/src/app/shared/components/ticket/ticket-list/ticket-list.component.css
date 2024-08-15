@@ -1,0 +1,137 @@
+div.container {
+    max-width: 100%;
+    margin: 0 auto;
+    height: 450px;
+    overflow: hidden;
+    overflow-y: scroll;
+
+  }
+  .wrap{
+    height: auto;
+    width: 100%;
+  }
+
+  .container .item {
+    float: left;
+    padding: 0 20px;
+    background: #ffffff70;
+    overflow: hidden;
+    margin: 10px 30px;
+    height: 290px;
+    border-radius: 10px;
+    width: 93%;
+
+  }
+  .container .item-right, .container .item-left {
+    float: left;
+  }
+  .container .item-right {
+    padding: 79px 50px;
+    margin-right: 20px;
+    width: 25%;
+    position: relative;
+    height: 286px
+  }
+  .container .item-right .up-border, .container .item-right .down-border {
+      padding: 14px 15px;
+      background-color: #ddd;
+      border-radius: 50%;
+      position: absolute
+  }
+  .container .item-right .up-border {
+    top: -8px;
+    right: -35px;
+  }
+  .container .item-right .down-border {
+    bottom: -13px;
+    right: -35px;
+  }
+  .container .item-right .num {
+    font-size: 60px;
+    text-align: center;
+    color: #ffffff
+  }
+  .container .item-right .day, .container .item-left .event {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 9px;
+  }
+  .container .item-right .day {
+    text-align: center;
+    font-size: 25px;
+  }
+  .container .item-left {
+    width: 71%;
+    padding: 10px 0px 19px 46px;
+    border-left: 3px dotted #ffffff;
+  } 
+  .container .item-left .title {
+    color: #ffffff;
+    font-size: 34px;
+    margin-bottom: 12px
+  }
+  .container .item-left .sce {
+    margin-top: 5px;
+    display: block
+  }
+  .container .item-left .sce .icon, .container .item-left .sce p,
+  .container .item-left .loc .icon, .container .item-left .loc p{
+      float: left;
+      word-spacing: 5px;
+      letter-spacing: 1px;
+      color: #cfcfcf;
+      margin-bottom: 10px;
+  }
+  .container .item-left .sce .icon, .container .item-left .loc .icon {
+    margin-right: 10px;
+    font-size: 20px;
+    color: #bebebe
+  }
+  .container .item-left .loc {display: block}
+  .fix {clear: both}
+  .container .item .tickets, .booked, .cancel{
+      color: #fff;
+      padding: 6px 14px;
+      float: right;
+      font-size: 18px;
+      border: none;
+      cursor: pointer
+  }
+  .container .item .tickets {
+    background: #150b72;
+    border-radius: 5px;
+    margin-bottom: 20px;
+
+}
+  .container .item .booked {background: #3D71E9}
+  .container .item .cancel {background: #DF5454}
+  .linethrough {text-decoration: line-through}
+  @media only screen and (max-width: 1150px) {
+    .container .item {
+      width: 100%;
+      margin-right: 20px
+    }
+    div.container {
+      margin: 0 20px auto
+    }
+  }
+
+  .status-pending {
+    color: orange;
+  }
+  
+  .status-processing {
+    color: blue;
+  }
+  
+  .status-repairing {
+    color: yellow;
+  }
+  
+  .status-repaired {
+    color: green;
+  }
+  
+  .status-failed {
+    color: red;
+  }
