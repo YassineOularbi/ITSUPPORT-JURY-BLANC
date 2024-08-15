@@ -60,6 +60,8 @@ export class AddUpdateUserComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("khdamaaaaa");
+    
     this.setupErrorReset();
     this.route.params.subscribe(params => {
       this.userType = params['type'];

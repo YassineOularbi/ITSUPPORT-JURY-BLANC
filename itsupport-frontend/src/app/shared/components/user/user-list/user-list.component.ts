@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../../../../core/services/admin.service';
 import { ClientService } from '../../../../core/services/client.service';
 import { TechnicianService } from '../../../../core/services/technician.service';
@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [
     CommonModule,
-    RouterLink
+    RouterLink,
   ],
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css']
@@ -19,13 +19,13 @@ export class UserListComponent implements OnInit {
   users: any[] = [];
   userType: string | null = null;
 
+
   constructor(
     private adminService: AdminService,
     private clientService: ClientService,
     private technicianService: TechnicianService,
     private route: ActivatedRoute,
     private router: Router,
-    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -97,4 +97,5 @@ export class UserListComponent implements OnInit {
         break;
     }
   }
+
 }

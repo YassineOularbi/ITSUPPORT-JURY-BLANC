@@ -1,0 +1,80 @@
+.navbar {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+  }
+  button, a {
+    margin: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover, a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+  }
+  .filter-options, .add-user-options {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown button {
+    background: transparent;
+    font-size: 20px;
+  }
+  
+  .dropdown ul {
+    display: none;
+    position: absolute;
+    background: rgba(27, 7, 100, 0.1);
+    backdrop-filter: blur(10px);
+    min-width: 120px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  .dropdown:hover ul {
+    display: block;
+  }
+  
+  .dropdown ul li {
+    padding: 10px;
+  }
+  
+  .dropdown ul li button {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    color: #fff;
+  }
+  
+  .dropdown ul li button:hover {
+    background: rgba(255, 255, 255, 0.2);
+
+  }
+  .active {
+    background: rgba(0, 123, 255, 0.5);
+  }
+  
+  .active:hover {
+    background: rgba(0, 123, 255, 0.7);
+
+  }

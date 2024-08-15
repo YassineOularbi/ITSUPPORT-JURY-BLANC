@@ -1,8 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router, RouterLink, RouterModule } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterLink, RouterModule } from '@angular/router';
 import { ShowOnPathDirective } from '../../../directives/show-on-path.directive';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user-dynamic-header',

@@ -1,0 +1,65 @@
+<nav class="navbar">
+    <ng-container>
+      <ng-container *appShowOnPath="'/dashboard/equipments/all|/dashboard/equipments/available|/dashboard/equipments/in-service|/dashboard/equipments/broken-down|/dashboard/equipments/out-of-service'">
+        <div class="filter-options">
+          <button 
+            [routerLink]="['/dashboard/equipments/all']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            All
+          </button>
+          <button 
+            [routerLink]="['/dashboard/equipments/available']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            Available
+          </button>
+          <button 
+          [routerLink]="['/dashboard/equipments/in-service']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          In service
+        </button>
+          <button 
+            [routerLink]="['/dashboard/equipments/broken-down']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            Broken Down
+          </button>
+          <button 
+          [routerLink]="['/dashboard/equipments/out-of-service']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          Out of service
+        </button>
+        </div>
+      </ng-container>
+      <ng-container *appShowOnPath="'/dashboard/users/add/admin|/dashboard/users/add/client|/dashboard/users/add/technician'">
+        <div class="add-user-options">
+          <button 
+            [routerLink]="['/dashboard/users/add/admin']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            Admins
+          </button>
+          <button 
+            [routerLink]="['/dashboard/users/add/client']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            Clients
+          </button>
+          <button 
+            [routerLink]="['/dashboard/users/add/technician']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            Technicians
+          </button>
+        </div>
+      </ng-container>
+      <ng-container>
+        <a *appShowOnPath="'/dashboard/equipments/all|/dashboard/equipments/available|/dashboard/equipments/in-service|/dashboard/equipments/broken-down|/dashboard/equipments/out-of-service'" routerLink="/dashboard/equipments/add">New equipment</a>
+        <a *appShowOnPath="'/dashboard/equipments/add|/dashboard/equipments/edit'" routerLink="/dashboard/equipments">Go Back</a>
+      </ng-container>
+    </ng-container>
+  </nav>
+  

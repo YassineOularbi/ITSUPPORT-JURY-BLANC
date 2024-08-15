@@ -49,6 +49,7 @@ public class ClientService {
 
     private final ClientRepository clientRepository;
     private final ClientMapper clientMapper;
+    private final FileStorageService fileStorageService;
 
     /**
      * Retrieves a list of all {@link Client} entities.
@@ -86,6 +87,10 @@ public class ClientService {
     public Client updateClient(Long id, UserUpdateDto userUpdateDto) {
         var client = clientRepository.findById(id).orElseThrow(ClientNotFoundException::new);
         var updatedClient = clientMapper.partialUpdate(userUpdateDto, client);
+        if (userUpdateDto.getPicture() != null && !userUpdateDto.getPicture().isEmpty()) {
+            String fileName = fileStorageService.storeFile(userUpdateDto.getPicture());
+            updatedClient.setAvatarUrl(fileName);
+        }
         return clientRepository.save(updatedClient);
     }
 

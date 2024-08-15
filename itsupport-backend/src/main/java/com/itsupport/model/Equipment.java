@@ -4,7 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.itsupport.enums.EquipmentStatus;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CreationTimestamp;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -25,7 +28,7 @@ import java.util.List;
  *
  * Constructors:
  *
- * - {@link #Equipment(Long, String, EquipmentStatus, Client, List)}: Creates an Equipment instance with
+ * - {@link @Equipment(Long, String, EquipmentStatus, Client, List)}: Creates an Equipment instance with
  *   the specified parameters.
  * - {@link #Equipment()}: Default constructor for Equipment.
  *
@@ -50,39 +53,40 @@ import java.util.List;
 @Table(name = "equipment")
 public class Equipment {
 
-    /**
-     * Unique identifier for the equipment.
-     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
 
-    /**
-     * Name of the equipment.
-     */
     @Column(name = "name", nullable = false)
     private String name;
 
-    /**
-     * Current status of the equipment (e.g., AVAILABLE, IN_SERVICE).
-     */
+    @Column(name = "model")
+    private String model;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private EquipmentStatus status;
 
-    /**
-     * {@link Client} entity associated with this equipment.
-     * This field is ignored during JSON serialization to avoid circular references.
-     */
+    @Column(name = "serial_number", unique = true, nullable = false)
+    private String serialNumber;
+
+    @Column(name = "category")
+    private String category;
+
+    @Column(name = "purchase_price")
+    private Double purchasePrice;
+
+    @Column(name = "purchase_date")
+    @CreationTimestamp
+    private Date purchaseDate;
+
+    @Column(name = "photo_url")
+    private String photoUrl;
+
     @ManyToOne
-    @JsonIgnore
     private Client client;
 
-    /**
-     * List of {@link EquipmentBreakdown} entities related to the equipment.
-     * This field is ignored during JSON serialization to avoid circular references.
-     */
     @OneToMany(mappedBy = "equipment")
     @JsonIgnore
     private List<EquipmentBreakdown> equipmentBreakdowns;

@@ -16,7 +16,7 @@ export class EquipmentService {
 
   constructor(private http: HttpClient) {}
 
-  createEquipment(equipmentDto: EquipmentDto): Observable<Equipment> {
+  createEquipment(equipmentDto: FormData): Observable<Equipment> {
     return this.http.post<Equipment>(`${this.apiUrl}/admin/create-equipment`, equipmentDto).pipe(
       catchError((error) => {
         if (error.status === 400) {
@@ -38,6 +38,50 @@ export class EquipmentService {
     );
   }
 
+  getAvailableEquipments(): Observable<Equipment[]> {
+    return this.http.get<Equipment[]>(`${this.apiUrl}/admin/get-available-equipments`).pipe(
+      catchError((error) => {
+        if (error.status === 404) {
+          return throwError(() => new EquipmentNotFoundException());
+        }
+        return throwError(() => error.message || `Failed to retrieve all equipments`);
+      })
+    );
+  }
+
+  getInServiceEquipments(): Observable<Equipment[]> {
+    return this.http.get<Equipment[]>(`${this.apiUrl}/admin/get-in-service-equipments`).pipe(
+      catchError((error) => {
+        if (error.status === 404) {
+          return throwError(() => new EquipmentNotFoundException());
+        }
+        return throwError(() => error.message || `Failed to retrieve all equipments`);
+      })
+    );
+  }
+
+  getBrokenDownEquipments(): Observable<Equipment[]> {
+    return this.http.get<Equipment[]>(`${this.apiUrl}/admin/get-broken-down-equipments`).pipe(
+      catchError((error) => {
+        if (error.status === 404) {
+          return throwError(() => new EquipmentNotFoundException());
+        }
+        return throwError(() => error.message || `Failed to retrieve all equipments`);
+      })
+    );
+  }
+
+  getAllEquipmentOutService(): Observable<Equipment[]> {
+    return this.http.get<Equipment[]>(`${this.apiUrl}/admin/get-all-equipment-out-service`).pipe(
+      catchError((error) => {
+        if (error.status === 404) {
+          return throwError(() => new EquipmentNotFoundException());
+        }
+        return throwError(() => error.message || `Failed to retrieve out-of-service equipment`);
+      })
+    );
+  }
+
   getEquipmentById(id: string): Observable<Equipment> {
     return this.http.get<Equipment>(`${this.apiUrl}/admin/get-equipment-by-id/${id}`).pipe(
       catchError((error) => {
@@ -49,7 +93,7 @@ export class EquipmentService {
     );
   }
 
-  updateEquipment(id: string, equipmentDto: EquipmentDto): Observable<Equipment> {
+  updateEquipment(id: string, equipmentDto: FormData): Observable<Equipment> {
     return this.http.put<Equipment>(`${this.apiUrl}/admin/update-equipment/${id}`, equipmentDto).pipe(
       catchError((error) => {
         if (error.status === 404) {
@@ -82,17 +126,6 @@ export class EquipmentService {
           }
         }
         return throwError(() => error.message || `Failed to assign equipment with ID ${equipmentId} to client with ID ${clientId}`);
-      })
-    );
-  }
-
-  getAllEquipmentOutService(): Observable<Equipment[]> {
-    return this.http.get<Equipment[]>(`${this.apiUrl}/admin/get-all-equipment-out-service`).pipe(
-      catchError((error) => {
-        if (error.status === 404) {
-          return throwError(() => new EquipmentNotFoundException());
-        }
-        return throwError(() => error.message || `Failed to retrieve out-of-service equipment`);
       })
     );
   }

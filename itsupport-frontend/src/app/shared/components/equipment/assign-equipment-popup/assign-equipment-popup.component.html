@@ -1,0 +1,36 @@
+<div class="popup-content">
+    <div class="popup-header">
+      <h2>Select client to assign:</h2>
+      <button class="close-button" (click)="closePopup()">
+        <i class="bx bx-x"></i>
+      </button>
+    </div>
+  
+    <div class="cards" *ngIf="clients && clients.length > 0; else noClients">
+      <div class="card-wrap">
+        <button
+          class="client-card"
+          *ngFor="let client of clients"
+          [class.selected]="selectedClientId === client.id"
+          (click)="onClientSelect(client.id)"
+        >
+          <img
+            [src]="getImageUrl(client.avatarUrl)"
+            alt="{{ client.fullName }}"
+            class="client-image"
+          />
+          <div class="client-info">
+            <h4>{{ client.fullName }}</h4>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div class="assign">
+        <button class="button-assign" (click)="assignEquipment()">Assigner</button>
+    </div>
+  
+    <ng-template #noClients>
+      <p>Any client found</p>
+    </ng-template>
+  </div>
+  

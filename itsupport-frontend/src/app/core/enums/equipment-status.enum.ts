@@ -1,6 +1,6 @@
 export enum EquipmentStatus {
-    AVAILABLE,
-    IN_SERVICE,
-    OUT_OF_SERVICE,
-    BROKEN_DOWN
+    AVAILABLE = 'AVAILABLE',
+    IN_SERVICE = 'IN_SERVICE',
+    OUT_OF_SERVICE = 'OUT_OF_SERVICE',
+    BROKEN_DOWN = 'BROKEN_DOWN'
 }
