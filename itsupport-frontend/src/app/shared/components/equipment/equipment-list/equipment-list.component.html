@@ -7,11 +7,11 @@
       <div class="equipment-header">
         <h2 class="equipment-name">{{ equipment.name }}</h2>
       </div>
-      <div class="options-menu">
+      <div class="options-menu" *ngIf="hasRole([Role.ADMIN])">
         <button class="menu-button">
             <i class='bx bx-dots-vertical-rounded'></i>
         </button>
-        <div class="menu-content">
+        <div class="menu-content" *ngIf="hasRole([Role.ADMIN])">
             <button class="menu-item" [routerLink]="['/dashboard/equipments/edit', equipment.id]">
                 <i class='bx bx-edit'></i> Edit
             </button>                    
@@ -24,20 +24,27 @@
       <!-- Card overlay content -->
       <div class="card__overlay">
         <!-- User info section or action buttons based on conditions -->
-        <div class="card__header">
-          <img class="card__thumb" [src]="getImageUrl(equipment.client.avatarUrl)" *ngIf="equipment.client" alt="User Avatar" />
-          <div class="card__header-text" *ngIf="equipment.client">
+        <div class="card__header" >
+          <img *ngIf="equipment.client && equipment.status === 'IN_SERVICE' && hasRole([Role.ADMIN])" class="card__thumb" [src]="getImageUrl(equipment.client.avatarUrl)"  alt="User Avatar" />
+          <div class="card__header-text" *ngIf="equipment.client && equipment.status === 'IN_SERVICE' && hasRole([Role.ADMIN])">
             <h3 class="card__title">{{ equipment.client.fullName }}</h3>
             <span class="card__status">Joined on: {{ equipment.client.joinedDate | date }}</span>
           </div>
           
           <!-- Action buttons based on conditions -->
-          <div class="action-buttons" *ngIf="!equipment.client">
+          <div class="action-buttons" *ngIf="hasRole([Role.ADMIN]) && equipment.status === 'AVAILABLE'">
             <button class="button-assign" (click)="openAssignPopup(equipment.id)">
-                <i class='bx bx-user-plus'></i> Assign
-              </button>
+              <i class='bx bx-user-plus'></i> Assign
+            </button>
           </div>
-          <div class="action-buttons" *ngIf="equipment.status === 'BROKEN_DOWN'">
+
+          <div class="action-buttons" *ngIf="equipment.status === 'IN_SERVICE' && hasRole([Role.CLIENT])">
+            <button class="button-assign" (click)="openReportPopup(equipment)">
+              <i class='bx bx-plus'></i> Report
+            </button>
+          </div>
+          
+          <div class="action-buttons" *ngIf="equipment.status === 'BROKEN_DOWN' && hasRole([Role.ADMIN, Role.CLIENT])">
             <button class="button-track-status">
               <i class='bx bx-trending-up'></i> Track Status
             </button>
@@ -71,7 +78,13 @@
     </div>
   </div>
   <app-assign-equipment-popup
-  *ngIf="isPopupOpen"
+  *ngIf="isPopupOpen && hasRole([Role.ADMIN])"
   [equipmentId]="selectedEquipmentId"
   (close)="closeAssignPopup()">
 </app-assign-equipment-popup>
+
+<app-report-breakdown-popup
+  *ngIf="isReportPopupOpen"
+  [equipment]="selectedEquipment"
+  (close)="closeReportPopup()">
+</app-report-breakdown-popup>

@@ -19,7 +19,7 @@ export class TicketService {
 
   constructor(private http: HttpClient) {}
 
-  reportBreakdownWithTicket(equipmentId: string, breakdownId: string, ticketDto: TicketDto): Observable<Ticket> {
+  reportBreakdownWithTicket(equipmentId: string | undefined, breakdownId: string | undefined, ticketDto: TicketDto): Observable<Ticket> {
     return this.http.post<Ticket>(`${this.apiUrl}/client/report-breakdown-ticket/${equipmentId}&${breakdownId}`, ticketDto).pipe(
       catchError((error) => {
         if (error.status === 404) {
@@ -36,7 +36,7 @@ export class TicketService {
     );
   }
 
-  getAllTicketsByClient(clientId: string): Observable<Ticket[]> {
+  getAllTicketsByClient(clientId: string | undefined): Observable<Ticket[]> {
     return this.http.get<Ticket[]>(`${this.apiUrl}/client/get-all-tickets/${clientId}`).pipe(
       catchError((error) => {
         if (error.status === 404) {
@@ -95,7 +95,7 @@ export class TicketService {
     );
   }
 
-  getAllTicketsByTechnician(technicianId: string): Observable<Ticket[]> {
+  getAllTicketsByTechnician(technicianId: string | undefined): Observable<Ticket[]> {
     return this.http.get<Ticket[]>(`${this.apiUrl}/technician/get-all-tickets/${technicianId}`).pipe(
       catchError((error) => {
         if (error.status === 404) {

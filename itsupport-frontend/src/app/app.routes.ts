@@ -17,6 +17,8 @@ import { AddUpdateEquipmentComponent } from './shared/components/equipment/add-u
 import { BreakdownComponent } from './shared/layouts/breakdown/breakdown.component';
 import { BreakdownListComponent } from './shared/components/breakdown/breakdown-list/breakdown-list.component';
 import { AddUpdateBreakdownComponent } from './shared/components/breakdown/add-update-breakdown/add-update-breakdown.component';
+import { TicketComponent } from './shared/layouts/ticket/ticket.component';
+import { TicketListComponent } from './shared/components/ticket/ticket-list/ticket-list.component';
 
 export const routes: Routes = [
   {
@@ -90,6 +92,7 @@ export const routes: Routes = [
       {
         path: 'users',
         component: UserComponent,
+        canActivate: [authGuard],
         canActivateChild: [roleGuard],
         data: { roles: [Role.ADMIN] },
         children: [
@@ -121,6 +124,7 @@ export const routes: Routes = [
       {
         path: 'breakdowns',
         component: BreakdownComponent,
+        canActivate: [authGuard],
         canActivateChild: [roleGuard],
         data: { roles: [Role.ADMIN] },
         children: [
@@ -146,6 +150,25 @@ export const routes: Routes = [
             component: BreakdownListComponent,
             canActivate: [authGuard],
             data: { roles: [Role.ADMIN] }
+          }
+        ]
+      },
+      {
+        path: 'tickets',
+        component: TicketComponent,
+        canActivateChild: [roleGuard],
+        data: { roles: [Role.ADMIN, Role.CLIENT, Role.TECHNICIAN] },
+        children: [
+          {
+            path: '',
+            redirectTo: 'all',
+            pathMatch: 'full'
+          },
+          {
+            path: ':type',
+            component: TicketListComponent,
+            canActivate: [authGuard],
+            data: { roles: [Role.ADMIN, Role.CLIENT, Role.TECHNICIAN] }
           }
         ]
       }
