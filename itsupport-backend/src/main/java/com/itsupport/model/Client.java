@@ -47,6 +47,7 @@ public class Client extends User {
      * List of {@link Equipment} entities associated with the client.
      */
     @OneToMany(mappedBy = "client")
+    @JsonIgnore
     private List<Equipment> equipments;
 
     /**

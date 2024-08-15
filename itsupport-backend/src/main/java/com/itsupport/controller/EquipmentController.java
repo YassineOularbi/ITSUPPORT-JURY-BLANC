@@ -1,6 +1,7 @@
 package com.itsupport.controller;
 
 import com.itsupport.dto.EquipmentDto;
+import com.itsupport.enums.EquipmentStatus;
 import com.itsupport.exception.ClientNotFoundException;
 import com.itsupport.exception.EquipmentNotFoundException;
 import com.itsupport.service.EquipmentService;
@@ -39,14 +40,14 @@ public class EquipmentController {
      * @param equipmentDto the equipment details.
      * @return the created equipment or an error message.
      */
-    @PostMapping("/admin/create-equipment")
+    @PostMapping(value = "/admin/create-equipment", consumes = "multipart/form-data")
     @ApiOperation(value = "Create new equipment", notes = "Creates a new piece of equipment.")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Equipment created successfully."),
             @ApiResponse(code = 400, message = "Invalid equipment details.")
     })
     public ResponseEntity<?> createEquipment(
-            @ApiParam(value = "Equipment details", required = true) @RequestBody EquipmentDto equipmentDto) {
+            @ApiParam(value = "Equipment details", required = true) @ModelAttribute EquipmentDto equipmentDto) {
         try {
             var equipment = equipmentService.createEquipment(equipmentDto);
             return ResponseEntity.status(HttpStatus.CREATED).body(equipment);
@@ -104,7 +105,7 @@ public class EquipmentController {
      * @param equipmentDto the updated equipment details.
      * @return the updated equipment or an error message.
      */
-    @PutMapping("/admin/update-equipment/{id}")
+    @PutMapping(value = "/admin/update-equipment/{id}", consumes = "multipart/form-data")
     @ApiOperation(value = "Update equipment", notes = "Updates the details of a specific piece of equipment.")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Equipment updated successfully."),
@@ -112,7 +113,7 @@ public class EquipmentController {
     })
     public ResponseEntity<?> updateEquipment(
             @ApiParam(value = "ID of the equipment", required = true) @PathVariable("id") String id,
-            @ApiParam(value = "Updated equipment details", required = true) @RequestBody EquipmentDto equipmentDto) {
+            @ApiParam(value = "Updated equipment details", required = true) @ModelAttribute EquipmentDto equipmentDto) {
         try {
             var updatedEquipment = equipmentService.updateEquipment(Long.valueOf(id), equipmentDto);
             return ResponseEntity.ok(updatedEquipment);
@@ -180,12 +181,43 @@ public class EquipmentController {
     })
     public ResponseEntity<?> getAllEquipmentOutService() {
         try {
-            var equipments = equipmentService.getAllEquipmentOutService();
+            var equipments = equipmentService.getEquipmentsByStatus(EquipmentStatus.OUT_OF_SERVICE);
             return ResponseEntity.ok(equipments);
         } catch (EquipmentNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
+
+    @GetMapping("/admin/get-available-equipments")
+    public ResponseEntity<?> getAvailableEquipments() {
+        try {
+            var equipments = equipmentService.getEquipmentsByStatus(EquipmentStatus.AVAILABLE);
+            return ResponseEntity.ok(equipments);
+        } catch (EquipmentNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/admin/get-broken-down-equipments")
+    public ResponseEntity<?> getBrokenDownEquipments() {
+        try {
+            var equipments = equipmentService.getEquipmentsByStatus(EquipmentStatus.BROKEN_DOWN);
+            return ResponseEntity.ok(equipments);
+        } catch (EquipmentNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/admin/get-in-service-equipments")
+    public ResponseEntity<?> getInServiceEquipments() {
+        try {
+            var equipments = equipmentService.getEquipmentsByStatus(EquipmentStatus.IN_SERVICE);
+            return ResponseEntity.ok(equipments);
+        } catch (EquipmentNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
 
     /**
      * Endpoint for retrieving equipment by client ID.

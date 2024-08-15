@@ -14,6 +14,6 @@ import { UserDynamicHeaderComponent } from '../../components/user/user-dynamic-h
 })
 export class UserComponent implements OnInit{
   ngOnInit(): void {
-    console.log('UserComponent loaded');
+
   }
 }

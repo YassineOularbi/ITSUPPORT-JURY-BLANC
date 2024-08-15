@@ -56,6 +56,7 @@ public class TechnicianService {
 
     private final TechnicianRepository technicianRepository;
     private final TechnicianMapper technicianMapper;
+    private final FileStorageService fileStorageService;
 
     /**
      * Retrieves a list of all {@link Technician} entities.
@@ -107,6 +108,10 @@ public class TechnicianService {
     public Technician updateTechnician(Long id, UserUpdateDto userUpdateDto) {
         var technician = technicianRepository.findById(id).orElseThrow(TechnicianNotFoundException::new);
         var updatedTechnician = technicianMapper.partialUpdate(userUpdateDto, technician);
+        if (userUpdateDto.getPicture() != null && !userUpdateDto.getPicture().isEmpty()) {
+            String fileName = fileStorageService.storeFile(userUpdateDto.getPicture());
+            updatedTechnician.setAvatarUrl(fileName);
+        }
         return technicianRepository.save(updatedTechnician);
     }
 

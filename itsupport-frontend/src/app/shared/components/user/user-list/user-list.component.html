@@ -37,17 +37,14 @@
             </div>
             <div class="info-item">
                 <i class='bx bx-phone'></i>
-                <!-- Affichage de 'N/A' si le numéro de téléphone est absent -->
                 <p>{{ user.phone || 'N/A' }}</p>
             </div>
             <div class="info-item">
                 <i class='bx bx-map'></i>
-                <!-- Affichage de 'N/A' si l'adresse est absente -->
                 <p>{{ user.address || 'N/A' }}</p>
             </div>
             <div class="info-item">
                 <i class='bx bx-calendar'></i>
-                <!-- Affichage de la date d'inscription ou 'N/A' si elle est absente -->
                 <p>Joined: {{ user.joinedDate ? (user.joinedDate | date: 'MMMM d, yyyy') : 'N/A' }}</p>
             </div>
         </div>

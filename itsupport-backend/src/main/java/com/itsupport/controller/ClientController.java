@@ -2,6 +2,7 @@ package com.itsupport.controller;
 
 import com.itsupport.dto.UserUpdateDto;
 import com.itsupport.exception.ClientNotFoundException;
+import com.itsupport.exception.FileStorageException;
 import com.itsupport.service.ClientService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -81,7 +82,7 @@ public class ClientController {
      * @param userUpdateDto the client update details.
      * @return the updated client or an error message.
      */
-    @PutMapping("/update-client/{id}")
+    @PutMapping(value = "/update-client/{id}", consumes = "multipart/form-data")
     @ApiOperation(value = "Update client", notes = "Updates the details of a specific client.")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Client updated successfully."),
@@ -89,11 +90,11 @@ public class ClientController {
     })
     public ResponseEntity<?> updateClient(
             @ApiParam(value = "ID of the client", required = true) @PathVariable("id") String id,
-            @ApiParam(value = "Client update details", required = true) @RequestBody UserUpdateDto userUpdateDto) {
+            @ApiParam(value = "Client update details", required = true) @ModelAttribute UserUpdateDto userUpdateDto) {
         try {
             var updatedClient = clientService.updateClient(Long.valueOf(id), userUpdateDto);
             return ResponseEntity.ok(updatedClient);
-        } catch (ClientNotFoundException e) {
+        } catch (ClientNotFoundException | FileStorageException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }

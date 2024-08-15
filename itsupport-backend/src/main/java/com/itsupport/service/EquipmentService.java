@@ -43,7 +43,7 @@ import java.util.List;
  * - {@link #assignEquipmentToClient(Long, Long)} - Assigns a specific {@link Equipment} to a {@link @Client} by their IDs
  *   and updates the equipment's status to {@link EquipmentStatus#IN_SERVICE}. Throws {@link EquipmentNotFoundException}
  *   if the equipment is not found, and {@link ClientNotFoundException} if the client is not found.
- * - {@link #getAllEquipmentOutService()} - Retrieves a list of {@link Equipment} entities that are out of service.
+ * - {@link @getAllEquipmentOutService()} - Retrieves a list of {@link Equipment} entities that are out of service.
  *   Throws {@link EquipmentNotFoundException} if no equipment is found.
  * - {@link #getEquipmentsByClient(Long)} - Retrieves a list of {@link Equipment} entities assigned to a specific {@link @Client}
  *   by their ID. Throws {@link EquipmentNotFoundException} if no equipment is found for the client.
@@ -71,6 +71,7 @@ public class EquipmentService {
     private final EquipmentRepository equipmentRepository;
     private final EquipmentMapper equipmentMapper;
     private final ClientRepository clientRepository;
+    private final FileStorageService fileStorageService;
 
     /**
      * Creates a new {@link Equipment} entity with the status set to {@link EquipmentStatus#AVAILABLE}.
@@ -81,6 +82,10 @@ public class EquipmentService {
     public Equipment createEquipment(EquipmentDto equipmentDto) {
         var equipment = equipmentMapper.toEntity(equipmentDto);
         equipment.setStatus(EquipmentStatus.AVAILABLE);
+        if (equipmentDto.getPicture() != null && !equipmentDto.getPicture().isEmpty()) {
+            String fileName = fileStorageService.storeFile(equipmentDto.getPicture());
+            equipment.setPhotoUrl(fileName);
+        }
         return equipmentRepository.save(equipment);
     }
 
@@ -120,6 +125,10 @@ public class EquipmentService {
     public Equipment updateEquipment(Long id, EquipmentDto equipmentDto) {
         var equipment = equipmentRepository.findById(id).orElseThrow(EquipmentNotFoundException::new);
         var updatedEquipment = equipmentMapper.partialUpdate(equipmentDto, equipment);
+        if (equipmentDto.getPicture() != null && !equipmentDto.getPicture().isEmpty()) {
+            String fileName = fileStorageService.storeFile(equipmentDto.getPicture());
+            equipment.setPhotoUrl(fileName);
+        }
         return equipmentRepository.save(updatedEquipment);
     }
 
@@ -158,8 +167,8 @@ public class EquipmentService {
      * @return a list of {@link Equipment} entities with status {@link EquipmentStatus#OUT_OF_SERVICE}
      * @throws EquipmentNotFoundException if no equipment with the status OUT_OF_SERVICE is found
      */
-    public List<Equipment> getAllEquipmentOutService(){
-        var equipments = equipmentRepository.getEquipmentByStatus(EquipmentStatus.OUT_OF_SERVICE);
+    public List<Equipment> getEquipmentsByStatus(EquipmentStatus status){
+        var equipments = equipmentRepository.getEquipmentByStatus(status);
         if (equipments.isEmpty()){
             throw new EquipmentNotFoundException();
         }

@@ -1,6 +1,7 @@
 package com.itsupport.controller;
 
 import com.itsupport.dto.UserUpdateDto;
+import com.itsupport.exception.FileStorageException;
 import com.itsupport.exception.TechnicianNotFoundException;
 import com.itsupport.service.TechnicianService;
 import io.swagger.annotations.ApiOperation;
@@ -101,7 +102,7 @@ public class TechnicianController {
      * @param userUpdateDto the technician update details.
      * @return the updated technician or an error message.
      */
-    @PutMapping("/update-technician/{id}")
+    @PutMapping(value = "/update-technician/{id}", consumes = "multipart/form-data")
     @ApiOperation(value = "Update technician", notes = "Updates the details of a specific technician.")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Technician updated successfully."),
@@ -109,11 +110,11 @@ public class TechnicianController {
     })
     public ResponseEntity<?> updateTechnician(
             @ApiParam(value = "ID of the technician", required = true) @PathVariable("id") String id,
-            @ApiParam(value = "Technician update details", required = true) @RequestBody UserUpdateDto userUpdateDto) {
+            @ApiParam(value = "Technician update details", required = true) @ModelAttribute UserUpdateDto userUpdateDto) {
         try {
             var updatedTechnician = technicianService.updateTechnician(Long.valueOf(id), userUpdateDto);
             return ResponseEntity.ok(updatedTechnician);
-        } catch (TechnicianNotFoundException e) {
+        } catch (TechnicianNotFoundException | FileStorageException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }

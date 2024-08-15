@@ -1,6 +1,14 @@
 package com.itsupport.dto;
 
+import com.itsupport.enums.EquipmentStatus;
+import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.sql.Date;
 
 /**
  * Data Transfer Object (DTO) for representing equipment.
@@ -21,12 +29,10 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EquipmentDto {
-
-    /**
-     * Name or description of the equipment.
-     * This field provides a brief label or identifier for the equipment.
-     *
-     * Example: "Laptop", "Projector", "Printer"
-     */
     private String name;
+    private String model;
+    private String serialNumber;
+    private String category;
+    private Double purchasePrice;
+    private MultipartFile picture;
 }
